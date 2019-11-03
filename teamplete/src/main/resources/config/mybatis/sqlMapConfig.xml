@@ -3,5 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<typeAliases>
+		<typeAlias type="kr.co.teamplete.dto.TaskDateVO" alias="TaskDateVO"/>
+		<typeAlias type="kr.co.teamplete.dto.MemberVO" alias="memberVO"/>
+	</typeAliases>
 
 </configuration>
