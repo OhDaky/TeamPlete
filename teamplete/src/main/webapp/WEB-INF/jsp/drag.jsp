@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/scss" href="${ pageContext.request.contextPath }/resources/css/drag.scss">
+<link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/resources/css/drag.css">
 </head>
 <body>
 <section class="section">
@@ -72,10 +72,13 @@
 
 <section class="section">
 	<a href="https://github.com/bevacqua/dragula">Drag and drop functionality by <strong>bevacqua/dragula</strong></a>
+	
 </section>
-
-
-
+	
+	<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/45226/dragula.min.js"></script>
+	<script src="${ pageContext.request.contextPath }/resources/js/drag.js"></script>
+	
 
 </body>
+
 </html>
