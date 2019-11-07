@@ -4,11 +4,24 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.teamplete.dao.MemberDAO">
 
+	<resultMap type="MemberVO" id="memberMap">
+		<result column="reg_date" property="regDate" />
+	</resultMap>
+	
 	<!-- 회원정보 삽입 -->
 	<insert id="insertMember" parameterType="MemberVO">
 		insert into
 		Member_tb(memberid, name, password, email)
-		values(#{memberid}, #{name}, #{password}, #{email})
+		values(#{memberid}, #{name},
+		#{password}, #{email})
 	</insert>
+
+	<!-- 로그인 -->
+	<select id="login" parameterType="MemberVO" resultMap="memberMap">
+		select memberid, name, password, email
+		from Member_tb
+		where memberid = #{memberid} and
+		password = #{password}
+	</select>
 
 </mapper>

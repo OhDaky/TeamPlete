@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.teamplete.dao.TeamDAO">
+
+	<resultMap type="TeamVO" id="teamMap">
+		<result column="team_id" property="teamId" />
+		<result column="team_name" property="teamName" />
+		<result column="owner_id" property="ownerId" />
+	</resultMap>
+
+
+	<!-- 팀 생성 -->
+	<insert id="insert" parameterType="TeamVO">
+		insert into team_tb(team_id, team_name, owner_id)
+		values(team_seq.nextval, #{teamName}, #{ownerId})
+	</insert>
+	
+	<!-- 회원이 속한 팀 조회 -->
+	<select id="selectAll" parameterType="String" resultMap="teamMap">
+		select team_id, team_name, owner_id
+		 from team_tb
+		  where owner_id = #{memberid}
+	</select>
+	
+	<!-- 특정 팀 조회 -->
+	<select id="selectTeam" parameterType="String" resultMap="teamMap">
+		select team_id, team_name, owner_id
+		 from team_tb
+		  where team_name = #{teamName}
+	</select>
+	
+    <!-- 팀멤버 추가 -->
+    <insert id="insertMember" parameterType="TeamMemberVO">
+    	insert into team_member_tb(id, team_id, member_id)
+    	 values(team_member_seq.nextval, #{teamId}, #{memberId})
+    </insert>
+
+</mapper>
