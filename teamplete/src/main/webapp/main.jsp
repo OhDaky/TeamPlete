@@ -139,7 +139,8 @@
 	<a href="${ pageContext.request.contextPath }/calendar">캘린더</a>
 	<a href="${ pageContext.request.contextPath }/hello">헬로</a>
 	<a href="${ pageContext.request.contextPath }/drag"
-							class="btn btn-light" style="backgorund-color:#e50914">drag</a>
-	
+							class="btn btn-primary">drag</a>
+	<a href="${ pageContext.request.contextPath }/practice"
+							class="btn btn-danger" >practice</a>
 </body>
 </html>

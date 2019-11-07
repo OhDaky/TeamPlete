@@ -34,7 +34,11 @@ public class TaskDateController {
 	}
 	@RequestMapping(value = "/drag", method = RequestMethod.GET)
 	public String drag() {
-		return "redirect:/drag";
+		return "drag";
+	}
+	@RequestMapping(value = "/practice", method = RequestMethod.GET)
+	public String practice() {
+		return "practice";
 	}
 	
 	@RequestMapping(value = "/calendar", method = RequestMethod.POST)
