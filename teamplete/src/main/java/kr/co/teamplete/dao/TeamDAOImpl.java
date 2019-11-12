@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.teamplete.dto.TeamMemberVO;
 import kr.co.teamplete.dto.TeamVO;
 
 @Repository
@@ -23,6 +24,18 @@ public class TeamDAOImpl implements TeamDAO{
 	public List<TeamVO> selectAll(String memberid) {
 		List<TeamVO> teamList = session.selectList("kr.co.teamplete.dao.TeamDAO.selectAll", memberid);
 		return teamList;
+	}
+
+	@Override
+	public TeamVO selectByTeam(int teamId) {
+		TeamVO team = session.selectOne("kr.co.teamplete.dao.TeamDAO.selectTeam", teamId);
+		return team;
+	}
+
+	@Override
+	public void insertMember(TeamMemberVO teamMember) {
+		session.insert("kr.co.teamplete.dao.TeamDAO.insertMember", teamMember);
+		
 	}
 	
 }

@@ -19,16 +19,20 @@
 	
 	<!-- 회원이 속한 팀 조회 -->
 	<select id="selectAll" parameterType="String" resultMap="teamMap">
-		select team_id, team_name, owner_id
-		 from team_tb
-		  where owner_id = #{memberid}
+		select distinct T.team_id, T.team_name, T.owner_id
+		 from team_tb T
+		  left outer join team_member_tb M
+		   on T.team_id = M.team_id
+		    where T.owner_id = #{memberid} or M.member_id = #{memberid}
+		     order by T.team_id asc
 	</select>
+
 	
 	<!-- 특정 팀 조회 -->
-	<select id="selectTeam" parameterType="String" resultMap="teamMap">
+	<select id="selectTeam" parameterType="int" resultMap="teamMap">
 		select team_id, team_name, owner_id
 		 from team_tb
-		  where team_name = #{teamName}
+		  where team_id = #{teamId}
 	</select>
 	
     <!-- 팀멤버 추가 -->

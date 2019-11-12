@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,7 +17,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${ pageContext.request.contextPath }/resources/css/components.css">
 <link
-	href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600"
+	href="https://fonts.googleapis.com/cssf?family=Montserrat:300,400,500,600"
 	rel="stylesheet">
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
@@ -40,7 +41,15 @@
 <link rel="stylesheet" type="text/css"
 	href="${ pageContext.request.contextPath }/resources/css/authentication.css">
 <!-- END: Page CSS-->
+<style>
+p {
+	color: black;
+}
 
+label {
+	color: black;
+}
+</style>
 </head>
 <body
 	class="horizontal-layout horizontal-menu 1-column  navbar-floating footer-static bg-full-screen-image  blank-page blank-page"
@@ -161,17 +170,17 @@
 					</c:otherwise>
 				</c:choose></li>
 
-			<li id="loginstyle" style="color: black; margin-left: 50px"><c:if
-					test="${ not empty loginVO }">
-					<!-- sessionScope.loginVO와같음 -->
-                     ${ loginVO.memberid } 님으로 로그인</br>
-                     	메인입니다
-					 <a href="${ pageContext.request.contextPath }/calendar">캘린더</a>
-					<a href="${ pageContext.request.contextPath }/team/createteam">Create
-						Team</a>
-					<a
-						href="${pageContext.request.contextPath}/team/${loginVO.memberid}">팀조회</a>
-				</c:if></li>
+			<c:if test="${ not empty loginVO }">
+				<!-- sessionScope.loginVO와같음 -->
+				<li id="loginstyle" style="color: black; margin-left: 50px">${ loginVO.memberid }
+					님으로 로그인</br>
+				</li>
+
+				<a href="${ pageContext.request.contextPath }/calendar">캘린더</a>
+				<a
+					href="${pageContext.request.contextPath}/team/${loginVO.memberid}">모든팀조회</a>
+
+			</c:if>
 		</ul>
 	</div>
 
@@ -198,86 +207,26 @@
 	<!-- END: Page JS-->
 
 
-
-
-
 	<a href="${ pageContext.request.contextPath }/drag"
 		class="btn btn-primary">drag</a>
 	<a href="${ pageContext.request.contextPath }/practice"
 		class="btn btn-danger">practice</a>
 
-
-
-
-
-
-	<!-- Form and scrolling Components start -->
-	<section id="form-and-scrolling-components">
-	<div class="row match-height">
-		<div class="col-md-4 col-sm-12">
-			<div class="card">
-				<div class="card-header">
-					<h4 class="card-title">Form Components</h4>
-				</div>
-				<div class="card-content">
-					<div class="card-body">
-						<div class="form-group">
-							<h5>Login Form</h5>
-							<p>Created Simple Login Form.</p>
-							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-outline-success"
-								data-toggle="modal" data-target="#inlineForm">Launch
-								Modal</button>
-
-							<!-- Modal -->
-							<div class="modal fade text-left" id="inlineForm" tabindex="-1"
-								role="dialog" aria-labelledby="myModalLabel33"
-								aria-hidden="true">
-								<div
-									class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-									role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h4 class="modal-title" id="myModalLabel33">Inline Login
-												Form</h4>
-											<button type="button" class="close" data-dismiss="modal"
-												aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-										<form action="#">
-											<div class="modal-body">
-												<label>Email: </label>
-												<div class="form-group">
-													<input type="text" placeholder="Email Address"
-														class="form-control">
-												</div>
-
-												<label>Password: </label>
-												<div class="form-group">
-													<input type="password" placeholder="Password"
-														class="form-control">
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-primary"
-													data-dismiss="modal">Login</button>
-											</div>
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</section>
-
 	<script>
    if ("${ param.msg }")
       alert("${ param.msg }");
+   
+   function submit(){
+
+	    var form = document.createTeamForm;
+	    
+	    form.submit();
+
+	}
+   
+   function teamDetail(teamId) {
+	    location.href = "${ pageContext.request.contextPath}/teamdetail/" + teamId;
+	}
 </script>
 </body>
 </html>
