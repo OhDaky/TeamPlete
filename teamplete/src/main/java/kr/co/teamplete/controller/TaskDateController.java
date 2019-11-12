@@ -32,15 +32,7 @@ public class TaskDateController {
 	public String hello() {
 		return "calendar/hello";
 	}
-	@RequestMapping(value = "/drag", method = RequestMethod.GET)
-	public String drag() {
-		return "drag";
-	}
-	@RequestMapping(value = "/practice", method = RequestMethod.GET)
-	public String practice() {
-		return "practice";
-	}
-	
+
 	@RequestMapping(value = "/calendar", method = RequestMethod.POST)
 	public String write2(TaskDateVO taskDate) {
 
