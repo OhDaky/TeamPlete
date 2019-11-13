@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -20,12 +21,6 @@ public class LoginController {
 	private LoginService loginService;
 	
 	// 스프링 4.3 이상 => GetMapping, PostMapping, PutMapping...
-	@GetMapping("/login")
-	//@RequestMapping(value="/login", method=RequestMethod.GET)
-	public String loginForm() {
-		
-		return "redirect:/";
-	}
 	
 	// spring에서 제공하는 session
 	// sessionAttribute => login 객체만 request 영역이 아닌 session 영역에 올려달라고 DispatcherServlet에게 요청
@@ -45,20 +40,28 @@ public class LoginController {
 
 			model.addAttribute("loginVO", loginVO);
 			
-			return "redirect:/";
+			return "redirect:/team/" + member.getMemberid();
 		}
 	}
+	
+//	@GetMapping("/")
+//	public String main(SessionStatus status) {
+//
+//		if(status.isComplete() == true) {
+//			// 로그아웃 상태
+//			return "redirect:/";
+//		} else {
+//			// 로그인 상태
+//			return "redirect:/team/syj";
+//		}
+//	}
 	
 	//세션 정보 삭제
 	//SessionStatus객체의 setComplete() 메소드를 사용해서 해제해 주어야함.
 	@GetMapping("/logout")
 	public String logout(SessionStatus status) {
-		
-		// 로그아웃하면  before : false
-		//		   after : true  뜬다
-//		System.out.println("before : " + status.isComplete());
+
 		status.setComplete();
-//		System.out.println("after : " + status.isComplete());
 		
 		return "redirect:/";
 	}

@@ -53,72 +53,81 @@ label {
 </head>
 <body>
 	<div>
-		<table id="list" class="table">
-			<tr>
-				<th width="10%">팀이름</th>
-				<!-- 					<th width="10%">팀장이름</th> -->
-			</tr>
-			<c:forEach items="${ teamList }" var="team">
-				<tr>
-					<td><button onclick="teamDetail(${ team.teamId })"
-						id="showdetail"> <c:out value="${ team.teamName }" />
-					</button></td>
-					<%-- 						<td class="locactn">${ team.ownerId }</td> --%>
-				</tr>
-			</c:forEach>
-		</table>
-	</div>
+		<c:if test="${ not empty loginVO }">
+			<a href="${ pageContext.request.contextPath }/logout">Logout</a>
+			<p>${ loginVO.memberid }님으로로그인</p>
+			</br>
+			<a href="${ pageContext.request.contextPath }/calendar">캘린더</a>
+			<div>
+				<table id="list" class="table">
+					<tr>
+						<th width="10%">팀이름</th>
+						<!-- 					<th width="10%">팀장이름</th> -->
+					</tr>
+					<c:forEach items="${ teamList }" var="team">
+						<tr>
+							<td><button onclick="teamDetail(${ team.teamId })"
+									id="showdetail">
+									<c:out value="${ team.teamName }" />
+								</button></td>
+							<%-- 						<td class="locactn">${ team.ownerId }</td> --%>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
 
-	<section id="form-and-scrolling-components">
-	<div class="row match-height">
-		<div class="col-md-4 col-sm-12">
-			<div class="card">
-				<div class="card-header">
-					<h4 class="card-title">Form Components</h4>
-				</div>
-				<div class="card-content">
-					<div class="card-body">
-						<div class="form-group">
-							<h5>Create Team Form</h5>
-							<p>Create Team</p>
-							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-outline-success"
-								data-toggle="modal" data-target="#inlineForm">Launch
-								Modal</button>
+			<section id="form-and-scrolling-components">
+			<div class="row match-height">
+				<div class="col-md-4 col-sm-12">
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title">Form Components</h4>
+						</div>
+						<div class="card-content">
+							<div class="card-body">
+								<div class="form-group">
+									<h5>Create Team Form</h5>
+									<p>Create Team</p>
+									<!-- Button trigger modal -->
+									<button type="button" class="btn btn-outline-success"
+										data-toggle="modal" data-target="#inlineForm">Launch
+										Modal</button>
 
-							<!-- Modal -->
-							<div class="modal fade text-left" id="inlineForm" tabindex="-1"
-								role="dialog" aria-labelledby="myModalLabel33"
-								aria-hidden="true">
-								<div
-									class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-									role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h4 class="modal-title" id="myModalLabel33">Inline
-												Create Team Form</h4>
-											<button type="button" class="close" data-dismiss="modal"
-												aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-										<form method="post"
-											action="${pageContext.request.contextPath}/team/${loginVO.memberid}"
-											name="createTeamForm">
-											<input type="hidden" name="ownerId"
-												value="${ loginVO.memberid }">
-											<div class="modal-body">
-												<label>Team Name: </label>
-												<div class="form-group">
-													<input type="text" name="teamName" placeholder="Team Name"
-														class="form-control">
+									<!-- Modal -->
+									<div class="modal fade text-left" id="inlineForm" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel33"
+										aria-hidden="true">
+										<div
+											class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+											role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h4 class="modal-title" id="myModalLabel33">Inline
+														Create Team Form</h4>
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
 												</div>
-												<div class="modal-footer">
-													<button type="button" onClick="submit()"
-														class="btn btn-primary" data-dismiss="modal">Create</button>
-												</div>
+												<form method="post"
+													action="${pageContext.request.contextPath}/team/${loginVO.memberid}"
+													name="createTeamForm">
+													<input type="hidden" name="ownerId"
+														value="${ loginVO.memberid }">
+													<div class="modal-body">
+														<label>Team Name: </label>
+														<div class="form-group">
+															<input type="text" name="teamName"
+																placeholder="Team Name" class="form-control">
+														</div>
+														<div class="modal-footer">
+															<button type="button" onClick="submit()"
+																class="btn btn-primary" data-dismiss="modal">Create</button>
+														</div>
+													</div>
+												</form>
 											</div>
-										</form>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -126,9 +135,9 @@ label {
 					</div>
 				</div>
 			</div>
-		</div>
+			</section>
+		</c:if>
 	</div>
-	</section>
 
 
 	<!-- BEGIN: Vendor JS-->

@@ -22,15 +22,10 @@ public class TeamController {
 
 	// 팀 등록한 뒤 팀 조회 페이지로 돌아감
 	@RequestMapping(value="/team/{loginVO.memberid}", method = RequestMethod.POST)
-	public ModelAndView createTeam(TeamVO team, @PathVariable("loginVO.memberid") String memberid) {
+	public String createTeam(TeamVO team, @PathVariable("loginVO.memberid") String memberid) {
 		service.insertTeam(team);
 		
-		List<TeamVO> teamList = service.selectAllTeam(memberid);
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("team/team");
-		mav.addObject("teamList", teamList);
-		
-		return mav;
+		return "redirect:/team/" + memberid;
 	}
 	
 	// 팀 조회
@@ -44,6 +39,7 @@ public class TeamController {
 		
 		return mav;
 	}
+	
 	
 	// 상세 팀 조회
 	@RequestMapping(value = "/teamdetail/{id}", method = {RequestMethod.GET})
@@ -61,16 +57,10 @@ public class TeamController {
 
 	//팀 멤버 추가한 뒤 상세 팀 조회 페이지로 돌아감
 	@RequestMapping(value = "/teamdetail/{id}", method = RequestMethod.POST)
-	public ModelAndView addTeamMember(TeamMemberVO teamMember, @PathVariable("id") int teamId) {
+	public String addTeamMember(TeamMemberVO teamMember, @PathVariable("id") int teamId) {
 		service.insertTeamMem(teamMember);
 		
-		TeamVO team = service.detailTeam(teamId);
-		
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("team/teamDetail");
-		mav.addObject("team", team);
-	
-		return mav;
+		return "redirect:/teamdetail/" + teamId;
 	}
 
 }
