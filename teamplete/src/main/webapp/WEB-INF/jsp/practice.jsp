@@ -4,9 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
 </head>
 <body>
-<h1>practice</h1>
+<jsp:include page="/WEB-INF/jsp/include/navbar.jsp" />
 </body>
 </html>
