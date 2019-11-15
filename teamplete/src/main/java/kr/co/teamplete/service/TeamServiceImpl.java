@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.teamplete.dao.TeamDAO;
+import kr.co.teamplete.dto.MemberVO;
 import kr.co.teamplete.dto.TeamMemberVO;
 import kr.co.teamplete.dto.TeamVO;
 
@@ -37,6 +38,12 @@ public class TeamServiceImpl implements TeamService{
 	public void insertTeamMem(TeamMemberVO teamMember) {
 		teamDAO.insertMember(teamMember);
 		
+	}
+
+	@Override
+	public List<MemberVO> selectAllMembers(int teamId) {
+		List<MemberVO> members = teamDAO.selectAllTeamMember(teamId);
+		return members;
 	}
 	
 

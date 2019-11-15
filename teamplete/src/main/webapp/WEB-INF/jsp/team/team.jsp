@@ -117,7 +117,7 @@ label {
 													<div class="modal-body">
 														<label>Team Name: </label>
 														<div class="form-group">
-															<input type="text" name="teamName"
+															<input type="text" name="teamName" id="teamName"
 																placeholder="Team Name" class="form-control">
 														</div>
 														<div class="modal-footer">
@@ -162,7 +162,7 @@ label {
 	<!-- END: Page JS-->
 
 
-	<script>
+<script>
    function submit(){
 	    var form = document.createTeamForm;
 	    

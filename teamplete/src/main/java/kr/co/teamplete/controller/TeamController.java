@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.teamplete.dto.MemberVO;
 import kr.co.teamplete.dto.TeamMemberVO;
 import kr.co.teamplete.dto.TeamVO;
 import kr.co.teamplete.service.TeamService;
@@ -46,10 +47,12 @@ public class TeamController {
 	public ModelAndView teamDetail(@PathVariable("id") int teamId) {
 		
 		TeamVO team = service.detailTeam(teamId);
+		List<MemberVO> members = service.selectAllMembers(teamId);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("team/teamDetail");
 		mav.addObject("team", team);
+		mav.addObject("members", members);
 	
 		return mav;
 	}

@@ -44,17 +44,6 @@ public class LoginController {
 		}
 	}
 	
-//	@GetMapping("/")
-//	public String main(SessionStatus status) {
-//
-//		if(status.isComplete() == true) {
-//			// 로그아웃 상태
-//			return "redirect:/";
-//		} else {
-//			// 로그인 상태
-//			return "redirect:/team/syj";
-//		}
-//	}
 	
 	//세션 정보 삭제
 	//SessionStatus객체의 setComplete() 메소드를 사용해서 해제해 주어야함.

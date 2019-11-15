@@ -17,4 +17,11 @@ public class MemberDAOImpl implements MemberDAO{
 		session.insert("kr.co.teamplete.dao.MemberDAO.insertMember", member);
 	}
 
+	@Override
+	public int checkId(String memberid) {
+		int check = session.selectOne("kr.co.teamplete.dao.MemberDAO.checkId", memberid);
+
+		return check;
+	}
+
 }

@@ -28,9 +28,13 @@ public class TaskDateController {
 		
 		return mav;
 	}
-	@RequestMapping(value = "/hello", method = RequestMethod.GET)
-	public String hello() {
-		return "calendar/hello";
+	@RequestMapping(value = "/practice", method = RequestMethod.GET)
+	public String practice() {
+		return "practice";
+	}
+	@RequestMapping(value = "/drag", method = RequestMethod.GET)
+	public String drag() {
+		return "drag";
 	}
 
 	@RequestMapping(value = "/calendar", method = RequestMethod.POST)

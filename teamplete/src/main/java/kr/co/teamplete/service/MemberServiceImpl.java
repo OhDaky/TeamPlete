@@ -17,4 +17,10 @@ public class MemberServiceImpl implements MemberService{
 		memberDAO.insert(member);	
 	}
 
+	@Override
+	public int checkIdSignUp(String memberid) {
+		int check = memberDAO.checkId(memberid);
+		return check;
+	}
+
 }
