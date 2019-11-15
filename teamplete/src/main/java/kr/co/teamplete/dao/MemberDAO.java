@@ -6,5 +6,9 @@ public interface MemberDAO {
 	
 	/* 회원가입 */
 	public void insert(MemberVO member);
+	
+	
+	/* 아이디 중복 체크 */
+	int checkId(String memberid);
 
 }

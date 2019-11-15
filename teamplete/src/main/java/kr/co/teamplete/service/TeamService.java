@@ -2,6 +2,7 @@ package kr.co.teamplete.service;
 
 import java.util.List;
 
+import kr.co.teamplete.dto.MemberVO;
 import kr.co.teamplete.dto.TeamMemberVO;
 import kr.co.teamplete.dto.TeamVO;
 
@@ -18,4 +19,7 @@ public interface TeamService {
 	
 	//팀 멤버 추가
 	void insertTeamMem(TeamMemberVO teamMember);
+	
+	//팀의 모든 멤버 조회
+	List<MemberVO> selectAllMembers(int teamId);
 }

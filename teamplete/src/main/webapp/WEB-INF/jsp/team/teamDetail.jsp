@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,14 +44,26 @@
 p {
 	color: black;
 }
+
 label {
 	color: black;
+}
+
+#members {
+	background-color: blue;
+	font-weight: bold;
 }
 </style>
 </head>
 <body>
 
-<h2>${ team.teamName } 상세페이지입니다.</h2>
+	<h2>${ team.teamName }상세페이지입니다.</h2>
+
+	<div>
+		<c:forEach items="${ members }" var="member">
+			<span id="members">${ member.memberid }</span>
+		</c:forEach>
+	</div>
 
 	<section id="form-and-scrolling-components">
 	<div class="row match-height">
@@ -78,26 +91,30 @@ label {
 									role="document">
 									<div class="modal-content">
 										<div class="modal-header">
-											<h4 class="modal-title" id="myModalLabel33">Inline Add Member
-												Form</h4>
+											<h4 class="modal-title" id="myModalLabel33">Inline Add
+												Member Form</h4>
 											<button type="button" class="close" data-dismiss="modal"
 												aria-label="Close">
 												<span aria-hidden="true">&times;</span>
 											</button>
 										</div>
-										<form method="post" action="${pageContext.request.contextPath}/teamdetail/${ team.teamId }"
-            name="createTeamForm">
-                        <input type="hidden" name="teamId" value="${ team.teamId }">
+										<form method="post"
+											action="${pageContext.request.contextPath}/teamdetail/${ team.teamId }"
+											name="createTeamForm">
+											<input type="hidden" name="teamId" value="${ team.teamId }">
 											<div class="modal-body">
-												<label>Team Name: </label>
+												<label>Member ID: </label>
 												<div class="form-group">
-													<input type="text" name="memberId" placeholder="Member ID" class="form-control">
+													<input type="text" name="memberId" id="memberId"
+														placeholder="Member ID" class="form-control">
 												</div>
-											<div class="modal-footer">
-												<button type="button" onClick="submit()" class="btn btn-primary" data-dismiss="modal">Create</button>
+												<div class="modal-footer">
+													<button type="button" onClick="submitMember()"
+														class="btn btn-primary" data-dismiss="modal">Create</button>
+												</div>
 											</div>
+										</form>
 									</div>
-									</form>
 								</div>
 							</div>
 						</div>
@@ -105,14 +122,13 @@ label {
 				</div>
 			</div>
 		</div>
-		</div>
 	</div>
-	</section>	
-	
-	
-	
-	
-		<!-- BEGIN: Vendor JS-->
+	</section>
+
+
+
+
+	<!-- BEGIN: Vendor JS-->
 	<script
 		src="${ pageContext.request.contextPath }/resources/js/vendors.min.js"></script>
 	<!-- BEGIN Vendor JS-->
@@ -132,5 +148,21 @@ label {
 
 	<!-- BEGIN: Page JS-->
 	<!-- END: Page JS-->
+
+
+	<script>
+   function submitMember(){
+	    var form = document.createTeamForm;
+	    var result = confirm(document.getElementById('memberId').value + "님을 팀에 추가하시겠습니까?");
+	    
+	    if(result) {
+	    	form.submit();
+	    }else {
+	    	return;
+	    }
+	    
+	}
+   
+</script>
 </body>
 </html>

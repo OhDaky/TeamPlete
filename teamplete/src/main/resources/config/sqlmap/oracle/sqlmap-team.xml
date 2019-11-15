@@ -9,6 +9,10 @@
 		<result column="team_name" property="teamName" />
 		<result column="owner_id" property="ownerId" />
 	</resultMap>
+	
+	<resultMap type="MemberVO" id="teamMemberMap">
+		<result column="reg_date" property="regDate" />
+	</resultMap>
 
 
 	<!-- 팀 생성 -->
@@ -40,5 +44,17 @@
     	insert into team_member_tb(id, team_id, member_id)
     	 values(team_member_seq.nextval, #{teamId}, #{memberId})
     </insert>
+    
+    <!-- 팀멤버 조회 -->
+    <select id="selectTeamMember" parameterType="int" resultMap="teamMemberMap">
+    	select M.memberid, M.name
+    	 from member_tb M
+    	  left outer join team_tb T
+    	   on M.memberid = T.owner_id
+    	    left outer join team_member_tb TM
+    	     on M.memberid = TM.member_id
+    	      where T.team_id = #{teamId} or TM.team_id = #{teamId}
+    	       order by M.memberid asc
+    </select>
 
 </mapper>
