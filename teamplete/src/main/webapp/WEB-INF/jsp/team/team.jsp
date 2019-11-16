@@ -64,6 +64,8 @@ label {
 
 
 </style>
+	
+
 </head>
 <body>
 	<header> <jsp:include page="/WEB-INF/jsp/include/navbar.jsp" />
@@ -87,7 +89,7 @@ label {
 						<td><div class="teamCard"
 								onclick="teamDetail(${ team.teamId })" id="showdetail">
 								<img class="teamImg" style="width: 100%; height: auto;"
-								src="${ pageContext.request.contextPath }/resources/images/startup-594090_1920.jpg"
+								src="https://source.unsplash.com/400x300/?business"
 								alt="avatar">
 
 								
