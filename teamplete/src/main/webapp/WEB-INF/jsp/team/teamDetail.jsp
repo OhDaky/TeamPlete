@@ -53,10 +53,19 @@ label {
 	background-color: blue;
 	font-weight: bold;
 }
+
+.sec {
+	margin-left: 25%;
+	padding-top: 10%;
+}
 </style>
 </head>
 <body>
 
+	<header> <jsp:include page="/WEB-INF/jsp/include/navbar.jsp" />
+	</header>
+
+	<section class="sec">
 	<h2>${ team.teamName }상세페이지입니다.</h2>
 
 	<div>
@@ -65,7 +74,7 @@ label {
 		</c:forEach>
 	</div>
 
-	<section id="form-and-scrolling-components">
+<!-- 	<section id="form-and-scrolling-components"> -->
 	<div class="row match-height">
 		<div class="col-md-4 col-sm-12">
 			<div class="card">
@@ -125,6 +134,8 @@ label {
 	</div>
 	</section>
 
+	<footer>
+	</footer>
 
 
 
