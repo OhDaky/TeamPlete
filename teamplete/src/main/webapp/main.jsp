@@ -146,6 +146,9 @@ label {
 												class="btn btn-google"><span class="fa fa-google"></span></a>
 											<a href="#" class="btn btn-github"><span
 												class="fa fa-github-alt"></span></a>
+											<a href="https://kauth.kakao.com/oauth/authorize?client_id=e355c450ecfaeb579db7e67d74790574&redirect_uri=http://localhost:8088/kakaologin&response_type=code">
+            									<img src="${ pageContext.request.contextPath }/resources/images/kakao_account_login_btn_medium_narrow.png">
+        									</a>
 										</div>
 									</div>
 								</div>
