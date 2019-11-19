@@ -43,30 +43,7 @@
 	
 <!-- END: Page CSS-->
 
-<style>
-p {
-	color: black;
-}
 
-label {
-	color: black;
-}
-
-.teamCard {
-
-	width: 200px;
-	heigth: auto;
-	background-color: #ffffff;
-}
-
-#deadlineTxt {
-	color: red;
-}
-
-
-
-</style>
-	
 
 </head>
 <body>
@@ -74,73 +51,35 @@ label {
 	</header>
 	
 	<section>
-
-	<div style="margin-left: 22%; margin-right: 2%; padding-top: 10%;">
+	<div class="app-content content">
+	 <div class="content-wrapper">
 		<c:if test="${ not empty loginVO }">
 <%-- 						<a href="${ pageContext.request.contextPath }/calendar">캘린더</a> --%>
 			<div>
-				<table id="list" class="table" style="margin:30px, padding:0px">
-				<c:set var="i" value="0" />
-				<c:set var="j" value="4" />
-				<c:set var="cnt" value="1" />
- 
-					<c:forEach var="team" items="${ teamList }" varStatus="status">
-						<c:if test="${ i%j == 0 }">
-							<tr>
-						</c:if>
-						<td><div class="teamCard"
-								onclick="teamDetail(${ team.teamId })" id="showdetail">
-								<img class="teamImg" style="width: 100%; height: auto;"
-								src="https://source.unsplash.com/400x300/?business"
-								alt="avatar">
-
-								
-								<br>
-								<c:out value="${ team.teamName }" />
-								<br>
-								<c:out value="팀원: " />
-								<c:out value="${ team.members }" />
-								<br>
-								<c:out value="남은 과제 제출 기한: " />
-								<span id="deadlineTxt"><c:out
-										value="${ deadline[status.index] }" /></span>
-							</div>
-						</td>
-						<c:if test="${ i%j == j-1 }">
-							</tr>
-						</c:if>
-						<c:set var="i" value="${i+1}" />
-						<c:set var="cnt" value="${cnt + 1}" />
-					</c:forEach>
-
-				</table>
+				
 				
 				<section id="draggable-cards">
-				<c:if test="${ not empty loginVO }">
                     <div class="row" id="card-drag-area">
                     <c:forEach var="team" items="${ teamList }" varStatus="status">
-                        <div class="col-xl-3 col-md-6 col-sm-12">
+                        <div class="col-xl-3 col-md-6 col-sm-6">
                             <div class="card" onclick="teamDetail(${ team.teamId })" id="showdetail">                                
                                 <div class="card-content">
                                     <div class="card-body">
                                     	<img class="teamImg" style="width: 100%; height: auto;"
 								src="https://source.unsplash.com/400x300/?business"
 								alt="avatar">
-                                        <p class="card-text">
-                                            <h2><c:out value="${ team.teamName }" /></h2>
-                                            <h6><c:out value="팀원: " /></h6>											
-											<h6><c:out value="${ team.members }" /></h6>
-											<h5 style="display:inline;"><c:out value="남은 과제 제출 기한: " /></h5>
-										<h5 style="color:red, display:inline;"><c:out
-										value="${ deadline[status.index] }" /></h5>
-                                        </p>
+                                        <div class="card-text" style="font-family:Montserrat;">                                        
+                                            <h2 class="text-bold-700" style="margin-top:7%;" ><c:out value="${ team.teamName }" /></h2>
+                                            <h6 class="text-bold-600"><c:out value="팀원: " /><strong style="color:#0275d8 !important"><c:out value="${ team.members }" /></strong></h6>									
+											<h4 class="primary text-bold-400" style="margin-top:5%"><c:out value="남은 과제 제출 기한: " /><strong class="text-bold-600 text-nowrap" style="color:red !important;"><c:out
+										value="${ deadline[status.index] }" /></strong></h4>										
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </c:forEach>    
                     </div>
-                    </c:if>
                 </section>
 			</div>
 
@@ -236,7 +175,9 @@ label {
 <!-- 			</section> -->
 		</c:if>
 	</div>
+	</div>
 	</section>
+	
 
 	<footer> </footer>
 
