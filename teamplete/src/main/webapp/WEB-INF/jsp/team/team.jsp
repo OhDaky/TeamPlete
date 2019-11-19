@@ -39,6 +39,8 @@
 	href="${ pageContext.request.contextPath }/resources/css/palette-gradient.css">
 <link rel="stylesheet" type="text/css"
 	href="${ pageContext.request.contextPath }/resources/css/authentication.css">
+<link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/resources/css/drag-and-drop.css">
+	
 <!-- END: Page CSS-->
 
 <style>
@@ -77,11 +79,11 @@ label {
 		<c:if test="${ not empty loginVO }">
 <%-- 						<a href="${ pageContext.request.contextPath }/calendar">캘린더</a> --%>
 			<div>
-				<table id="list" class="table">
+				<table id="list" class="table" style="margin:30px, padding:0px">
 				<c:set var="i" value="0" />
 				<c:set var="j" value="4" />
 				<c:set var="cnt" value="1" />
-
+ 
 					<c:forEach var="team" items="${ teamList }" varStatus="status">
 						<c:if test="${ i%j == 0 }">
 							<tr>
@@ -112,6 +114,34 @@ label {
 					</c:forEach>
 
 				</table>
+				
+				<section id="draggable-cards">
+				<c:if test="${ not empty loginVO }">
+                    <div class="row" id="card-drag-area">
+                    <c:forEach var="team" items="${ teamList }" varStatus="status">
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <div class="card" onclick="teamDetail(${ team.teamId })" id="showdetail">                                
+                                <div class="card-content">
+                                    <div class="card-body">
+                                    	<img class="teamImg" style="width: 100%; height: auto;"
+								src="https://source.unsplash.com/400x300/?business"
+								alt="avatar">
+                                        <p class="card-text">
+                                            <h2><c:out value="${ team.teamName }" /></h2>
+                                            <h6><c:out value="팀원: " /></h6>											
+											<h6><c:out value="${ team.members }" /></h6>
+											<h5 style="display:inline;"><c:out value="남은 과제 제출 기한: " /></h5>
+										<h5 style="color:red, display:inline;"><c:out
+										value="${ deadline[status.index] }" /></h5>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>    
+                    </div>
+                    </c:if>
+                </section>
 			</div>
 
 			<!-- 			<section id="form-and-scrolling-components"> -->
@@ -218,6 +248,7 @@ label {
 	<!-- BEGIN: Page Vendor JS-->
 	<script
 		src="${ pageContext.request.contextPath }/resources/js/jquery.sticky.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/dragula.min.js"></script>
 	<!-- END: Page Vendor JS-->
 
 	<!-- BEGIN: Theme JS-->
@@ -229,6 +260,7 @@ label {
 	<!-- END: Theme JS-->
 
 	<!-- BEGIN: Page JS-->
+	<script src="${ pageContext.request.contextPath }/resources/js/drag-drop.js"></script>
 	<!-- END: Page JS-->
 
 
