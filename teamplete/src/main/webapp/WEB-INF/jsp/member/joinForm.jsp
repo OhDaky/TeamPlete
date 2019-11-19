@@ -55,6 +55,9 @@
 				<form:input path="name" class="form-control" size="35px" />
 				<form:errors path="name" class="error" />
 				<br>
+				
+				<form:hidden path="profile" value="" />
+				<form:hidden path="kakao" value="N" />
 			</div>
 
 
