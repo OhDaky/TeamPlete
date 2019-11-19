@@ -11,9 +11,8 @@
 	<!-- 회원정보 삽입 -->
 	<insert id="insertMember" parameterType="MemberVO">
 		insert into
-		Member_tb(memberid, name, password, email)
-		values(#{memberid}, #{name},
-		#{password}, #{email})
+		Member_tb(memberid, name, password, email, kakao, profile)
+		values(#{memberid}, #{name}, #{password}, #{email}, #{kakao}, #{profile})
 	</insert>
 
 	<!-- 아이디 중복체크 -->
@@ -31,7 +30,8 @@
 		from Member_tb
 		where
 		memberid = #{memberid} and
-		password = #{password}
+		password = #{password} and
+		kakao = 'N'
 	</select>
 
 </mapper>
