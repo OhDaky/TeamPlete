@@ -53,7 +53,15 @@
 	<section>
 	<div class="app-content content">
 	 <div class="content-wrapper">
+	 
 		<c:if test="${ not empty loginVO }">
+		<div class="content-header row">
+                <div class="content-header-left col-md-9 col-12 mb-2">
+                        <div class="col-12">
+                            <h2 class="content-header-title float-left mb-0 ">최신 업데이트</h2>                            
+                        </div>
+                </div>
+            </div>
 <%-- 						<a href="${ pageContext.request.contextPath }/calendar">캘린더</a> --%>
 			<div>
 				
@@ -62,9 +70,12 @@
                     <div class="row" id="card-drag-area">
                     <c:forEach var="team" items="${ teamList }" varStatus="status">
                         <div class="col-xl-3 col-md-6 col-sm-6">
-                            <div class="card" onclick="teamDetail(${ team.teamId })" id="showdetail">                                
+                        	
+                            <div class="card" onclick="teamDetail(${ team.teamId })" id="showdetail">
+                                                            
                                 <div class="card-content">
                                     <div class="card-body">
+                                    
                                     	<img class="teamImg" style="width: 100%; height: auto;"
 								src="https://source.unsplash.com/400x300/?business"
 								alt="avatar">
@@ -85,15 +96,11 @@
 
 			<!-- 			<section id="form-and-scrolling-components"> -->
 			<div class="row match-height">
-				<div class="col-md-4 col-sm-12">
-<!-- 					<div class="card"> -->
-<!-- 						<div class="card-content"> -->
-<!-- 							<div class="card-body"> -->
-<!-- 								<div class="form-group"> -->
-									<!-- Button trigger modal -->
+				<div class="col-xl-3 col-md-6 col-sm-6">
+						<div class="card">							
 									<h1 class="btn btn-outline-success"
 										data-toggle="modal" data-target="#inlineForm" style="font-size:100px">+</h1>
-
+										
 									<!-- Modal -->
 									<div class="modal fade text-left" id="inlineForm" tabindex="-1"
 										role="dialog" aria-labelledby="myModalLabel33"
@@ -103,8 +110,8 @@
 											role="document">
 											<div class="modal-content">
 												<div class="modal-header">
-													<h4 class="modal-title" id="myModalLabel33">Inline
-														Create Team Form</h4>
+													<h4 class="modal-title" id="myModalLabel33">새로운 팀 명을 입력해주세요.
+														</h4>
 													<button type="button" class="close" data-dismiss="modal"
 														aria-label="Close">
 														<span aria-hidden="true">&times;</span>
@@ -135,8 +142,7 @@
 											role="document">
 											<div class="modal-content">
 												<div class="modal-header">
-													<h4 class="modal-title" id="myModalLabel33">Inline
-														Create Team Form</h4>
+													<h4 class="modal-title" id="myModalLabel33">조별과제 마감일을 설정해 주세요</h4>
 													<button type="button" class="close" data-dismiss="modal"
 														aria-label="Close">
 														<span aria-hidden="true">&times;</span>
@@ -167,10 +173,8 @@
 									
 									
 								</div>
-<!-- 							</div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
+					
+					</div>
 			</div>
 <!-- 			</section> -->
 		</c:if>

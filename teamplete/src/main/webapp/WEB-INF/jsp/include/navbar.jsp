@@ -93,9 +93,9 @@
                                 <div class="search-input-icon"><i class="feather icon-search primary"></i></div>
                                 <input class="input" type="text" placeholder="검색할 단어를 입력하세요..." tabindex="-1" data-search="template-list">
                                 <div class="search-input-close"><i class="feather icon-x"></i></div>
-                                <ul class="search-list"></ul>ㅍ
+                                <ul class="search-list"></ul>
                             </div>
-                        </li>
+                        </li>	
                         <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon feather icon-bell"></i><span class="badge badge-pill badge-primary badge-up">5</span></a>
                             <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                                 <li class="dropdown-menu-header">
