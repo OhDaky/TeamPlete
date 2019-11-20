@@ -43,7 +43,7 @@
 	
 <!-- END: Page CSS-->
 
-
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 </head>
 <body>
@@ -71,19 +71,22 @@
                     <c:forEach var="team" items="${ teamList }" varStatus="status">
                         <div class="col-xl-3 col-md-6 col-sm-6">
                         	
-                            <div class="card" onclick="teamDetail(${ team.teamId })" id="showdetail">
+                            <div class="card" id="showdetail">
                                                             
                                 <div class="card-content">
                                     <div class="card-body">
                                     
                                     	<img class="teamImg" style="width: 100%; height: auto;"
-								src="https://source.unsplash.com/400x300/?business"
+								src="${ pageContext.request.contextPath }/resources/images/${ team.img }"
 								alt="avatar">
                                         <div class="card-text" style="font-family:Montserrat;">                                        
-                                            <h2 class="text-bold-700" style="margin-top:7%;" ><c:out value="${ team.teamName }" /></h2>
+                                            <h2 class="text-bold-700" style="margin-top:7%;" onclick="teamDetail(${ team.teamId })" ><c:out value="${ team.teamName }" /></h2>
                                             <h6 class="text-bold-600"><c:out value="팀원: " /><strong style="color:#0275d8 !important"><c:out value="${ team.members }" /></strong></h6>									
 											<h4 class="primary text-bold-400" style="margin-top:5%"><c:out value="남은 과제 제출 기한: " /><strong class="text-bold-600 text-nowrap" style="color:red !important;"><c:out
-										value="${ deadline[status.index] }" /></strong></h4>										
+										value="${ deadline[status.index] }" /></strong></h4>
+<%-- 										<c:if test="${ loginVO.memberid eq team.ownerId }"> --%>
+<%-- 										<button type="button" name="modify" data-target="#updateTeam" value="${ team.teamId }">수정</button> --%>
+<%-- 										</c:if> --%>
                                         </div>
                                     </div>
                                 </div>
@@ -128,40 +131,16 @@
 															<input type="text" name="teamName" id="teamName"
 																placeholder="Team Name" class="form-control">
 														</div>
-														<div class="modal-footer">
-										<button type="button" class="btn btn-outline-success"
-										data-toggle="modal" data-target="#inlineForm2">next
-										Modal</button>
-
-								<!-- Modal2 -->		
-								<div class="modal fade text-left" id="inlineForm2" tabindex="-1"
-										role="dialog" aria-labelledby="myModalLabel33"
-										aria-hidden="true">
-										<div
-											class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-											role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h4 class="modal-title" id="myModalLabel33">조별과제 마감일을 설정해 주세요</h4>
-													<button type="button" class="close" data-dismiss="modal"
-														aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-													<div class="modal-body">
 														<label>deadline: (선택입니다) </label>
 														<div class="form-group">
 															<input type="date" name="deadline" id="deadline"
 																placeholder="Deadline" class="form-control">
 														</div>
 														<div class="modal-footer">
-															<button type="button" onClick="submit()"
+										<button type="button" onClick="submit()"
 																class="btn btn-primary" data-dismiss="modal">Create</button>
-														</div>
-													</div>
-											</div>
-										</div>
-									</div>
+
+								
 
 														</div>
 													</div>
@@ -176,6 +155,7 @@
 					
 					</div>
 			</div>
+
 <!-- 			</section> -->
 		</c:if>
 	</div>

@@ -10,5 +10,8 @@ public interface MemberDAO {
 	
 	/* 아이디 중복 체크 */
 	int checkId(String memberid);
+	
+	/* 특정 회원 조회 */
+	MemberVO selectMember(String memberid);
 
 }

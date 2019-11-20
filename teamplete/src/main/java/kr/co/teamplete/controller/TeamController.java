@@ -5,17 +5,21 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.teamplete.dto.MemberVO;
 import kr.co.teamplete.dto.TeamMemberVO;
 import kr.co.teamplete.dto.TeamVO;
+import kr.co.teamplete.service.MemberService;
 import kr.co.teamplete.service.TeamService;
 
 @Controller
@@ -24,10 +28,37 @@ public class TeamController {
 	@Autowired
 	private TeamService service;
 	
+	@Autowired
+	private MemberService memberService;
+	
 
 	// 팀 등록한 뒤 팀 조회 페이지로 돌아감
 	@RequestMapping(value="/team/{loginVO.memberid}", method = RequestMethod.POST)
 	public String createTeam(TeamVO team, @PathVariable("loginVO.memberid") String memberid) {
+		
+		List<String> imgList = new ArrayList<>();
+		imgList.add("action-2277292_1920.jpg");
+		imgList.add("basketball-2258650_1920.jpg");
+		imgList.add("friendship-2366955_1920.jpg");
+		imgList.add("meeting-2284501_1920.jpg");
+		imgList.add("startup-593341_1920.jpg");
+		imgList.add("startup-594090_1920.jpg");
+		imgList.add("home-office-569359_1920.jpg");
+		imgList.add("business-2846221_1920.jpg");
+		imgList.add("desk-3139127_1920.jpg");
+		imgList.add("office-1209640_1920.jpg");
+		imgList.add("picnic-1208229_1920.jpg");
+		imgList.add("people-2557396_1920.jpg");
+		imgList.add("soldier-919202_1920.jpg");
+		
+		Random random = new Random();
+		int index = random.nextInt(imgList.size()); // (0 ~ imgList.size()-1)
+		team.setImg(imgList.get(index));
+		
+		String ownerName = memberService.selectMemberById(memberid).getName();
+		
+		team.setMembers(ownerName);
+		
 		service.insertTeam(team);
 		
 		return "redirect:/team/" + memberid;
@@ -59,8 +90,8 @@ public class TeamController {
 		String membersStr = "";
 		for(int i=0; i<members.size(); i++) {
 			if(i == members.size()-1) {
-				membersStr = membersStr + members.get(i).getMemberid();
-			}else membersStr = membersStr + members.get(i).getMemberid() + ", ";
+				membersStr = membersStr + members.get(i).getName();
+			}else membersStr = membersStr + members.get(i).getName() + ", ";
 		}
 		
 //		System.out.println(membersStr);
@@ -126,5 +157,20 @@ public class TeamController {
 		
 		return "redirect:/teamdetail/" + teamId;
 	}
+	
+	//팀 정보 수정
+//	@RequestMapping(value = "/team/update", method = RequestMethod.GET)
+//	public String updateTeam(@RequestParam("teamId") int teamId, Model model) {
+//		model.addAttribute("team", service.detailTeam(teamId));
+//		
+//		return "";
+//	}
+	
+	@RequestMapping(value = "/team/update", method = RequestMethod.POST)
+	public void updateTeam(TeamVO team) {
+		service.updateTeamInfo(team);
+	}
+	
+	
 
 }

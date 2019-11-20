@@ -108,10 +108,10 @@ public class KakaoRestAPI {
             JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
             JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
             
-            String id = element.getAsJsonObject().get("id").getAsString();
+            String kakaoId = element.getAsJsonObject().get("id").getAsString();
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
             String email = kakao_account.getAsJsonObject().get("email").getAsString();
-//            if(properties.getAsJsonObject().get("thumbnail_image").getAsBoolean()) {
+
             try {
             	String thumbnail_image = properties.getAsJsonObject().get("thumbnail_image").getAsString();
             	userInfo.put("thumbnail_image", thumbnail_image);
@@ -122,7 +122,7 @@ public class KakaoRestAPI {
             }
             
             
-            userInfo.put("id", id);
+            userInfo.put("kakaoId", kakaoId);
             userInfo.put("nickname", nickname);
             userInfo.put("email", email);
             

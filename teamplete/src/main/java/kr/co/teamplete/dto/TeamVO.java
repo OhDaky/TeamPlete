@@ -2,18 +2,19 @@ package kr.co.teamplete.dto;
 
 public class TeamVO {
 	private int teamId;
-	private String teamName, ownerId, members, deadline;
+	private String teamName, ownerId, members, deadline, img;
 	public TeamVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public TeamVO(int teamId, String teamName, String ownerId, String members, String deadline) {
+	public TeamVO(int teamId, String teamName, String ownerId, String members, String deadline, String img) {
 		super();
 		this.teamId = teamId;
 		this.teamName = teamName;
 		this.ownerId = ownerId;
 		this.members = members;
 		this.deadline = deadline;
+		this.img = img;
 	}
 	public int getTeamId() {
 		return teamId;
@@ -45,10 +46,16 @@ public class TeamVO {
 	public void setDeadline(String deadline) {
 		this.deadline = deadline;
 	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	@Override
 	public String toString() {
 		return "TeamVO [teamId=" + teamId + ", teamName=" + teamName + ", ownerId=" + ownerId + ", members=" + members
-				+ ", deadline=" + deadline + "]";
+				+ ", deadline=" + deadline + ", img=" + img + "]";
 	}
 
 

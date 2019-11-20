@@ -50,5 +50,11 @@ public class TeamDAOImpl implements TeamDAO{
 		session.update("kr.co.teamplete.dao.TeamDAO.membersUpdate", team);
 		
 	}
+
+	@Override
+	public void updateTeam(TeamVO team) {
+		session.update("kr.co.teamplete.dao.TeamDAO.updateTeam", team);
+		
+	}
 	
 }

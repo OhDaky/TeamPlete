@@ -25,5 +25,8 @@ public interface TeamDAO {
 	
 	//팀 모든 멤버 조회
 	public List<MemberVO> selectAllTeamMember(int teamId);
+	
+	//팀 정보 수정
+	public void updateTeam(TeamVO team);
 
 }

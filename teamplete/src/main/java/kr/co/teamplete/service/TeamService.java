@@ -25,4 +25,7 @@ public interface TeamService {
 	
 	//팀의 모든 멤버 조회
 	List<MemberVO> selectAllMembers(int teamId);
+	
+	//팀 정보 업데이트
+	public void updateTeamInfo(TeamVO team);
 }

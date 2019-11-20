@@ -23,4 +23,10 @@ public class MemberServiceImpl implements MemberService{
 		return check;
 	}
 
+	@Override
+	public MemberVO selectMemberById(String memberid) {
+		MemberVO member = memberDAO.selectMember(memberid);
+		return member;
+	}
+
 }

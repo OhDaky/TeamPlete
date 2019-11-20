@@ -32,17 +32,14 @@ public class KakaoLoginController {
         System.out.println("login Controller : " + userInfo);
         
         MemberVO member = new MemberVO();
-        member.setMemberid((String) userInfo.get("id"));
+        member.setMemberid((String) userInfo.get("email"));
         member.setName((String) userInfo.get("nickname"));
-        member.setPassword((String) userInfo.get("id"));
+        member.setPassword((String) userInfo.get("kakaoId"));
         member.setEmail((String) userInfo.get("email"));
         member.setKakao('Y');
         if((String) userInfo.get("thumbnail_image") != null ) {
             member.setProfile((String) userInfo.get("thumbnail_image"));
         }
-
-        
-        System.out.println(member.getKakao());
         
         if(service.checkIdSignUp(member.getMemberid()) == 0) {
         	service.insertMember(member);

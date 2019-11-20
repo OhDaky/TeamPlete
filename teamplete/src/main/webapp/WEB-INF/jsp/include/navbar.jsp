@@ -148,7 +148,7 @@
                             </ul>
                         </li>
                         <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                                <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">${ loginVO.memberid }</span><span class="user-status">Available</span></div>
+                                <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">${ loginVO.name }</span><span class="user-status">Available</span></div>
                                 <c:choose>
                                 <c:when test="${ not empty loginVO.profile }">
                                 <span><img class="round" src="${ loginVO.profile }" alt="avatar" height="40" width="40"></span>

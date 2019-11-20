@@ -51,6 +51,12 @@ public class TeamServiceImpl implements TeamService{
 	      teamDAO.updateMembers(team);
 		
 	}
+
+	@Override
+	public void updateTeamInfo(TeamVO team) {
+		teamDAO.updateTeam(team);
+		
+	}
 	
 
 }
