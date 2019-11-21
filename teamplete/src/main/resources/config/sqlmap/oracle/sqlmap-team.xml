@@ -70,7 +70,7 @@
     <update id="updateTeam" parameterType="TeamVO">
     	update team_tb
     	 set
-    	  team_name = #{teamName}
+    	  team_name = #{teamName},
     	  deadline = #{deadline}
     	   where team_id = #{teamId}
     </update>

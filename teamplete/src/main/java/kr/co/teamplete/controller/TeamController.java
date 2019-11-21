@@ -166,9 +166,15 @@ public class TeamController {
 //		return "";
 //	}
 	
-	@RequestMapping(value = "/team/update", method = RequestMethod.POST)
-	public void updateTeam(TeamVO team) {
+	@RequestMapping(value = "/team/update/{teamId}", method = { RequestMethod.POST, RequestMethod.GET })
+	public ModelAndView updateTeam(TeamVO team, @PathVariable("teamId") int teamId, Model model) {
+		ModelAndView mav = new ModelAndView();
+		TeamVO team2= service.detailTeam(teamId);
+		mav.addObject("teamModify", team2);
+		mav.setViewName("redirect:/team/" + team2.getOwnerId());
 		service.updateTeamInfo(team);
+		
+		return mav;
 	}
 	
 	
