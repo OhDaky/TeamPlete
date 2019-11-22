@@ -47,8 +47,8 @@
 
 </head>
 <body>
-	<jsp:include page="/WEB-INF/jsp/include/navbar.jsp" />
-	
+	<header> <jsp:include page="/WEB-INF/jsp/include/navbar.jsp" />
+	</header>
 	
 	<section>
 	<div class="app-content content">
@@ -88,6 +88,7 @@
 										<c:if test="${ loginVO.memberid eq team.ownerId }">
 										<button type="button" name="modify" id="modifyBtn" class="btn btn-outline-success" onclick="modifyFunc(${ team.teamId })"
 										data-toggle="modal" data-target="#updateTeam" value="${ team.deadline }"">수정</button>
+										<button type="button" name="delete" value="${ team.teamId }">삭제</button>
 										</c:if>
                                         </div>
                                     </div>
@@ -206,7 +207,10 @@
 
 	<footer> </footer>
 
-	
+	<!-- BEGIN: Vendor JS-->
+	<script
+		src="${ pageContext.request.contextPath }/resources/js/vendors.min.js"></script>
+	<!-- BEGIN Vendor JS-->
 
 	<!-- BEGIN: Page Vendor JS-->
 	<script
@@ -240,10 +244,9 @@
 
 	$(document).ready(function() {
 	// 수정버튼 클릭
-// 	$("button[name='modify']").each(function(index, item) {
 	$("button[name='modify']").click(function() {
 
-// 		teamId = $(item).attr("value1");
+
 		deadline = this.value;
 		
 		// 내용 담는 코드
@@ -259,8 +262,19 @@
 		$('input[id=teamNameM]').attr('value', teamName);
 		$('input[id=deadlineM]').attr('value', deadline);		
 	});
+	
+	$("button[name='delete']").click(function() {
+		id = this.value;
+		if(confirm("삭제하시겠습니까?")){
+			$.ajax({
+				url : '/team/delete/' + id,
+				type : 'DELETE'
+			});
+			window.location.reload();
+		} else return;
+
 	});
-// 	});
+	});
 	
 
    function submit(){

@@ -28,4 +28,7 @@ public interface TeamService {
 	
 	//팀 정보 업데이트
 	public void updateTeamInfo(TeamVO team);
+	
+	//팀 삭제
+	public void deleteTeamById(int teamId);
 }
