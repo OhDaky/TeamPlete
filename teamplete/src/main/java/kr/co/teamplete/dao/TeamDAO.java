@@ -28,5 +28,8 @@ public interface TeamDAO {
 	
 	//팀 정보 수정
 	public void updateTeam(TeamVO team);
+	
+	//팀 삭제
+	public void deleteTeam(int teamId);
 
 }

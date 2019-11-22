@@ -123,26 +123,21 @@ public class TeamController {
 				
 				calDateDays = calDate / (24 * 60 * 60 * 1000) + 1;
 				
-//				if(calDate < 0 && calDateDays == 0) {
+//				if(calDate < 0 && calDateDays <= 0) {
 //					return "마감";
 //				} else if(calDate < 0 && calDateDays == 1) {
 //					return "D-day";
 //				}
 //				
 				
+				System.out.println(calDate);
+				System.out.println(calDateDays);
 				if(calDate < 0) {
-					if(calDateDays == 0) {
-						System.out.println(calDate);
-						System.out.println(calDateDays);
+					if(calDateDays <= 0) {
 						return "마감";
 					} else if(calDateDays == 1) {
-						System.out.println(calDate);
-						System.out.println(calDateDays);
 						return "오늘";
 					}
-				}else {
-					System.out.println(calDate);
-					System.out.println(calDateDays);
 				}
 				
 
@@ -195,6 +190,12 @@ public class TeamController {
 		service.updateTeamInfo(team);
 		
 		return mav;
+	}
+	
+	@RequestMapping(value = "/team/delete/{teamId}", method = RequestMethod.DELETE)
+	public void deleteTeam(@PathVariable("teamId") int teamId) {
+		
+		service.deleteTeamById(teamId);
 	}
 	
 	

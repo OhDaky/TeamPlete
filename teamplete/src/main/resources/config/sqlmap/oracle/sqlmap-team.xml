@@ -74,5 +74,12 @@
     	  deadline = #{deadline}
     	   where team_id = #{teamId}
     </update>
+    
+    <!-- 팀 삭제 -->
+    <delete id="deleteTeam" parameterType="int">
+    	delete team_tb
+    	 where team_id = #{teamId}
+    </delete>
+    
 
 </mapper>
