@@ -108,6 +108,7 @@ public class TeamController {
 		Date date = new Date();
 		String today = dateFormat.format(date);
 		String deadline = team.getDeadline();
+		
 		if (deadline != null) {
 
 			long calDateDays = 0;
@@ -117,8 +118,33 @@ public class TeamController {
 				Date deadLineDate = dateFormat.parse(deadline);
 
 				long calDate = deadLineDate.getTime() - todayDate.getTime();
-
+				System.out.println("deadLineDate.getTime(): " + deadLineDate.getTime());
+				System.out.println("todayDate.getTime(): " + todayDate.getTime());
+				
 				calDateDays = calDate / (24 * 60 * 60 * 1000) + 1;
+				
+//				if(calDate < 0 && calDateDays == 0) {
+//					return "마감";
+//				} else if(calDate < 0 && calDateDays == 1) {
+//					return "D-day";
+//				}
+//				
+				
+				if(calDate < 0) {
+					if(calDateDays == 0) {
+						System.out.println(calDate);
+						System.out.println(calDateDays);
+						return "마감";
+					} else if(calDateDays == 1) {
+						System.out.println(calDate);
+						System.out.println(calDateDays);
+						return "오늘";
+					}
+				}else {
+					System.out.println(calDate);
+					System.out.println(calDateDays);
+				}
+				
 
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
@@ -143,6 +169,7 @@ public class TeamController {
 		mav.setViewName("team/teamDetail");
 		mav.addObject("team", team);
 		mav.addObject("members", members);
+		System.out.println(members.toString());
 	
 		return mav;
 	}
@@ -159,13 +186,6 @@ public class TeamController {
 	}
 	
 	//팀 정보 수정
-//	@RequestMapping(value = "/team/update", method = RequestMethod.GET)
-//	public String updateTeam(@RequestParam("teamId") int teamId, Model model) {
-//		model.addAttribute("team", service.detailTeam(teamId));
-//		
-//		return "";
-//	}
-	
 	@RequestMapping(value = "/team/update/{teamId}", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView updateTeam(TeamVO team, @PathVariable("teamId") int teamId, Model model) {
 		ModelAndView mav = new ModelAndView();

@@ -56,7 +56,7 @@
     
     <!-- 팀멤버 조회 -->
     <select id="selectTeamMember" parameterType="int" resultMap="teamMemberMap">
-    	select M.memberid, M.name
+    	select distinct M.memberid, M.name
     	 from member_tb M
     	  left outer join team_tb T
     	   on M.memberid = T.owner_id

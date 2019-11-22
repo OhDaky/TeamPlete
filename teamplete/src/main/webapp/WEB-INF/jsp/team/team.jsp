@@ -47,8 +47,8 @@
 
 </head>
 <body>
-	<jsp:include page="/WEB-INF/jsp/include/navbar.jsp" />
-	
+	<header> <jsp:include page="/WEB-INF/jsp/include/navbar.jsp" />
+	</header>
 	
 	<section>
 	<div class="app-content content">
@@ -206,7 +206,10 @@
 
 	<footer> </footer>
 
-	
+	<!-- BEGIN: Vendor JS-->
+	<script
+		src="${ pageContext.request.contextPath }/resources/js/vendors.min.js"></script>
+	<!-- BEGIN Vendor JS-->
 
 	<!-- BEGIN: Page Vendor JS-->
 	<script

@@ -16,7 +16,7 @@
 	href="${ pageContext.request.contextPath }/resources/css/colors.css">
 <link rel="stylesheet" type="text/css"
 	href="${ pageContext.request.contextPath }/resources/css/components.css">
-<link	
+<link
 	href="https://fonts.googleapis.com/cssf?family=Montserrat:300,400,500,600"
 	rel="stylesheet">
 <link rel="stylesheet" type="text/css"
