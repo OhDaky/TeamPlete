@@ -208,23 +208,15 @@
 	<footer> </footer>
 
 	<!-- BEGIN: Vendor JS-->
-	<script
-		src="${ pageContext.request.contextPath }/resources/js/vendors.min.js"></script>
+
 	<!-- BEGIN Vendor JS-->
 
 	<!-- BEGIN: Page Vendor JS-->
-	<script
-		src="${ pageContext.request.contextPath }/resources/js/jquery.sticky.js"></script>
+
     <script src="${ pageContext.request.contextPath }/resources/js/dragula.min.js"></script>
 	<!-- END: Page Vendor JS-->
 
-	<!-- BEGIN: Theme JS-->
-	<script
-		src="${ pageContext.request.contextPath }/resources/js/app-menu.js"></script>
-	<script src="${ pageContext.request.contextPath }/resources/js/app.js"></script>
-	<script
-		src="${ pageContext.request.contextPath }/resources/js/components.js"></script>
-	<!-- END: Theme JS-->
+
 
 	<!-- BEGIN: Page JS-->
 	<script src="${ pageContext.request.contextPath }/resources/js/drag-drop.js"></script>
