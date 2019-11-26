@@ -8,7 +8,7 @@
 	<insert id="insertDate" parameterType="TaskDateVO">
 		insert into
 		task_date(task_num, content, reg_date)
-		values(task_seq.nextval, #{content}, #{reg_date})
+		values(task_date_seq.nextval, #{content}, #{reg_date})
 	</insert>
 
 	<!-- 전체 task 조회 -->

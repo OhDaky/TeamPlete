@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.teamplete.dao.TaskDAO">
+
+		<resultMap type="TaskVO" id="taskMap">
+			<result column="task_id" property="taskId" />
+			<result column="writer_id" property="writerId" />
+			<result column="writer_name" property="writerName" />
+			<result column="team_id" property="teamId" />
+		</resultMap>
+
+
+	<!-- 태스크 생성 -->
+	<insert id="insertTask" parameterType="TaskVO">
+		insert into task_tb(task_id, writer_id, writer_name, team_id, content)
+		values(task_seq.nextval, #{writerId}, #{writerName}, #{teamId}, #{content})
+	</insert>
+	
+	
+	<!-- 모든 태스크 조회 -->
+	<select id="selectAllTask" parameterType="int" resultMap="taskMap">
+		select task_id, writer_id, writer_name, team_id, content
+		 from task_tb
+		  where team_id = #{teamId}
+	</select>
+	
+	<!-- 특정 태스크 상세 -->
+	<select id="selectTask" parameterType="int" resultMap="taskMap">
+		select task_id, writer_id, writer_name, team_id, content
+		 from task_tb
+		  where task_id = #{taskId}
+	</select>
+	
+	<!-- 태스크 업데이트 -->
+    <update id="updateTask" parameterType="TaskVO">
+    	update task_tb
+    	 set
+    	  content = #{content}
+    	   where task_id = #{taskId}
+    </update>
+    
+    <!-- 태스크 삭제 -->
+    <delete id="deleteTask" parameterType="int">
+    	delete task_tb
+    	 where task_id = #{taskId}
+    </delete>
+
+
+</mapper>

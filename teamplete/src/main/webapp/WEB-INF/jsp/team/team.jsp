@@ -52,7 +52,7 @@
 	
 	<section>
 	<div class="app-content content">
-	 <div class="content-wrapper">
+	 <div class="content-wrapper" id="contentWrapper">
 	 
 		<c:if test="${ not empty loginVO }">
 		<div class="content-header row">
@@ -221,6 +221,8 @@
 	<!-- BEGIN: Page JS-->
 	<script src="${ pageContext.request.contextPath }/resources/js/drag-drop.js"></script>
 	<!-- END: Page JS-->
+	
+	<script src="${ pageContext.request.contextPath }/resources/js/teamdelete.js"></script>
 
 
 	<script>
@@ -255,17 +257,20 @@
 		$('input[id=deadlineM]').attr('value', deadline);		
 	});
 	
-	$("button[name='delete']").click(function() {
-		id = this.value;
-		if(confirm("삭제하시겠습니까?")){
-			$.ajax({
-				url : '/team/delete/' + id,
-				type : 'DELETE'
-			});
-			window.location.reload();
-		} else return;
+// 	$("button[name='delete']").click(function() {
+// 		id = this.value;
+// 		console.log(id);
+// 		if(confirm("삭제하시겠습니까?")){
+// 			$.ajax({
+// 				url : '/team/delete/' + id,
+// 				type : 'DELETE'
+// 			});
+// 			$('#card-drag-area').load(document.URL +  ' #card-drag-area');
+// // 			location.reload();
+// 		} else return;
 
-	});
+// 	});
+
 	});
 	
 

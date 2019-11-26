@@ -9,17 +9,19 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.teamplete.dto.MemberVO;
+import kr.co.teamplete.dto.TaskVO;
 import kr.co.teamplete.dto.TeamMemberVO;
 import kr.co.teamplete.dto.TeamVO;
 import kr.co.teamplete.service.MemberService;
+import kr.co.teamplete.service.TaskService;
 import kr.co.teamplete.service.TeamService;
 
 @Controller
@@ -30,6 +32,9 @@ public class TeamController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private TaskService taskService;
 	
 
 	// 팀 등록한 뒤 팀 조회 페이지로 돌아감
@@ -118,8 +123,8 @@ public class TeamController {
 				Date deadLineDate = dateFormat.parse(deadline);
 
 				long calDate = deadLineDate.getTime() - todayDate.getTime();
-				System.out.println("deadLineDate.getTime(): " + deadLineDate.getTime());
-				System.out.println("todayDate.getTime(): " + todayDate.getTime());
+//				System.out.println("deadLineDate.getTime(): " + deadLineDate.getTime());
+//				System.out.println("todayDate.getTime(): " + todayDate.getTime());
 				
 				calDateDays = calDate / (24 * 60 * 60 * 1000) + 1;
 				
@@ -130,8 +135,8 @@ public class TeamController {
 //				}
 //				
 				
-				System.out.println(calDate);
-				System.out.println(calDateDays);
+//				System.out.println(calDate);
+//				System.out.println(calDateDays);
 				if(calDate < 0) {
 					if(calDateDays <= 0) {
 						return "마감";
@@ -153,18 +158,20 @@ public class TeamController {
 	}
 	
 	
-	// 상세 팀 조회
+	// 상세 팀 조회 (태스크 조회)
 	@RequestMapping(value = "/teamdetail/{id}", method = {RequestMethod.GET})
 	public ModelAndView teamDetail(@PathVariable("id") int teamId) {
 		
 		TeamVO team = service.detailTeam(teamId);
 		List<MemberVO> members = service.selectAllMembers(teamId);
+		List<TaskVO> taskList = taskService.selectAllTaskS(teamId);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("team/teamDetail");
 		mav.addObject("team", team);
 		mav.addObject("members", members);
-		System.out.println(members.toString());
+//		System.out.println(members.toString());
+		mav.addObject("taskList", taskList);
 	
 		return mav;
 	}
@@ -172,24 +179,21 @@ public class TeamController {
 
 	//팀 멤버 추가한 뒤 상세 팀 조회 페이지로 돌아감
 	@RequestMapping(value = "/teamdetail/{id}", method = RequestMethod.POST)
-	public String addTeamMember(TeamMemberVO teamMember, @PathVariable("id") int teamId) {
+	@ResponseBody
+	public TeamMemberVO addTeamMember(@RequestBody TeamMemberVO teamMember, @PathVariable("id") int teamId) {
 		service.insertTeamMem(teamMember);
 		TeamVO team = service.detailTeam(teamId);
 		membersUpdate(team);
 		
-		return "redirect:/teamdetail/" + teamId;
+		return teamMember;
 	}
 	
 	//팀 정보 수정
 	@RequestMapping(value = "/team/update/{teamId}", method = { RequestMethod.POST, RequestMethod.GET })
-	public ModelAndView updateTeam(TeamVO team, @PathVariable("teamId") int teamId, Model model) {
-		ModelAndView mav = new ModelAndView();
+	public String updateTeam(TeamVO team, @PathVariable("teamId") int teamId) {
 		TeamVO team2= service.detailTeam(teamId);
-		mav.addObject("teamModify", team2);
-		mav.setViewName("redirect:/team/" + team2.getOwnerId());
 		service.updateTeamInfo(team);
-		
-		return mav;
+		return "redirect:/team/" + team2.getOwnerId();
 	}
 	
 	@RequestMapping(value = "/team/delete/{teamId}", method = RequestMethod.DELETE)
@@ -197,7 +201,5 @@ public class TeamController {
 		
 		service.deleteTeamById(teamId);
 	}
-	
-	
 
 }
