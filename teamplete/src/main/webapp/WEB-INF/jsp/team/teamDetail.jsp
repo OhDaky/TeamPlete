@@ -40,25 +40,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${ pageContext.request.contextPath }/resources/css/authentication.css">
 <!-- END: Page CSS-->
-<style>
-p {
-	color: black;
-}
 
-label {
-	color: black;
-}
-
-#members {
-	background-color: blue;
-	font-weight: bold;
-}
-
-.sec {
-	margin-left: 25%;
-	padding-top: 10%;
-}
-</style>
 
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
@@ -70,7 +52,8 @@ label {
 	<header> <jsp:include page="/WEB-INF/jsp/include/navbar.jsp" />
 	</header>
 
-	<section class="sec" id="sec">
+	<section class="sec" id="sec" style="margin-left: 25%;
+	padding-top: 10%;">
 	<h2>${ team.teamName }상세페이지입니다.</h2>
 
 	<div id="membersView">
