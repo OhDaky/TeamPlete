@@ -43,7 +43,7 @@
 	
 	<!-- 특정 팀 조회 -->
 	<select id="selectTeam" parameterType="int" resultMap="teamMap">
-		select team_id, team_name, owner_id
+		select team_id, team_name, owner_id, deadline
 		 from team_tb
 		  where team_id = #{teamId}
 	</select>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.teamplete.dao.BoardDAO">
+
+		<resultMap type="BoardVO" id="boardMap">
+			<result column="board_id" property="boardId" />
+			<result column="writer_id" property="writerId" />
+			<result column="writer_name" property="writerName" />
+			<result column="board_date" property="boardDate" />
+			<result column="task_id" property="taskId" />
+		</resultMap>
+
+
+	<!-- board 생성 -->
+	<insert id="insertBoard" parameterType="BoardVO">
+		insert into board_tb(board_id, writer_id, writer_name, title, content, task_id)
+		values(board_seq.nextval, #{writerId}, #{writerName}, #{title}, #{content}, #{taskId})
+	</insert>
+	
+	
+	<!-- 모든 board 조회 -->
+	<select id="selectAllBoard" parameterType="int" resultMap="boardMap">
+		select board_id, writer_id, writer_name, title, content, board_date, task_id
+		 from board_tb
+		  where task_id = #{taskId}
+		   order by board_id
+	</select>
+
+
+
+</mapper>

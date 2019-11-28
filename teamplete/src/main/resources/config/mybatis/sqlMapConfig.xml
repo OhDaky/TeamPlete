@@ -9,6 +9,8 @@
 		<typeAlias type="kr.co.teamplete.dto.TeamVO" alias="TeamVO"/>
 		<typeAlias type="kr.co.teamplete.dto.TeamMemberVO" alias="TeamMemberVO"/>
 		<typeAlias type="kr.co.teamplete.dto.TaskVO" alias="TaskVO"/>
+		<typeAlias type="kr.co.teamplete.dto.BoardVO" alias="BoardVO"/>
+		
 	</typeAliases>
 
 </configuration>

@@ -62,25 +62,6 @@ label {
 
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
-// $(document).ready(function() {
-//     $('#checkbtn').on('click', function() {
-//        $.ajax({
-//           type : 'POST',
-//           url : '/checkSignUp',
-//           data : {
-//              "idCheck" : $('#memberid').val() 
-//           },
-//           success : function(data) {
-//              if ($.trim(data) == 0) {
-//                 $('#checkMsg').html('<p style="color:blue">사용가능</p>');
-//              } else {
-//                 $('#checkMsg').html('<p style="color:red">사용불가능</p>');
-//              }
-//           }
-//        });
-//     });
-//  });
-
 </script>
 
 </head>
@@ -98,7 +79,15 @@ label {
 		</c:forEach>
 	</div>
 
-<!-- 	<section id="form-and-scrolling-components"> -->
+	<c:if test="${ loginVO.memberid eq team.ownerId }">
+		<button type="button" name="modify" id="modifyBtn"
+			class="btn btn-outline-success"
+			onclick="modifyFunc(${ team.teamId })" data-toggle="modal"
+			data-target="#updateTeam">팀 수정</button>
+		<button type="button" name="delete" value="${ team.teamId }">팀 삭제</button>
+	</c:if> 
+	
+	<!-- 	<section id="form-and-scrolling-components"> -->
 	<div class="row match-height">
 		<div class="col-md-4 col-sm-12">
 			<div class="card">
@@ -155,31 +144,72 @@ label {
 			</div>
 		</div>
 	</div>
-	
-	
-	<!-- 태스크 조회, 태스크 추가 -->
-	<table id="taskTable" style="color: black;">
-		<thead>
-			<tr>
-				<th>writer</th>
-				<th>content</th>
-			</tr>
-		</thead>
-		<tbody id="tbody">
-			<c:forEach var="task" items="${ taskList }">
-				<tr id="tr${ task.taskId }">
-					<td>${ task.writerName }</td>
-					<td>${ task.content }</td>
-					<td>
-						<div>
-<%-- 							<button name="modifyTask" value="${ task.taskId }">수정</button> --%>
-							<button name="deleteTask" value="${ task.taskId }">삭제</button>
+
+	<!-- Modal3 (수정) -->
+	<div class="modal fade text-left" id="updateTeam" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+		<div
+			class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+			role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="myModalLabel33">팀의 정보를 수정해주세요.</h4>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form method="post" name="modifyTeam">
+
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Team Name: </label>
+							<div>
+								<input type="text" name="teamName" id="teamNameM"
+									class="form-control" value="${ team.teamName }" />
+							</div>
+							<label>deadline: (선택입니다) </label>
+							<div class="form-group">
+								<input type="date" name="deadline" id="deadlineM"
+									class="form-control" value="${ team.deadline }" />
+							</div>
+							<div class="modal-footer">
+								<button type="button" id="modifyButton" onClick="submit2()"
+									class="btn btn-primary" data-dismiss="modal">Modify</button>
+							</div>
 						</div>
-					</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+	<!-- 태스크 조회, 태스크 추가 -->
+
+	<div id="taskTable" style="color: black;">
+		<c:forEach var="task" items="${ taskList }" varStatus="status">
+		
+			<div id="task"
+				style="width: 200px; height: 200px; background: skyblue;">
+				<h2>${ task.writerName }</h2>
+				<h2>${ task.content }</h2>
+				<c:forEach var="board" items="${ boardList[status.index] }">
+				<div style="background: white;">
+				<h4>${ board.title }</h4>
+				<h4>${ board.content }</h4>
+				</div>
+				</c:forEach>
+				<button type="submit" id="addBoard" onClick="writeBoard(${ task.taskId })">Board 추가</button>
+				<div>
+					<%-- 							<button name="modifyTask" value="${ task.taskId }">수정</button> --%>
+					<button name="deleteTask" value="${ task.taskId }">태스크 삭제</button>
+				</div>
+			</div>
+			</br>
+		</c:forEach>
+	</div>
+
 
 	<!-- 태스크 등록 Modal -->
 	<button id="createTaskBtn" class="btn btn-outline-success"
@@ -252,6 +282,30 @@ label {
 
 
 	<script>
+	
+	var id = '';
+	
+	function modifyFunc(modifyTeamId) {
+		   id = modifyTeamId;
+		   
+	}
+	
+	var taskId = "";
+	
+	function writeBoard(taskId) {
+		taskId = taskId;
+		location.href = "${ pageContext.request.contextPath}/board/" + taskId + "/write";
+		   
+	}
+
+	
+	   function submit2(){
+		    var form2 = document.modifyTeam;
+		    form2.action = "${pageContext.request.contextPath}/team/update/" + id;
+		    form2.submit();
+		}
+	   
+	   
    function submitMember(){
 	    var form = document.createTeamForm;
 	    var result = confirm(document.getElementById('memberId').value + "님을 팀에 추가하시겠습니까?");
@@ -328,6 +382,22 @@ label {
 
 		});
 		
+	});
+	
+	var id = "";
+	
+	$("button[name='delete']").click(function() {
+		id = this.value;
+		console.log(id);
+		if(confirm("팀을 삭제하시겠습니까?")){
+			$.ajax({
+				url : '/team/delete/' + id,
+				type : 'DELETE'
+			});
+			
+			location.href = "${ pageContext.request.contextPath}/team/${ loginVO.memberid }";
+		} else return;
+
 	});
 
 

@@ -9,6 +9,7 @@
 			<result column="writer_id" property="writerId" />
 			<result column="writer_name" property="writerName" />
 			<result column="team_id" property="teamId" />
+			<result column="task_date" property="taskDate" />
 		</resultMap>
 
 
@@ -21,14 +22,15 @@
 	
 	<!-- 모든 태스크 조회 -->
 	<select id="selectAllTask" parameterType="int" resultMap="taskMap">
-		select task_id, writer_id, writer_name, team_id, content
+		select task_id, writer_id, writer_name, team_id, content, task_date
 		 from task_tb
 		  where team_id = #{teamId}
+		   order by task_id
 	</select>
 	
 	<!-- 특정 태스크 상세 -->
 	<select id="selectTask" parameterType="int" resultMap="taskMap">
-		select task_id, writer_id, writer_name, team_id, content
+		select task_id, writer_id, writer_name, team_id, content, task_date
 		 from task_tb
 		  where task_id = #{taskId}
 	</select>

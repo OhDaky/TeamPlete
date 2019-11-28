@@ -84,12 +84,6 @@
                                             <h6 class="text-bold-600"><c:out value="팀원: " /><strong style="color:#0275d8 !important"><c:out value="${ team.members }" /></strong></h6>									
 											<h4 class="primary text-bold-400" style="margin-top:5%"><c:out value="남은 과제 제출 기한: " /><strong class="text-bold-600 text-nowrap" style="color:red !important;"><c:out
 										value="${ deadline[status.index] }" /></strong></h4>
-										<c:set var="teamIdM" value="${ team.teamId }"/>
-										<c:if test="${ loginVO.memberid eq team.ownerId }">
-										<button type="button" name="modify" id="modifyBtn" class="btn btn-outline-success" onclick="modifyFunc(${ team.teamId })"
-										data-toggle="modal" data-target="#updateTeam" value="${ team.deadline }"">수정</button>
-										<button type="button" name="delete" value="${ team.teamId }">삭제</button>
-										</c:if>
                                         </div>
                                     </div>
                                 </div>
@@ -158,46 +152,6 @@
 					
 					</div>
 			</div>
-											<!-- Modal3 (수정) -->		
-								<div class="modal fade text-left" id="updateTeam" tabindex="-1"
-										role="dialog" aria-labelledby="myModalLabel33"
-										aria-hidden="true">
-										<div
-											class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-											role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h4 class="modal-title" id="myModalLabel33">팀의 정보를 수정해주세요.</h4>
-													<button type="button" class="close" data-dismiss="modal"
-														aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<form method="post"
-													name="modifyTeam">
-
-													<div class="modal-body">
-													<div class="form-group">
-													<label>Team Name: </label>
-													<div>
-															<input type="text" name="teamName" id="teamNameM"
-																 class="form-control"/>
-														</div>
-														<label>deadline: (선택입니다) </label>
-														<div class="form-group">
-															<input type="date" name="deadline" id="deadlineM"
-																 class="form-control"/>
-														</div>
-														<div class="modal-footer">
-															<button type="button" id="modifyButton" onClick="submit2()"
-																class="btn btn-primary" data-dismiss="modal">Modify</button>
-														</div>
-													</div>
-													</form>
-											</div>
-										</div>
-									</div>
-									</div>
 <!-- 			</section> -->
 		</c:if>
 	</div>
@@ -221,69 +175,16 @@
 	<!-- BEGIN: Page JS-->
 	<script src="${ pageContext.request.contextPath }/resources/js/drag-drop.js"></script>
 	<!-- END: Page JS-->
-	
-	<script src="${ pageContext.request.contextPath }/resources/js/teamdelete.js"></script>
+
 
 
 	<script>
-	
-	var deadline = '';
-	
-	var id = '';
-	
-	function modifyFunc(modifyTeamId) {
-		   id = modifyTeamId;
-		   
-	}
 
-	$(document).ready(function() {
-	// 수정버튼 클릭
-	$("button[name='modify']").click(function() {
-
-
-		deadline = this.value;
-		
-		// 내용 담는 코드
-		var par = $(this).parent();
-		var chi = par.children();
-		
-		var teamName = chi.eq(0).text();
-		
-		console.log(id);
-		console.log(teamName);
-		console.log(deadline);
-		
-		$('input[id=teamNameM]').attr('value', teamName);
-		$('input[id=deadlineM]').attr('value', deadline);		
-	});
-	
-// 	$("button[name='delete']").click(function() {
-// 		id = this.value;
-// 		console.log(id);
-// 		if(confirm("삭제하시겠습니까?")){
-// 			$.ajax({
-// 				url : '/team/delete/' + id,
-// 				type : 'DELETE'
-// 			});
-// 			$('#card-drag-area').load(document.URL +  ' #card-drag-area');
-// // 			location.reload();
-// 		} else return;
-
-// 	});
-
-	});
-	
 
    function submit(){
 	    var form = document.createTeamForm;
 	    
 	    form.submit();
-	}
-   
-   function submit2(){
-	    var form2 = document.modifyTeam;
-	    form2.action = "${pageContext.request.contextPath}/team/update/" + id;
-	    form2.submit();
 	}
    
    function teamDetail(teamId) {

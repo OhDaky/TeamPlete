@@ -5,20 +5,21 @@ public class TaskVO {
 	private String writerId;
 	private String writerName;
 	private int teamId;
-	private String content;
+	private String content, taskDate;
 	
 	public TaskVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public TaskVO(int taskId, String writerId, String writerName, int teamId, String content) {
+	public TaskVO(int taskId, String writerId, String writerName, int teamId, String content, String taskDate) {
 		super();
 		this.taskId = taskId;
 		this.writerId = writerId;
 		this.writerName = writerName;
 		this.teamId = teamId;
 		this.content = content;
+		this.taskDate = taskDate;
 	}
 
 	public int getTaskId() {
@@ -61,10 +62,18 @@ public class TaskVO {
 		this.content = content;
 	}
 
+	public String getTaskDate() {
+		return taskDate;
+	}
+
+	public void setTaskDate(String taskDate) {
+		this.taskDate = taskDate;
+	}
+
 	@Override
 	public String toString() {
 		return "TaskVO [taskId=" + taskId + ", writerId=" + writerId + ", writerName=" + writerName + ", teamId="
-				+ teamId + ", content=" + content + "]";
+				+ teamId + ", content=" + content + ", taskDate=" + taskDate + "]";
 	}
 	
 }

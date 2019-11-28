@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.teamplete.dto.BoardVO;
 import kr.co.teamplete.dto.MemberVO;
 import kr.co.teamplete.dto.TaskVO;
 import kr.co.teamplete.dto.TeamMemberVO;
 import kr.co.teamplete.dto.TeamVO;
+import kr.co.teamplete.service.BoardService;
 import kr.co.teamplete.service.MemberService;
 import kr.co.teamplete.service.TaskService;
 import kr.co.teamplete.service.TeamService;
@@ -35,6 +37,9 @@ public class TeamController {
 	
 	@Autowired
 	private TaskService taskService;
+	
+	@Autowired
+	private BoardService boardService;
 	
 
 	// 팀 등록한 뒤 팀 조회 페이지로 돌아감
@@ -135,8 +140,8 @@ public class TeamController {
 //				}
 //				
 				
-//				System.out.println(calDate);
-//				System.out.println(calDateDays);
+				System.out.println(calDate);
+				System.out.println(calDateDays);
 				if(calDate < 0) {
 					if(calDateDays <= 0) {
 						return "마감";
@@ -165,6 +170,10 @@ public class TeamController {
 		TeamVO team = service.detailTeam(teamId);
 		List<MemberVO> members = service.selectAllMembers(teamId);
 		List<TaskVO> taskList = taskService.selectAllTaskS(teamId);
+		List<List<BoardVO>> boardList = new ArrayList<>();
+		for(int i=0; i<taskList.size(); i++) {
+			boardList.add(boardService.selectAllBoardS(taskList.get(i).getTaskId()));
+		}
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("team/teamDetail");
@@ -172,6 +181,8 @@ public class TeamController {
 		mav.addObject("members", members);
 //		System.out.println(members.toString());
 		mav.addObject("taskList", taskList);
+		
+		mav.addObject("boardList", boardList);
 	
 		return mav;
 	}

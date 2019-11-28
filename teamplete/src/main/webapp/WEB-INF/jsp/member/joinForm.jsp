@@ -16,10 +16,12 @@
             data : {
                "idCheck" : $('#memberid').val() 
             },
-            success : function(data) {
-               if ($.trim(data) == 0) {
+            success : function(result) {
+               if ($.trim(result) == 0) {
+            	   console.log(result);
                   $('#checkMsg').html('<p style="color:blue">사용가능</p>');
                } else {
+            	   console.log(result);
                   $('#checkMsg').html('<p style="color:red">사용불가능</p>');
                }
             }
