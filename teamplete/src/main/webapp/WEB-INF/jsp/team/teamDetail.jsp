@@ -39,28 +39,13 @@
 	href="${ pageContext.request.contextPath }/resources/css/palette-gradient.css">
 <link rel="stylesheet" type="text/css"
 	href="${ pageContext.request.contextPath }/resources/css/authentication.css">
+<link rel="stylesheet" type="text/css"
+	href="${ pageContext.request.contextPath }/resources/css/select2.min.css">
 <!-- END: Page CSS-->
-<style>
-p {
-	color: black;
-}
 
-label {
-	color: black;
-}
-
-#members {
-	background-color: blue;
-	font-weight: bold;
-}
-
-.sec {
-	margin-left: 25%;
-	padding-top: 10%;
-}
-</style>
 
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 <script>
 // $(document).ready(function() {
 //     $('#checkbtn').on('click', function() {
@@ -88,8 +73,12 @@ label {
 
 	<header> <jsp:include page="/WEB-INF/jsp/include/navbar.jsp" />
 	</header>
+	
+	<div class="app-content content">
+	 <div class="content-wrapper" id="contentWrapper">
 
-	<section class="sec" id="sec">
+	<section class="sec" id="sec" style="margin-left: 25%;
+	padding-top: 10%;">
 	<h2>${ team.teamName }상세페이지입니다.</h2>
 
 	<div id="membersView">
@@ -97,6 +86,62 @@ label {
 			<span id="members">${ member.memberid }</span>
 		</c:forEach>
 	</div>
+	
+	<div>
+				
+				
+				<section id="draggable-cards">
+                    <div class="row" id="card-drag-area">
+                        <div class="col-md-6 col-12">
+                            <div class="card" id="showdetail">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                    	<section class="multiple-select2">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">초대할 사람의 email을 입력해주세요</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-8 col-sm-6 col-12">
+                                                <div class="text-bold-600 font-medium-2">
+                                                   		 아이디를 입력해 주세요
+                                                </div>
+                                                <div class="form-group">
+                                                    <select class="select2 form-control" id="selectMulti" multiple="multiple">
+                                                        <option></option>                                                         
+                                                    </select>
+                                                    
+                                                </div>
+                                                <button class = "btn btn-outline-success" onclick="selectMulti()">selectMulti</button>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+			</div>
+	
+	
+	
+	
+	
+	
+
+	
 
 <!-- 	<section id="form-and-scrolling-components"> -->
 	<div class="row match-height">
@@ -104,6 +149,7 @@ label {
 			<div class="card">
 				<div class="card-header">
 					<h4 class="card-title">Form Components</h4>
+					
 				</div>
 				<div class="card-content">
 					<div class="card-body">
@@ -137,7 +183,8 @@ label {
 											<div class="modal-body">
 												<label>Member ID: </label>
 												<div class="form-group">
-													<input type="text" name="memberId" id="memberId"
+													<input type="text" name="memberId" id="me
+													mberId"
 														placeholder="Member ID" class="form-control">
 												</div>
 												<div class="modal-footer">
@@ -155,7 +202,8 @@ label {
 			</div>
 		</div>
 	</div>
-	
+	<div class="row">
+                        
 	
 	<!-- 태스크 조회, 태스크 추가 -->
 	<table id="taskTable" style="color: black;">
@@ -248,13 +296,17 @@ label {
 	<!-- END: Theme JS-->
 
 	<!-- BEGIN: Page JS-->
+	<script
+		src="${ pageContext.request.contextPath }/resources/js/select2.full.min.js"></script>
+			<script
+		src="${ pageContext.request.contextPath }/resources/js/form-select2.js"></script>
 	<!-- END: Page JS-->
 
 
 	<script>
    function submitMember(){
 	    var form = document.createTeamForm;
-	    var result = confirm(document.getElementById('memberId').value + "님을 팀에 추가하시겠습니까?");
+	    var result = confirm(document.getElementById('memberId') + "님을 팀에 추가하시겠습니까?");
 	    
 	    if(result) {
 // 	    	form.submit();
@@ -281,7 +333,9 @@ label {
 	    }
 	    
 	}
-   
+   function selectMulti(){
+   console.log($('#selectMulti').select2('data'));
+   }
    function submitTask(){
 
 // 	    var createTaskForm = document.createTaskForm;
@@ -334,5 +388,8 @@ label {
    
    
 </script>
+
+	</div>
+	</div>
 </body>
 </html>

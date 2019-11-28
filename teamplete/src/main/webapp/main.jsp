@@ -25,6 +25,8 @@
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
 <link rel="stylesheet" type="text/css"
 	href="${ pageContext.request.contextPath }/resources/css/vendors.min.css">
+	
+<link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/resources/css/select2.min.css">
 
 
 

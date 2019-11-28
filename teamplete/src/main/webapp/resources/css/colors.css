@@ -10,8 +10,8 @@ $approved: #00B961;
 
 body {
 	background: #33363D;
-	color: white;
-	font-family: 'Lato';
+	color: black;
+	font-family: 'Noto Sans KR,Lato';
 	font-weight: 300;
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
