@@ -24,6 +24,8 @@
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
 <link rel="stylesheet" type="text/css"
 	href="${ pageContext.request.contextPath }/resources/css/vendors.min.css">
+<link rel="stylesheet" type="text/css"
+	href="${ pageContext.request.contextPath }/resources/css/select2.min.css">
 
 
 
@@ -127,6 +129,75 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="app-content content">
+	 <div class="content-wrapper" id="contentWrapper">
+
+	<section class="sec" id="sec" style="margin-left: 25%;
+	padding-top: 10%;">
+	<h2>${ team.teamName }상세페이지입니다.</h2>
+
+	<div id="membersView">
+		<c:forEach items="${ members }" var="member">
+			<span id="members">${ member.memberid }</span>
+		</c:forEach>
+	</div>
+	
+	<div>
+				
+				
+				<section id="draggable-cards">
+                    <div class="row" id="card-drag-area">
+                        <div class="col-md-6 col-12">
+                            <div class="card" id="showdetail">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                    	<section class="multiple-select2">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">초대할 사람의 email을 입력해주세요</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-8 col-sm-6 col-12">
+                                                <div class="text-bold-600 font-medium-2">
+                                                   		 아이디를 입력해 주세요
+                                                </div>
+                                                <div class="form-group">
+                                                    <select class="select2 form-control" id="selectMulti" multiple="multiple">
+                                                        <option></option>                                                         
+                                                    </select>
+                                                    
+                                                </div>
+                                                <form method="post"
+											action="${pageContext.request.contextPath}/teamdetail/${ team.teamId }"
+											name="createTeamForm">
+											<input type="hidden" name="teamId" id="teamId" value="${ team.teamId }">
+													<input type="text" name="memberId" id="memberId"
+														placeholder="Member ID" class="form-control">
+													<button type="button" onClick="selectMulti()"
+														class="btn btn-primary" >MultiinPut</button>
+											</form>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+			</div>
 
 	<!-- Modal3 (수정) -->
 	<div class="modal fade text-left" id="updateTeam" tabindex="-1"
@@ -260,6 +331,10 @@
 		src="${ pageContext.request.contextPath }/resources/js/components.js"></script>
 	<!-- END: Theme JS-->
 
+	<script
+		src="${ pageContext.request.contextPath }/resources/js/select2.full.min.js"></script>
+			<script
+		src="${ pageContext.request.contextPath }/resources/js/form-select2.js"></script>
 	<!-- BEGIN: Page JS-->
 	<!-- END: Page JS-->
 
@@ -318,6 +393,16 @@
 	    }
 	    
 	}
+   
+   function selectMulti(){
+	   var array = $('#selectMulti').select2('data');
+	   console.log(array);
+	   var index= $('#selectMulti').select2('data').length;
+	   console.log($('#selectMulti').select2('data').length);
+	   for(i=0;i<index;i++){
+		   console.log(array[i].id);
+	   }
+   }
    
    function submitTask(){
 
