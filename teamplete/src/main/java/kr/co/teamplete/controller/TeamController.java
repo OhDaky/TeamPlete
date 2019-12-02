@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -191,12 +192,19 @@ public class TeamController {
 	//팀 멤버 추가한 뒤 상세 팀 조회 페이지로 돌아감
 	@RequestMapping(value = "/teamdetail/{id}", method = RequestMethod.POST)
 	@ResponseBody
-	public TeamMemberVO addTeamMember(@RequestBody TeamMemberVO teamMember, @PathVariable("id") int teamId) {
-		service.insertTeamMem(teamMember);
+	public String addTeamMember( @RequestBody ArrayList<String> memberList,  @PathVariable("id") int teamId) {
+		for (String s : memberList) {
+			//teamMember.setMemberId(s);
+			TeamMemberVO teamMember = new TeamMemberVO();
+			teamMember.setMemberId(s);
+			teamMember.setTeamId(teamId);			
+			service.insertTeamMem(teamMember);			
+		}
+		
 		TeamVO team = service.detailTeam(teamId);
 		membersUpdate(team);
 		
-		return teamMember;
+		return "redirect:/team/" + teamId;
 	}
 	
 	//팀 정보 수정

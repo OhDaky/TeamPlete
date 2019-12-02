@@ -108,6 +108,9 @@
 											action="${pageContext.request.contextPath}/teamdetail/${ team.teamId }"
 											name="createTeamForm">
 											<input type="hidden" name="teamId" id="teamId" value="${ team.teamId }">
+											<input type="hidden" name="Id" id="Id" value="${ loginVO.memberid }">
+											<input type="hidden" name="Members" id="Members" value="${ team.members }">
+											${ team.members }
 											<div class="modal-body">
 												<label>Member ID: </label>
 												<div class="form-group">
@@ -166,20 +169,18 @@
                                                 <div class="text-bold-600 font-medium-2">
                                                    		 아이디를 입력해 주세요
                                                 </div>
-                                                <div class="form-group">
-                                                    <select class="select2 form-control" id="selectMulti" multiple="multiple">
-                                                        <option></option>                                                         
-                                                    </select>
-                                                    
-                                                </div>
+                                                
                                                 <form method="post"
 											action="${pageContext.request.contextPath}/teamdetail/${ team.teamId }"
 											name="createTeamForm">
 											<input type="hidden" name="teamId" id="teamId" value="${ team.teamId }">
-													<input type="text" name="memberId" id="memberId"
-														placeholder="Member ID" class="form-control">
-													<button type="button" onClick="selectMulti()"
-														class="btn btn-primary" >MultiinPut</button>
+													<select class="select2 form-control" id="selectMulti" multiple="multiple">
+                                                        <option></option>                                                         
+                                                    </select>
+                                                    <input type="hidden" name="memberId" id="memberId" value="$('#selectMulti').select2('data')">
+													
+														<button type="button" onClick="submitMember()"
+														class="btn btn-primary" >Create</button>
 											</form>
                                             </div>
                                            
@@ -366,17 +367,20 @@
 	   
    function submitMember(){
 	    var form = document.createTeamForm;
-	    var result = confirm(document.getElementById('memberId').value + "님을 팀에 추가하시겠습니까?");
-	    
+	   
+	    var array = $('#selectMulti').select2('data');
+	    var memberList2=[];
+	    var index= $('#selectMulti').select2('data').length;
+	    for(i=0;i<index;i++){
+			   memberList2.push(array[i].id);
+	    }   
+	    var result = confirm(memberList2 + "님을 팀에 추가하시겠습니까?");
 	    if(result) {
-// 	    	form.submit();
-	        var data = {teamId : $('#teamId').val(),
-	    		   	   memberId : $('#memberId').val()
-	    		   	   };
+// 	   
 	       $.ajax({
 	          type : 'POST',
 	          url : '/teamdetail/${ team.teamId }',
-	          data : JSON.stringify(data),
+	          data : JSON.stringify(memberList2),
 	          contentType : "application/json",
 	          success : function(data) {
 	        	  console.log(data);
@@ -393,6 +397,36 @@
 	    }
 	    
 	}
+   
+   function selectMulti(){
+	    var result = confirm();
+	    
+	    if(result) {
+//	    	form.submit();
+	        var data = {teamId : $('#teamId').val(),
+	    		   	   memberId : $('#selectMulti').select2('data').id
+	    		   	   };
+	       $.ajax({
+	          type : 'POST',
+	          url : '/teamdetail/${ team.teamId }',
+	          data : JSON.stringify(data),
+	          contentType : "application/json",
+	          success : function(data) {
+	        	  console.log(data);
+
+//	         	  $('#membersView').load(document.URL +  ' #membersView');
+	        	  location.reload();
+	          },
+	          error : function(error) {
+	        	  console.log(error);
+	          }
+	       });
+	    }else {
+	    	return;
+	    }
+	    
+	}
+   
    
    function selectMulti(){
 	   var array = $('#selectMulti').select2('data');
