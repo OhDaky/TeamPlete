@@ -67,20 +67,30 @@
 					<tr>
 						<th width="23%" style="color:black;">제목</th>
 						<td><input type="text" name="title" style="width:100%;"
-							autofocus="autofocus"></td>
+							autofocus="autofocus" required></td>
 					</tr>
 					<tr>
 						<th width="23%" style="color:black;">내용</th>
 						<td><textarea rows="15" name="content" style="width:100%;"></textarea></td>
 					</tr>
 <!-- 					<tr> -->
-<!-- 						<th scope="row">첨부파일</th> -->
-<!-- 						<td><input type="file" accept="image/*" id="files[0]" name="files[0]" value=""> -->
-<!-- 						</td> -->
+<!-- 						<th width="23%" style="color:black;">다중 첨부파일</th> -->
+<!-- 						<td style="color:black;"><input type="file" id="files" name="files" value="" multiple></td> -->
 <!-- 					</tr> -->
+					<tr>
+						<th width="23%" style="color:black;">첨부파일</th>
+						<td style="color:black;" id="fileForm">
+						<button type="button" name="fileBtn" id="fileBtn">파일 추가</button>
+<!-- 							<input type="file" id="files[0]" name="files[0]" value=""><br> -->
+<!-- 							<input type="file" id="files[1]" name="files[1]" value=""><br> -->
+<!-- 							<input type="file" id="files[2]" name="files[2]" value=""><br> -->
+<!-- 							<input type="file" id="files[3]" name="files[3]" value=""><br> -->
+<!-- 							<input type="file" id="files[4]" name="files[4]" value=""> -->
+						</td>
+					</tr>
 					
 				</table>
-				<button type="submit" class="btn btn-default">등록</button>
+				<button type="button" onClick="checkForm()" class="btn btn-default">등록</button>
 			</form>
 	
 	
@@ -117,6 +127,50 @@
 
 <script>
 
+var index = 0;
+
+$("button[name='fileBtn']").click(function() {
+	$('#fileForm').append('<br name="fileBr' + index +'"><input type="file" id="files[' + index + ']" name="files[' + index + ']" value="">');
+	$('#fileForm').append('<button type="button" name="btn'+index+'" class="btn black ml15" style="padding: 3px 5px 6px 5px; color: red;" onClick="deleteFile(' + index + ')">X</button>');
+	console.log('<br><input type="file" id="files[' + index + ']" name="files[' + index + ']" value="">')
+	index += 1;
+});
+
+
+function deleteFile(idx) {
+	$("br[name='fileBr" + idx + "']").remove();
+	$("input[name='files[" + idx + "]']").remove();
+	$("button[name='btn" + idx + "']").remove();
+	console.log(idx);
+}
+
+
+function checkForm() {
+	
+	var form = document.boardWriteForm;
+	
+	if (!form.title.value) {
+		alert('제목은 필수항목입니다.');
+		form.title.focus();
+		return false;
+	}
+		
+	var cnt = 0;
+	for(i = 0; i < index; i++) {
+		if(document.getElementById('files[' + i + ']')) {
+		if ($("input[name='files[" + i + "]']").val() != ""){
+			document.getElementById('files[' + i + ']').setAttribute('name', 'files[' + cnt + ']');
+			cnt ++;
+		}else {
+			$("br[name='fileBr" + i + "']").remove();
+			$("input[name='files[" + i + "]']").remove();
+			$("button[name='btn" + i + "']").remove();
+		}
+		}
+	}
+	
+	form.submit();
+}
 
 </script>
 </body>

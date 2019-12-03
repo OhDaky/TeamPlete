@@ -1,9 +1,7 @@
 package kr.co.teamplete.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -115,52 +112,32 @@ public class TeamController {
 
 	// 남은 제출 기한 구하기
 	public String deadline(TeamVO team) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-		Date date = new Date();
-		String today = dateFormat.format(date);
 		String deadline = team.getDeadline();
-		
+
 		if (deadline != null) {
-
-			long calDateDays = 0;
-
+			String[] words = deadline.split("-");
 			try {
-				Date todayDate = dateFormat.parse(today);
-				Date deadLineDate = dateFormat.parse(deadline);
+				Calendar today = Calendar.getInstance(); // 오늘 날짜
+//				System.out.println("오늘날짜: " + today);
+				Calendar dday = Calendar.getInstance();
 
-				long calDate = deadLineDate.getTime() - todayDate.getTime();
-//				System.out.println("deadLineDate.getTime(): " + deadLineDate.getTime());
-//				System.out.println("todayDate.getTime(): " + todayDate.getTime());
-				
-				calDateDays = calDate / (24 * 60 * 60 * 1000) + 1;
-				
-//				if(calDate < 0 && calDateDays <= 0) {
-//					return "마감";
-//				} else if(calDate < 0 && calDateDays == 1) {
-//					return "D-day";
-//				}
-//				
-				
-				System.out.println(calDate);
-				System.out.println(calDateDays);
-				if(calDate < 0) {
-					if(calDateDays <= 0) {
-						return "마감";
-					} else if(calDateDays == 1) {
-						return "오늘";
-					}
-				}
-				
+				dday.set(Integer.parseInt(words[0]), Integer.parseInt(words[1]) - 1, Integer.parseInt(words[2]));
+//				System.out.println("dday 날짜: " + dday);
 
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
+				long calDay = (dday.getTimeInMillis() - today.getTimeInMillis()) / 86400000;
+
+				if (calDay < 0)
+					return "마감";
+				else if (calDay == 0)
+					return "오늘";
+				else
+					return Long.toString(calDay) + "일";
+
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
-//			System.out.println(calDateDays);
-			return Long.toString(calDateDays) + "일";
-
-		} else
-			return "마감기한 없음";
+		}
+		return "마감기한 없음";
 	}
 	
 	
@@ -192,19 +169,12 @@ public class TeamController {
 	//팀 멤버 추가한 뒤 상세 팀 조회 페이지로 돌아감
 	@RequestMapping(value = "/teamdetail/{id}", method = RequestMethod.POST)
 	@ResponseBody
-	public String addTeamMember( @RequestBody ArrayList<String> memberList,  @PathVariable("id") int teamId) {
-		for (String s : memberList) {
-			//teamMember.setMemberId(s);
-			TeamMemberVO teamMember = new TeamMemberVO();
-			teamMember.setMemberId(s);
-			teamMember.setTeamId(teamId);			
-			service.insertTeamMem(teamMember);			
-		}
-		
+	public TeamMemberVO addTeamMember(@RequestBody TeamMemberVO teamMember, @PathVariable("id") int teamId) {
+		service.insertTeamMem(teamMember);
 		TeamVO team = service.detailTeam(teamId);
 		membersUpdate(team);
 		
-		return "redirect:/team/" + teamId;
+		return teamMember;
 	}
 	
 	//팀 정보 수정

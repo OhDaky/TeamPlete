@@ -1,6 +1,13 @@
 package kr.co.teamplete.dto;
 
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
 public class BoardVO {
+	
+	List<MultipartFile> files;
+	
 	private int boardId;
 	private String writerId, writerName, title, content, 
 	boardDate;
@@ -11,9 +18,10 @@ public class BoardVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BoardVO(int boardId, String writerId, String writerName, String title, String content, String boardDate,
-			int taskId) {
+	public BoardVO(List<MultipartFile> files, int boardId, String writerId, String writerName, String title,
+			String content, String boardDate, int taskId) {
 		super();
+		this.files = files;
 		this.boardId = boardId;
 		this.writerId = writerId;
 		this.writerName = writerName;
@@ -21,6 +29,14 @@ public class BoardVO {
 		this.content = content;
 		this.boardDate = boardDate;
 		this.taskId = taskId;
+	}
+
+	public List<MultipartFile> getFiles() {
+		return files;
+	}
+
+	public void setFiles(List<MultipartFile> files) {
+		this.files = files;
 	}
 
 	public int getBoardId() {
@@ -81,8 +97,9 @@ public class BoardVO {
 
 	@Override
 	public String toString() {
-		return "BoardVO [boardId=" + boardId + ", writerId=" + writerId + ", writerName=" + writerName + ", title="
-				+ title + ", content=" + content + ", boardDate=" + boardDate + ", taskId=" + taskId + "]";
+		return "BoardVO [files=" + files + ", boardId=" + boardId + ", writerId=" + writerId + ", writerName="
+				+ writerName + ", title=" + title + ", content=" + content + ", boardDate=" + boardDate + ", taskId="
+				+ taskId + "]";
 	}
 	
 }

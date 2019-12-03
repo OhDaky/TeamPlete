@@ -1,15 +1,18 @@
 package kr.co.teamplete.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.teamplete.dto.BoardVO;
+import kr.co.teamplete.dto.FileVO;
 import kr.co.teamplete.dto.TaskVO;
 import kr.co.teamplete.service.BoardService;
 import kr.co.teamplete.service.TaskService;
@@ -47,6 +50,25 @@ public class BoardController {
 		service.insertBoardS(board);
 		
 		return "redirect:/teamdetail/" + task.getTeamId();
+	}
+	
+	// 특정 board 상세 조회
+	@RequestMapping(value="/board/{boardId}", method = RequestMethod.GET)
+	public ModelAndView boardDetail(@PathVariable("boardId") int boardId) {
+		
+		BoardVO board = service.selectBoardById(boardId);
+		
+		//board의 모든 파일 리스트
+		List<FileVO> fileList = service.selectAllFileS(boardId);
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("board/boardDetail");
+		
+		mav.addObject("boardDetail", board);
+		mav.addObject("fileList", fileList);
+		
+		return mav;
 	}
 
 	

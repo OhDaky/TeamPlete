@@ -28,8 +28,7 @@
 	
 <link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/resources/css/select2.min.css">
 
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
+
 
 <link rel="stylesheet" type="text/css"
 	href="${ pageContext.request.contextPath }/resources/css/dark-layout.css">
@@ -43,10 +42,16 @@
 	href="${ pageContext.request.contextPath }/resources/css/palette-gradient.css">
 <link rel="stylesheet" type="text/css"
 	href="${ pageContext.request.contextPath }/resources/css/authentication.css">
-<link rel="stylesheet" type="text/css"
-	href="${ pageContext.request.contextPath }/resources/css/vegas.min.css">	
 <!-- END: Page CSS-->
+<style>
+p {
+	color: black;
+}
 
+label {
+	color: black;
+}
+</style>
 </head>
 <body
 	class="horizontal-layout horizontal-menu 1-column  navbar-floating footer-static bg-full-screen-image  blank-page blank-page"
@@ -75,10 +80,10 @@
 								<div class="card rounded-0 mb-0 px-2">
 									<div class="card-header pb-1">
 										<div class="card-title">
-											<h2 class="mb-0" style="font-weight:600 !important;">로그인</h2>
+											<h4 class="mb-0">로그인</h4>
 										</div>
 									</div>
-									<h4 class="px-2" style="font-weight:500 !important;">팀플리트에 오신 것을 환영합니다!</h4>
+									<p class="px-2">팀플리트에 오신 것을 환영합니다..</p>
 									<div class="card-content">
 										<div class="card-body pt-1">
 											<form method="post" style="margin-top: 5%;"
@@ -124,7 +129,7 @@
 													</div>
 												</div>
 												<a href="${ pageContext.request.contextPath }/member/join"
-													class="btn btn-success float-left btn-inline">회원가입</a>
+													class="btn btn-outline-primary float-left btn-inline">회원가입</a>
 												<button type="submit" class="btn btn-primary float-right btn-inline">로그인</button>
 											</form>
 										</div>
@@ -154,12 +159,6 @@
 					</div>
 				</div>
 				</section>
-				
-				
-				
-				
-				
-				
 			</div>
 		</div>
 	</div>
@@ -176,8 +175,6 @@
 	<!-- BEGIN: Page Vendor JS-->
 	<script
 		src="${ pageContext.request.contextPath }/resources/js/jquery.sticky.js"></script>
-	<script
-		src="${ pageContext.request.contextPath }/resources/js/vegas.min.js"></script>	
 	<!-- END: Page Vendor JS-->
 
 	<!-- BEGIN: Theme JS-->
@@ -192,7 +189,10 @@
 	<!-- END: Page JS-->
 
 
-	
+	<a href="${ pageContext.request.contextPath }/drag"
+		class="btn btn-primary">drag</a>
+	<a href="${ pageContext.request.contextPath }/practice"
+		class="btn btn-danger">practice</a>
 
 	<script>
 	
@@ -204,26 +204,6 @@
    if ("${ param.msg }")
       alert("${ param.msg }");
    
-   $(function(){
-	   $('body').vegas({
-		   slides:[
-			   {src: '${ pageContext.request.contextPath }/resources/images/bg1.jpg'},
-			   {src: '${ pageContext.request.contextPath }/resources/images/bg2.jpg'},
-			   {src: '${ pageContext.request.contextPath }/resources/images/bg3.jpg'},
-			   {src: '${ pageContext.request.contextPath }/resources/images/bg4.jpg'},
-			   {src: '${ pageContext.request.contextPath }/resources/images/bg5.jpg'},
-			   {src: '${ pageContext.request.contextPath }/resources/images/bg6.jpg'},
-			   {src: '${ pageContext.request.contextPath }/resources/images/bg7.jpg'},
-			   {src: '${ pageContext.request.contextPath }/resources/images/bg8.jpg'},
-			   {src: '${ pageContext.request.contextPath }/resources/images/bg9.jpg'},
-			   {src: '${ pageContext.request.contextPath }/resources/images/bg10.jpg'}
-		   ],
-		   delay:5500,
-		   timer:false,
-		   overlay:true
-		   
-	   })
-   })
    
 </script>
 </body>

@@ -15,7 +15,9 @@
 	href="${ pageContext.request.contextPath }/resources/css/colors.css">
 <link rel="stylesheet" type="text/css"
 	href="${ pageContext.request.contextPath }/resources/css/components.css">
-
+<link
+	href="https://fonts.googleapis.com/cssf?family=Montserrat:300,400,500,600"
+	rel="stylesheet">
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
 <link rel="stylesheet"
@@ -42,7 +44,11 @@
 <!-- END: Page CSS-->
 
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-
+<style>
+#teamNameLink:hover {
+	text-decoration: underline;
+}
+</style>
 </head>
 <body>
 	<header> <jsp:include page="/WEB-INF/jsp/include/navbar.jsp" />
@@ -78,7 +84,7 @@
 								src="${ pageContext.request.contextPath }/resources/images/${ team.img }"
 								alt="avatar">
                                         <div class="card-text" style="font-family:Montserrat;">                                        
-                                            <h2 class="text-bold-700" style="margin-top:7%;" onclick="teamDetail(${ team.teamId })" ><c:out value="${ team.teamName }" /></h2>
+                                            <h2 id="teamNameLink" class="text-bold-700" style="margin-top:7%;" onclick="teamDetail(${ team.teamId })" ><c:out value="${ team.teamName }" /></h2>
                                             <h6 class="text-bold-600"><c:out value="팀원: " /><strong style="color:#0275d8 !important"><c:out value="${ team.members }" /></strong></h6>									
 											<h4 class="primary text-bold-400" style="margin-top:5%"><c:out value="남은 과제 제출 기한: " /><strong class="text-bold-600 text-nowrap" style="color:red !important;"><c:out
 										value="${ deadline[status.index] }" /></strong></h4>
