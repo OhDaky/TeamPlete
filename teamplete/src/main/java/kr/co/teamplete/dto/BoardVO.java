@@ -1,88 +1,105 @@
 package kr.co.teamplete.dto;
 
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
 public class BoardVO {
-	private int boardId;
-	private String writerId, writerName, title, content, 
-	boardDate;
-	private int taskId;
-	
-	public BoardVO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+   
+   List<MultipartFile> files;
+   
+   private int boardId;
+   private String writerId, writerName, title, content, 
+   boardDate;
+   private int taskId;
+   
+   public BoardVO() {
+      super();
+      // TODO Auto-generated constructor stub
+   }
 
-	public BoardVO(int boardId, String writerId, String writerName, String title, String content, String boardDate,
-			int taskId) {
-		super();
-		this.boardId = boardId;
-		this.writerId = writerId;
-		this.writerName = writerName;
-		this.title = title;
-		this.content = content;
-		this.boardDate = boardDate;
-		this.taskId = taskId;
-	}
+   public BoardVO(List<MultipartFile> files, int boardId, String writerId, String writerName, String title,
+         String content, String boardDate, int taskId) {
+      super();
+      this.files = files;
+      this.boardId = boardId;
+      this.writerId = writerId;
+      this.writerName = writerName;
+      this.title = title;
+      this.content = content;
+      this.boardDate = boardDate;
+      this.taskId = taskId;
+   }
 
-	public int getBoardId() {
-		return boardId;
-	}
+   public List<MultipartFile> getFiles() {
+      return files;
+   }
 
-	public void setBoardId(int boardId) {
-		this.boardId = boardId;
-	}
+   public void setFiles(List<MultipartFile> files) {
+      this.files = files;
+   }
 
-	public String getWriterId() {
-		return writerId;
-	}
+   public int getBoardId() {
+      return boardId;
+   }
 
-	public void setWriterId(String writerId) {
-		this.writerId = writerId;
-	}
+   public void setBoardId(int boardId) {
+      this.boardId = boardId;
+   }
 
-	public String getWriterName() {
-		return writerName;
-	}
+   public String getWriterId() {
+      return writerId;
+   }
 
-	public void setWriterName(String writerName) {
-		this.writerName = writerName;
-	}
+   public void setWriterId(String writerId) {
+      this.writerId = writerId;
+   }
 
-	public String getTitle() {
-		return title;
-	}
+   public String getWriterName() {
+      return writerName;
+   }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+   public void setWriterName(String writerName) {
+      this.writerName = writerName;
+   }
 
-	public String getContent() {
-		return content;
-	}
+   public String getTitle() {
+      return title;
+   }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+   public void setTitle(String title) {
+      this.title = title;
+   }
 
-	public String getBoardDate() {
-		return boardDate;
-	}
+   public String getContent() {
+      return content;
+   }
 
-	public void setBoardDate(String boardDate) {
-		this.boardDate = boardDate;
-	}
+   public void setContent(String content) {
+      this.content = content;
+   }
 
-	public int getTaskId() {
-		return taskId;
-	}
+   public String getBoardDate() {
+      return boardDate;
+   }
 
-	public void setTaskId(int taskId) {
-		this.taskId = taskId;
-	}
+   public void setBoardDate(String boardDate) {
+      this.boardDate = boardDate;
+   }
 
-	@Override
-	public String toString() {
-		return "BoardVO [boardId=" + boardId + ", writerId=" + writerId + ", writerName=" + writerName + ", title="
-				+ title + ", content=" + content + ", boardDate=" + boardDate + ", taskId=" + taskId + "]";
-	}
-	
+   public int getTaskId() {
+      return taskId;
+   }
+
+   public void setTaskId(int taskId) {
+      this.taskId = taskId;
+   }
+
+   @Override
+   public String toString() {
+      return "BoardVO [files=" + files + ", boardId=" + boardId + ", writerId=" + writerId + ", writerName="
+            + writerName + ", title=" + title + ", content=" + content + ", boardDate=" + boardDate + ", taskId="
+            + taskId + "]";
+   }
+   
 }

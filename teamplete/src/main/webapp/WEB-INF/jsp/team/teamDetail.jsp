@@ -291,6 +291,9 @@
 		   id = modifyTeamId;
 		   
 	}
+	function boardDetailFunc(boardId) {
+	      location.href = "${ pageContext.request.contextPath}/board/" + boardId;
+	   }
 	
 	var taskId = "";
 	
