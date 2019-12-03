@@ -54,97 +54,41 @@
 	<header> <jsp:include page="/WEB-INF/jsp/include/navbar.jsp" />
 	</header>
 
-	<section class="sec" id="sec" style="margin-left: 25%;
-	padding-top: 10%;">
-	<h2>${ team.teamName }상세페이지입니다.</h2>
+	<div class="app-content content">
+	 <div class="content-wrapper" id="contentWrapper">
+	 
+	<div class="content-header row">
+                <div class="content-header-left col-md-9 col-12 mb-2">
+                        <div class="col-12">
+                            <h2 class="content-header-title float-left mb-0 ">${ team.teamName }</h2>
 
-	<div id="membersView">
-		<c:forEach items="${ members }" var="member">
-			<span id="members">${ member.memberid }</span>
-		</c:forEach>
-	</div>
+						<c:forEach items="${ members }" var="member">
+							
+							<div class="avatar bg-success mr-1">
+                                            <div class="avatar-content" style="text-overflow:elipisis !important;">
+                                                ${ member.memberid }
+                                            </div>
+                                        </div>
+						</c:forEach>
+					</div>
+                </div>
+            </div>
+
 
 	<c:if test="${ loginVO.memberid eq team.ownerId }">
 		<button type="button" name="modify" id="modifyBtn"
-			class="btn btn-outline-success"
+			class="btn btn-success"
 			onclick="modifyFunc(${ team.teamId })" data-toggle="modal"
 			data-target="#updateTeam">팀 수정</button>
-		<button type="button" name="delete" value="${ team.teamId }">팀 삭제</button>
+		<button type="button" name="delete" class="btn btn-danger" value="${ team.teamId }">팀 삭제</button>
 	</c:if> 
 	
 	<!-- 	<section id="form-and-scrolling-components"> -->
-	<div class="row match-height">
-		<div class="col-md-4 col-sm-12">
-			<div class="card">
-				<div class="card-header">
-					<h4 class="card-title">Form Components</h4>
-				</div>
-				<div class="card-content">
-					<div class="card-body">
-						<div class="form-group">
-							<h5>Add Team Member Form</h5>
-							<p>Add Team Member</p>
-							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-outline-success"
-								data-toggle="modal" data-target="#inlineForm">add member</button>
-
-							<!-- Modal -->
-							<div class="modal fade text-left" id="inlineForm" tabindex="-1"
-								role="dialog" aria-labelledby="myModalLabel33"
-								aria-hidden="true">
-								<div
-									class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-									role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h4 class="modal-title" id="myModalLabel33">Inline Add
-												Member Form</h4>
-											<button type="button" class="close" data-dismiss="modal"
-												aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-										<form method="post"
-											action="${pageContext.request.contextPath}/teamdetail/${ team.teamId }"
-											name="createTeamForm">
-											<input type="hidden" name="teamId" id="teamId" value="${ team.teamId }">
-											<input type="hidden" name="Id" id="Id" value="${ loginVO.memberid }">
-											<input type="hidden" name="Members" id="Members" value="${ team.members }">
-											${ team.members }
-											<div class="modal-body">
-												<label>Member ID: </label>
-												<div class="form-group">
-													<input type="text" name="memberId" id="memberId"
-														placeholder="Member ID" class="form-control">
-												</div>
-												<div class="modal-footer">
-													<button type="button" onClick="submitMember()"
-														class="btn btn-primary" data-dismiss="modal">Create</button>
-												</div>
-											</div>
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 	
-	<div class="app-content content">
-	 <div class="content-wrapper" id="contentWrapper">
+	
+	
 
-	<section class="sec" id="sec" style="margin-left: 25%;
-	padding-top: 10%;">
-	<h2>${ team.teamName }상세페이지입니다.</h2>
-
-	<div id="membersView">
-		<c:forEach items="${ members }" var="member">
-			<span id="members">${ member.memberid }</span>
-		</c:forEach>
-	</div>
+	
 	
 	<div>
 				
@@ -307,10 +251,11 @@
 	
 	
 
-	</section>
 
 	<footer>
 	</footer>
+	
+	
 
 
 
@@ -398,45 +343,7 @@
 	    
 	}
    
-   function selectMulti(){
-	    var result = confirm();
-	    
-	    if(result) {
-//	    	form.submit();
-	        var data = {teamId : $('#teamId').val(),
-	    		   	   memberId : $('#selectMulti').select2('data').id
-	    		   	   };
-	       $.ajax({
-	          type : 'POST',
-	          url : '/teamdetail/${ team.teamId }',
-	          data : JSON.stringify(data),
-	          contentType : "application/json",
-	          success : function(data) {
-	        	  console.log(data);
-
-//	         	  $('#membersView').load(document.URL +  ' #membersView');
-	        	  location.reload();
-	          },
-	          error : function(error) {
-	        	  console.log(error);
-	          }
-	       });
-	    }else {
-	    	return;
-	    }
-	    
-	}
    
-   
-   function selectMulti(){
-	   var array = $('#selectMulti').select2('data');
-	   console.log(array);
-	   var index= $('#selectMulti').select2('data').length;
-	   console.log($('#selectMulti').select2('data').length);
-	   for(i=0;i<index;i++){
-		   console.log(array[i].id);
-	   }
-   }
    
    function submitTask(){
 

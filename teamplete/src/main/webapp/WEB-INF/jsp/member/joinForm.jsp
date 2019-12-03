@@ -80,7 +80,7 @@
                                     
                                         <div class="card-header pt-50 pb-1">
                                             <div class="card-title">
-                                                <h3 class="mb-0 text-bold-600">계정 생성</h3>
+                                                <h3 class="text-bold-600 mb-0">계정 생성</h3>
                                             </div>
                                         </div>
                                         <p class="px-2" style="font-weight:400">회원가입에 필요한 정보를 입력해주세요.</p>
@@ -151,7 +151,7 @@
                                                         </div>
                                                     </div>
 
-			<button type="submit" class="btn btn-primary float-right btn-inline">회원가입</button>
+			<button type="submit" class="btn btn-primary float-center btn-inline">회원가입</button>
 
 		</form:form>
 	</div>
