@@ -66,7 +66,7 @@
 							
 							<div class="avatar bg-success mr-1">
                                             <div class="avatar-content" style="text-overflow:elipisis !important;">
-                                                ${ member.memberid }
+                                                ${ member.name }
                                             </div>
                                         </div>
 						</c:forEach>
