@@ -145,7 +145,7 @@
 										<c:forEach var="board" items="${ boardList[status.index] }">										
 										<c:set var="count" value="${count + 1}" scope="page"/>
                                         <li class="list-group-item">
-                                            <span class="badge badge-pill bg-primary float-right">${count}</span>
+                                            <span class="badge badge-pill bg-primary float-right">${cou</span>
                                            <h4 id="boardTitle" class="primary"
 														onClick="boardDetailFunc(${ board.boardId })">${ board.title }</h4>
                                         </li>
