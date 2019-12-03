@@ -1,6 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+
+<%
+List<String> colorlist = new ArrayList<>();
+colorlist.add("bg-primary");
+colorlist.add("bg-info");
+colorlist.add("bg-warning");
+colorlist.add("bg-success");
+colorlist.add("bg-danger");
+request.setAttribute("colorlist", colorlist);
+%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -98,15 +112,11 @@
 					<div class="col-xl-3 col-md-6 col-sm-6">
 						<div class="card" id="showdetail">
 							<div class="card-content">
-								<div class="card-body">
-									<section class="multiple-select2">
 
 									<div class="card-header">
-										<h4 class="card-title">초대할 사람의 ID을 입력해주세요</h4>
+										<h4 class="card-title">초대할 사람의 <strong>ID</strong>를 <br> 입력해주세요</h4>
 									</div>
-									<div class="row">
-										<div class="col-xl-8 col-sm-6 col-12">
-											<div class="text-bold-600 font-medium-2">아이디를 입력해 주세요</div>
+									<div class="card-body">
 											<form method="post"
 												action="${pageContext.request.contextPath}/teamdetail/${ team.teamId }"
 												name="createTeamForm">
@@ -119,12 +129,9 @@
 													value="$('#selectMulti').select2('data')">
 
 												<button type="button" onClick="submitMember()"
-													class="btn btn-primary">Create</button>
+													class="btn btn-primary round btn-block mt-1">초대하기</button>
 											</form>
-										</div>
-
 									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -142,10 +149,12 @@
 
 										<ul class="list-group list-group-flush">
 										<c:set var="count" value="0" scope="page" />
-										<c:forEach var="board" items="${ boardList[status.index] }">										
+										<c:set var="randomcolor" value="" scope="page" />										
+										<c:forEach var="board" items="${ boardList[status.index] }">
+										<c:set var="rand"><%= java.lang.Math.round(java.lang.Math.random() * 4) %></c:set>										
 										<c:set var="count" value="${count + 1}" scope="page"/>
                                         <li class="list-group-item">
-                                            <span class="badge badge-pill bg-primary float-right">${count}</span>
+                                            <span class="badge badge-pill ${colorlist[count%5]} float-right">${count}</span>
                                            <h4 id="boardTitle" class="primary"
 														onClick="boardDetailFunc(${ board.boardId })">${ board.title }</h4>
                                         </li>

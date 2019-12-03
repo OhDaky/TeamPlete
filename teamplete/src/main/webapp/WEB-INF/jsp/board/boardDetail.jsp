@@ -45,10 +45,7 @@
 
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
-.sec {
-   margin-left: 25%;
-   padding-top: 10%;
-}
+
 
   table {
     border: 1px solid black;
@@ -68,51 +65,71 @@
 
    <header> <jsp:include page="/WEB-INF/jsp/include/navbar.jsp" />
    </header>
-   
-   <section class="sec" id="sec">
-      <div>
-      <table style="color: black;">
-      <tr>
-      <td>제목</td>
-      <td>${ boardDetail.title }</td>
-      </tr>
-      <tr>
-      <td>작성자</td>
-      <td>${ boardDetail.writerName }</td>
-      </tr>
-      <tr>
-      <td>content</td>
-      <td>${ boardDetail.content }</td>
-      </tr>
-      <tr>
-      <td>파일</td>
-      <td>
-      <c:forEach var="file" items="${ fileList }">
-      <h6 class="text-nowrap" style="white-space:nowrap; display: inline;" id="fileName" onClick="fileDown('filePath=${ file.filePath }&fileNameKey=${ file.fileNameKey }&fileName=${ file.fileName }')">${ file.fileName }</h6>
-      <c:choose>
-      <c:when test="${ file.fileSize >= 1024 }">
-      <h6 id="strong" style="display: inline;"> (<fmt:formatNumber value="${ file.fileSize / 1024 }" pattern=".00"/>MB)</h6>
-      </c:when>
-      <c:otherwise>
-      <h6 id="strong" style="display: inline;"> (${ file.fileSize }KB)</h6>
-      </c:otherwise>
-      </c:choose>
-      </br>
-      </c:forEach>
-      </td>
-      </tr>
-      </table>
-      </div>
-   </section>
-   
-   
-   <footer>
-   </footer>
+   <div class="app-content content">
+	 <div class="content-wrapper" id="contentWrapper">
+
+
+	<div class="content-header row">
+                <div class="content-header-left col-md-9 col-12 mb-2">
+                        <div class="col-12">
+                            <h2 class="content-header-title float-left mb-0 ">${ boardDetail.title }</h2>                            
+                        </div>
+                </div>
+            </div>
+
+
+			<div class="col-xl-3 col-md-6 col-sm-6">
+				<div class="card">
+					<div class="card-content">						
+						<div class="card-body">
+						<div class="card-header">
+							<h4 class="card-title">작성자 : <strong>${ boardDetail.writerName }</strong></h4>
+						</div>
+						<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+                                           <h4 class="primary"
+														>${ boardDetail.content }</h4>
+                                        </li>
+                                        
+                        <c:forEach var="file" items="${ fileList }">
+                        <li class="list-group-item">
+										<h6 class="text-nowrap"
+											style="white-space: nowrap; display: inline;" id="fileName"
+											onClick="fileDown('filePath=${ file.filePath }&fileNameKey=${ file.fileNameKey }&fileName=${ file.fileName }')">${ file.fileName }</h6>
+										<c:choose>
+											<c:when test="${ file.fileSize >= 1024 }">
+												<h6 id="strong" style="display: inline;">
+													(
+													<fmt:formatNumber value="${ file.fileSize / 1024 }"
+														pattern=".00" />
+													MB)
+												</h6>
+											</c:when>
+											<c:otherwise>
+												<h6 id="strong" style="display: inline;">(${ file.fileSize }KB)</h6>
+											</c:otherwise>
+										</c:choose>
+										</br>
+										 </li>
+									</c:forEach>                
+                                        
+						</ul>
+						</div>
+					</div>
+					<div>
+
+
+						
 
 
 
+					<footer> </footer>
+				</div>
+			</div>
 
-   <!-- BEGIN: Vendor JS-->
+
+
+			<!-- BEGIN: Vendor JS-->
    <script
       src="${ pageContext.request.contextPath }/resources/js/vendors.min.js"></script>
    <!-- BEGIN Vendor JS-->

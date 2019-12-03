@@ -39,15 +39,14 @@
    href="${ pageContext.request.contextPath }/resources/css/palette-gradient.css">
 <link rel="stylesheet" type="text/css"
    href="${ pageContext.request.contextPath }/resources/css/authentication.css">
+<link rel="stylesheet" type="text/css"
+   href="${ pageContext.request.contextPath }/resources/css/quill.snow.css">
 <!-- END: Page CSS-->
 
 
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
-.sec {
-   margin-left: 25%;
-   padding-top: 10%;
-}
+
 
 </style>
 </head>
@@ -55,51 +54,75 @@
 
    <header> <jsp:include page="/WEB-INF/jsp/include/navbar.jsp" />
    </header>
+   <div class="app-content content">
+	 <div class="content-wrapper" id="contentWrapper">
    
-   <section class="sec" id="sec">
-   
-   <form method="post" enctype="multipart/form-data" 
-   action="${ pageContext.request.contextPath}/board/${ taskInfo.taskId }/write"
-            name="boardWriteForm">
-            <input type="hidden" name="writerId" value="${ loginVO.memberid }">    
-            <input type="hidden" name="writerName" value="${ loginVO.name }">
-            <table id="writeForm">
-               <tr>
-                  <th width="23%" style="color:black;">제목</th>
-                  <td><input type="text" name="title" style="width:100%;"
-                     autofocus="autofocus" required></td>
-               </tr>
-               <tr>
-                  <th width="23%" style="color:black;">내용</th>
-                  <td><textarea rows="15" name="content" style="width:100%;"></textarea></td>
-               </tr>
-<!--                <tr> -->
-<!--                   <th width="23%" style="color:black;">다중 첨부파일</th> -->
-<!--                   <td style="color:black;"><input type="file" id="files" name="files" value="" multiple></td> -->
-<!--                </tr> -->
-               <tr>
-                  <th width="23%" style="color:black;">첨부파일</th>
-                  <td style="color:black;" id="fileForm">
-                  <button type="button" name="fileBtn" id="fileBtn">파일 추가</button>
-<!--                      <input type="file" id="files[0]" name="files[0]" value=""><br> -->
-<!--                      <input type="file" id="files[1]" name="files[1]" value=""><br> -->
-<!--                      <input type="file" id="files[2]" name="files[2]" value=""><br> -->
-<!--                      <input type="file" id="files[3]" name="files[3]" value=""><br> -->
-<!--                      <input type="file" id="files[4]" name="files[4]" value=""> -->
-                  </td>
-               </tr>
-               
-            </table>
-            <button type="button" onClick="checkForm()" class="btn btn-default">등록</button>
-         </form>
-   
-   
-   </section>
+	<div class="content-header row">
+                <div class="content-header-left col-md-9 col-12 mb-2">
+                        <div class="col-12">
+                            <h2 class="content-header-title float-left mb-0 ">할 일 작성하기</h2>                            
+                        </div>
+                </div>
+            </div>
+
+	<form method="post" enctype="multipart/form-data"
+		action="${ pageContext.request.contextPath}/board/${ taskInfo.taskId }/write"
+		name="boardWriteForm">
+		<input type="hidden" name="writerId" value="${ loginVO.memberid }">
+		<input type="hidden" name="writerName" value="${ loginVO.name }">
+		<div class="col-xl-3 col-md-6 col-sm-6">
+			<div class="card">
+				<div class="card-content">
+					<div class="card-header">
+						<h4 class="card-title">할 일 추가하기</h4>
+					</div>
+					<div class="card-body">
+						<div id="writeForm">
+							<div class="form-body">
+								<div class="form-group">
+									<label for="title" class="sr-only">제목을 입력하세요</label> <input
+										type="text" class="form-control form-control-plaintext" placeholder="제목을 입력하세요" name="title"
+										required>
+								</div>
+
+								<div class="form-group">
+									<label for="content" class="sr-only">내용</label>														
+									
+									<textarea id="content" rows="5" class="form-control form-control-plaintext" name="content" placeholder="내용을 입력하세요"></textarea>		
+									<div style="color: black;" id="fileForm">
+										<button type="button"
+											class="btn btn-outline-primary round btn-block"
+											name="fileBtn" id="fileBtn">파일 추가</button>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+						<button type="button" onClick="checkForm()"
+							id="submitbutton" class="btn btn-outline-success round btn-block">등록</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+
+
+
+
+
+
+
+
+
+
    
    
    <footer>
    </footer>
-
+	</div>
+	</div>
 
 
 
@@ -111,6 +134,8 @@
    <!-- BEGIN: Page Vendor JS-->
    <script
       src="${ pageContext.request.contextPath }/resources/js/jquery.sticky.js"></script>
+   <script
+      src="${ pageContext.request.contextPath }/resources/js/quill.min.js"></script>   
    <!-- END: Page Vendor JS-->
 
    <!-- BEGIN: Theme JS-->
@@ -126,6 +151,12 @@
 
 
 <script>
+  
+
+
+
+
+
 
 var index = 0;
 
@@ -137,6 +168,7 @@ $("button[name='fileBtn']").click(function() {
 });
 
 
+
 function deleteFile(idx) {
    $("br[name='fileBr" + idx + "']").remove();
    $("input[name='files[" + idx + "]']").remove();
@@ -145,8 +177,8 @@ function deleteFile(idx) {
 }
 
 
-function checkForm() {
-   
+function checkForm() {	   
+	
    var form = document.boardWriteForm;
    
    if (!form.title.value) {
