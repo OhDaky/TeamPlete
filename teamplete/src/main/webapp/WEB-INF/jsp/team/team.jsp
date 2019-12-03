@@ -77,7 +77,7 @@
                                     	<img class="teamImg" style="width: 100%; height: auto;"
 								src="${ pageContext.request.contextPath }/resources/images/${ team.img }"
 								alt="avatar">
-                                        <div class="card-text" style="font-family:Montserrat;">                                        
+                                        <div class="card-text">                                        
                                             <h2 class="text-bold-700" style="margin-top:7%;" onclick="teamDetail(${ team.teamId })" ><c:out value="${ team.teamName }" /></h2>
                                             <h6 class="text-bold-600"><c:out value="팀원: " /><strong style="color:#0275d8 !important"><c:out value="${ team.members }" /></strong></h6>									
 											<h4 class="primary text-bold-400" style="margin-top:5%"><c:out value="남은 과제 제출 기한: " /><strong class="text-bold-600 text-nowrap" style="color:red !important;"><c:out

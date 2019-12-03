@@ -55,94 +55,167 @@
 	</header>
 
 	<div class="app-content content">
-	 <div class="content-wrapper" id="contentWrapper">
-	 
-	<div class="content-header row">
-                <div class="content-header-left col-md-9 col-12 mb-2">
-                        <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0 ">${ team.teamName }</h2>
+		<div class="content-wrapper" id="contentWrapper">
+
+			<div class="content-header row">
+				<div class="content-header-left col-md-9 col-12 mb-2">
+					<div class="col-12">
+						<h2 class="content-header-title float-left mb-0 ">${ team.teamName }</h2>
 
 						<c:forEach items="${ members }" var="member">
-							
+
 							<div class="avatar bg-success mr-1">
-                                            <div class="avatar-content" style="text-overflow:elipisis !important;">
-                                                ${ member.memberid }
-                                            </div>
-                                        </div>
+								<div class="avatar-content"
+									style="text-overflow: elipisis !important;">${ member.memberid }
+								</div>
+							</div>
 						</c:forEach>
 					</div>
-                </div>
-            </div>
-
-
-	<c:if test="${ loginVO.memberid eq team.ownerId }">
-		<button type="button" name="modify" id="modifyBtn"
-			class="btn btn-success"
-			onclick="modifyFunc(${ team.teamId })" data-toggle="modal"
-			data-target="#updateTeam">팀 수정</button>
-		<button type="button" name="delete" class="btn btn-danger" value="${ team.teamId }">팀 삭제</button>
-	</c:if> 
-	
-	<!-- 	<section id="form-and-scrolling-components"> -->
-	
-	
-	
-
-	
-	
-	<div>
-				
-				
-				<section id="draggable-cards">
-                    <div class="row" id="card-drag-area">
-                        <div class="col-md-6 col-12">
-                            <div class="card" id="showdetail">
-                                <div class="card-content">
-                                    <div class="card-body">
-                                    	<section class="multiple-select2">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">초대할 사람의 email을 입력해주세요</h4>
-                                </div>
-                                <div class="card-content">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-xl-8 col-sm-6 col-12">
-                                                <div class="text-bold-600 font-medium-2">
-                                                   		 아이디를 입력해 주세요
-                                                </div>
-                                                
-                                                <form method="post"
-											action="${pageContext.request.contextPath}/teamdetail/${ team.teamId }"
-											name="createTeamForm">
-											<input type="hidden" name="teamId" id="teamId" value="${ team.teamId }">
-													<select class="select2 form-control" id="selectMulti" multiple="multiple">
-                                                        <option></option>                                                         
-                                                    </select>
-                                                    <input type="hidden" name="memberId" id="memberId" value="$('#selectMulti').select2('data')">
-													
-														<button type="button" onClick="submitMember()"
-														class="btn btn-primary" >Create</button>
-											</form>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+				</div>
 			</div>
+
+
+			<c:if test="${ loginVO.memberid eq team.ownerId }">
+				<button type="button" name="modify" id="modifyBtn"
+					class="btn btn-success" onclick="modifyFunc(${ team.teamId })"
+					data-toggle="modal" data-target="#updateTeam">팀 수정</button>
+				<button type="button" name="delete" class="btn btn-danger"
+					value="${ team.teamId }">팀 삭제</button>
+			</c:if>
+
+			<!-- 	<section id="form-and-scrolling-components"> -->
+
+
+
+
+
+
+			<div>
+
+
+				<section id="draggable-cards">
+				<div class="row" id="card-drag-area">
+					<div class="col-xl-3 col-md-6 col-sm-6">
+						<div class="card" id="showdetail">
+							<div class="card-content">
+								<div class="card-body">
+									<section class="multiple-select2">
+
+									<div class="card-header">
+										<h4 class="card-title">초대할 사람의 ID을 입력해주세요</h4>
+									</div>
+									<div class="row">
+										<div class="col-xl-8 col-sm-6 col-12">
+											<div class="text-bold-600 font-medium-2">아이디를 입력해 주세요</div>
+											<form method="post"
+												action="${pageContext.request.contextPath}/teamdetail/${ team.teamId }"
+												name="createTeamForm">
+												<input type="hidden" name="teamId" id="teamId"
+													value="${ team.teamId }"> <select
+													class="select2 form-control" id="selectMulti"
+													multiple="multiple">
+													<option></option>
+												</select> <input type="hidden" name="memberId" id="memberId"
+													value="$('#selectMulti').select2('data')">
+
+												<button type="button" onClick="submitMember()"
+													class="btn btn-primary">Create</button>
+											</form>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<c:forEach var="task" items="${ taskList }" varStatus="status">
+						<div class="col-xl-3 col-md-6 col-sm-6">
+							<div class="card" id="showdetail">
+								<div class="card-content">
+									<div class="card-body">
+										<div class="card-header">
+											<h1 class="card-title">작성자: ${ task.writerName }<br> 태스크
+												이름: ${ task.content }</br></h1>
+										</div>
+
+										<ul class="list-group list-group-flush">
+										<c:set var="count" value="0" scope="page" />
+										<c:forEach var="board" items="${ boardList[status.index] }">										
+										<c:set var="count" value="${count + 1}" scope="page"/>
+                                        <li class="list-group-item">
+                                            <span class="badge badge-pill bg-primary float-right">${count}</span>
+                                           <h4 id="boardTitle" class="primary"
+														onClick="boardDetailFunc(${ board.boardId })">${ board.title }</h4>
+                                        </li>
+                                       
+										</c:forEach>
+										 </ul>
+										<button type="submit" class="btn btn-primary btn-block round mb-1"
+											id="addBoard" onClick="writeBoard(${ task.taskId })">Board
+											추가하기</button>
+										<div>
+											<%--                      <button name="modifyTask" value="${ task.taskId }">수정</button> --%>
+											<button name="deleteTask" class="btn btn-danger btn-block round"
+												value="${ task.taskId }">Task 삭제하기</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</c:forEach>
+				</div>
+
+				<!-- 태스크 등록 Modal -->
+				<button id="createTaskBtn" class="btn btn-success"
+					data-toggle="modal" data-target="#createTask">태스크 등록</button>
+
+				<div class="modal fade text-left" id="createTask" tabindex="-1"
+					role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+					<div
+						class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+						role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title" id="myModalLabel33">태스크를 추가해주세요.</h4>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<form method="post"
+								action="${pageContext.request.contextPath}/teamdetail/${ team.teamId }/task"
+								name="createTaskForm">
+								<input type="hidden" name="writerId" id="writerId"
+									value="${ loginVO.memberid }"> <input type="hidden"
+									name="writerName" id="writerName" value="${ loginVO.name }">
+								<input type="hidden" name="teamId" id="teamId"
+									value="${ team.teamId }">
+								<div class="modal-body">
+									<label>Content: </label>
+									<div class="form-group">
+										<textarea class="form-control" name="content" id="content"
+											rows="5"></textarea>
+									</div>
+									<div class="modal-footer">
+										<button type="button" id="taskSubmit" class="btn btn-primary"
+											onClick="submitTask()" data-dismiss="modal">Create</button>
+
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			</section>
+		</div>
+	</div>
+	</div>
+	</section>
+	</div>
 
 	<!-- Modal3 (수정) -->
 	<div class="modal fade text-left" id="updateTeam" tabindex="-1"
@@ -183,69 +256,9 @@
 	</div>
 	</div>
 
-          <!-- 태스크 조회, 태스크 추가 -->
+	<!-- 태스크 조회, 태스크 추가 -->
 
-   <div id="taskTable" style="color: black;">
-      <c:forEach var="task" items="${ taskList }" varStatus="status">
-      
-         <div id="task"
-            style="width: 200px; height: 400px; background: skyblue;">
-            <h2>작성자: ${ task.writerName }</h2>
-            <h2>태스크 이름: ${ task.content }</h2>
-            <c:forEach var="board" items="${ boardList[status.index] }">
-            <div style="background: white;">
-            <h4 id="boardTitle" onClick="boardDetailFunc(${ board.boardId })">${ board.title }</h4>
-<%--             <hboard.content }</h4> --%>
-            </div>
-            </c:forEach>
-            <button type="submit" id="addBoard" onClick="writeBoard(${ task.taskId })">Board 추가</button>
-            <div>
-               <%--                      <button name="modifyTask" value="${ task.taskId }">수정</button> --%>
-               <button name="deleteTask" value="${ task.taskId }">태스크 삭제</button>
-            </div>
-         </div>
-         </br>
-      </c:forEach>
-   </div>
-
-	<!-- 태스크 등록 Modal -->
-	<button id="createTaskBtn" class="btn btn-outline-success"
-		data-toggle="modal" data-target="#createTask">태스크 등록</button>
-
-	<div class="modal fade text-left" id="createTask" tabindex="-1"
-		role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
-		<div
-			class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-			role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title" id="myModalLabel33">태스크를 추가해주세요.</h4>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<form method="post"
-					action="${pageContext.request.contextPath}/teamdetail/${ team.teamId }/task"
-					name="createTaskForm">
-					<input type="hidden" name="writerId" id="writerId" value="${ loginVO.memberid }">
-					<input type="hidden" name="writerName" id="writerName" value="${ loginVO.name }">
-					<input type="hidden" name="teamId" id="teamId" value="${ team.teamId }">
-					<div class="modal-body">
-						<label>Content: </label>
-						<div class="form-group">
-							<textarea class="form-control" name="content" id="content" rows="5"></textarea>
-						</div>
-						<div class="modal-footer">
-							<button type="button" id="taskSubmit" class="btn btn-primary" onClick="submitTask()"
-								data-dismiss="modal">Create</button>
-
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+  
 	
 	
 
@@ -265,6 +278,8 @@
 	<!-- BEGIN: Page Vendor JS-->
 	<script
 		src="${ pageContext.request.contextPath }/resources/js/jquery.sticky.js"></script>
+	    <script src="${ pageContext.request.contextPath }/resources/js/dragula.min.js"></script>
+	<script src="${ pageContext.request.contextPath }/resources/js/drag-drop.js"></script>    	
 	<!-- END: Page Vendor JS-->
 
 	<!-- BEGIN: Theme JS-->
