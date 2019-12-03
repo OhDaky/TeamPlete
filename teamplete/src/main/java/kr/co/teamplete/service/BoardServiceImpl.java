@@ -72,7 +72,7 @@ public class BoardServiceImpl implements BoardService{
       String fileExt = null; //확장자
       String fileSize = null;
       // 파일이 저장될 path 설정
-      String filePath = "C:\\javabook\\workspace2\\teamplete\\fileUpload";
+      String filePath = "C:\\fileUpload";
 
       if (files != null && files.size() > 0) {
          File file = new File(filePath);

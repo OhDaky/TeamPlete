@@ -60,7 +60,7 @@
    
    <!-- 보드의 모든 파일 정보 조회 -->
    <select id="selectAllFiles" parameterType="int" resultMap="fileMap">
-      select file_no, file_name_key, file_name, file_path, ROUND(file_size / 1024, 2) AS file_size, del_yn, ins_user_id, ins_date, board_id
+      select file_no, file_name_key, file_name, file_path, CEIL(file_size / 1024) AS file_size, del_yn, ins_user_id, ins_date, board_id
        from board_file
         where board_id = #{boardId}
    </select>

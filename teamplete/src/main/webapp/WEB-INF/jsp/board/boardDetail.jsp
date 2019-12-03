@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -87,7 +88,16 @@
       <td>파일</td>
       <td>
       <c:forEach var="file" items="${ fileList }">
-      <h6 id="fileName" onClick="fileDown('filePath=${ file.filePath }&fileNameKey=${ file.fileNameKey }&fileName=${ file.fileName }')">${ file.fileName } (${ file.fileSize }KB)</h6>
+      <h6 class="text-nowrap" style="white-space:nowrap; display: inline;" id="fileName" onClick="fileDown('filePath=${ file.filePath }&fileNameKey=${ file.fileNameKey }&fileName=${ file.fileName }')">${ file.fileName }</h6>
+      <c:choose>
+      <c:when test="${ file.fileSize >= 1024 }">
+      <h6 id="strong" style="display: inline;"> (<fmt:formatNumber value="${ file.fileSize / 1024 }" pattern=".00"/>MB)</h6>
+      </c:when>
+      <c:otherwise>
+      <h6 id="strong" style="display: inline;"> (${ file.fileSize }KB)</h6>
+      </c:otherwise>
+      </c:choose>
+      </br>
       </c:forEach>
       </td>
       </tr>
