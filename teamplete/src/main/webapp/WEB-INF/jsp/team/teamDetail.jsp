@@ -183,32 +183,30 @@
 	</div>
 	</div>
 
+          <!-- 태스크 조회, 태스크 추가 -->
 
-	<!-- 태스크 조회, 태스크 추가 -->
-
-	<div id="taskTable" style="color: black;">
-		<c:forEach var="task" items="${ taskList }" varStatus="status">
-		
-			<div id="task"
-				style="width: 200px; height: 200px; background: skyblue;">
-				<h2>${ task.writerName }</h2>
-				<h2>${ task.content }</h2>
-				<c:forEach var="board" items="${ boardList[status.index] }">
-				<div style="background: white;">
-				<h4>${ board.title }</h4>
-				<h4>${ board.content }</h4>
-				</div>
-				</c:forEach>
-				<button type="submit" id="addBoard" onClick="writeBoard(${ task.taskId })">Board 추가</button>
-				<div>
-					<%-- 							<button name="modifyTask" value="${ task.taskId }">수정</button> --%>
-					<button name="deleteTask" value="${ task.taskId }">태스크 삭제</button>
-				</div>
-			</div>
-			</br>
-		</c:forEach>
-	</div>
-
+   <div id="taskTable" style="color: black;">
+      <c:forEach var="task" items="${ taskList }" varStatus="status">
+      
+         <div id="task"
+            style="width: 200px; height: 400px; background: skyblue;">
+            <h2>작성자: ${ task.writerName }</h2>
+            <h2>태스크 이름: ${ task.content }</h2>
+            <c:forEach var="board" items="${ boardList[status.index] }">
+            <div style="background: white;">
+            <h4 id="boardTitle" onClick="boardDetailFunc(${ board.boardId })">${ board.title }</h4>
+<%--             <hboard.content }</h4> --%>
+            </div>
+            </c:forEach>
+            <button type="submit" id="addBoard" onClick="writeBoard(${ task.taskId })">Board 추가</button>
+            <div>
+               <%--                      <button name="modifyTask" value="${ task.taskId }">수정</button> --%>
+               <button name="deleteTask" value="${ task.taskId }">태스크 삭제</button>
+            </div>
+         </div>
+         </br>
+      </c:forEach>
+   </div>
 
 	<!-- 태스크 등록 Modal -->
 	<button id="createTaskBtn" class="btn btn-outline-success"
