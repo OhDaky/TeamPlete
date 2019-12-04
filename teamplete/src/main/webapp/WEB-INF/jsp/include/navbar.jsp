@@ -36,7 +36,7 @@
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/resources/css/vertical-menu.css">
-   
+    <link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/resources/css/font-awesome.min.css">
 
    
 

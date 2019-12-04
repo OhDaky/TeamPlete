@@ -143,11 +143,14 @@ request.setAttribute("colorlist", colorlist);
 								<div class="card-content">
 									<div class="card-body">
 										<div class="card-header">
-											<h1 class="card-title">작성자: ${ task.writerName }<br> 태스크
-												이름: ${ task.content }</br></h1>
+										
+											<h1 style="font-weight:600;"> 제목 : ${ task.content }</br></h1>
 										</div>
 
 										<ul class="list-group list-group-flush">
+										<li class="list-group-item">
+										<div class="fonticon-wrap"><i class="fa fa-user mr-1"></i>작성자 : ${ task.writerName }</div>
+										</li>
 										<c:set var="count" value="0" scope="page" />
 										<c:set var="randomcolor" value="" scope="page" />										
 										<c:forEach var="board" items="${ boardList[status.index] }">
@@ -155,7 +158,7 @@ request.setAttribute("colorlist", colorlist);
 										<c:set var="count" value="${count + 1}" scope="page"/>
                                         <li class="list-group-item">
                                             <span class="badge badge-pill ${colorlist[count%5]} float-right">${count}</span>
-                                           <h4 id="boardTitle" class="primary"
+                                           <h4 id="boardTitle" 
 														onClick="boardDetailFunc(${ board.boardId })">${ board.title }</h4>
                                         </li>
                                        
