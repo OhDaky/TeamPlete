@@ -63,6 +63,14 @@
 </head>
 <body>
 
+	<c:choose>
+	<c:when test="${ empty loginVO }">
+	<% 
+	response.sendRedirect("/");
+	%>
+	</c:when>
+	<c:otherwise>
+
    <header> <jsp:include page="/WEB-INF/jsp/include/navbar.jsp" />
    </header>
    <div class="app-content content">
@@ -126,6 +134,9 @@
 					<footer> </footer>
 				</div>
 			</div>
+			
+	</c:otherwise>
+	</c:choose>
 
 
 

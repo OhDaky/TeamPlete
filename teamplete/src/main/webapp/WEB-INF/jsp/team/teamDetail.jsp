@@ -64,6 +64,13 @@ request.setAttribute("colorlist", colorlist);
 
 </head>
 <body>
+	<c:choose>
+	<c:when test="${ empty loginVO }">
+	<% 
+	response.sendRedirect("/");
+	%>
+	</c:when>
+	<c:otherwise>
 
 	<header> <jsp:include page="/WEB-INF/jsp/include/navbar.jsp" />
 	</header>
@@ -80,7 +87,7 @@ request.setAttribute("colorlist", colorlist);
 
 							<div class="avatar bg-success mr-1">
 								<div class="avatar-content"
-									style="text-overflow: elipisis !important;">${ member.memberid }
+									style="text-overflow: elipisis !important;">${ member.name }
 								</div>
 							</div>
 						</c:forEach>
@@ -278,7 +285,8 @@ request.setAttribute("colorlist", colorlist);
 	<footer>
 	</footer>
 	
-	
+	</c:otherwise>
+	</c:choose>
 
 
 
