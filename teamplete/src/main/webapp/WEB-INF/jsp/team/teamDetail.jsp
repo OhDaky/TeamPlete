@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 
@@ -82,12 +83,14 @@ request.setAttribute("colorlist", colorlist);
 				<div class="content-header-left col-md-9 col-12 mb-2">
 					<div class="col-12">
 						<h2 class="content-header-title float-left mb-0 ">${ team.teamName }</h2>
-
+						<c:set var="count1" value="0" scope="page" />
 						<c:forEach items="${ members }" var="member">
-
-							<div class="avatar bg-success mr-1">
+						<c:set var="count" value="${count + 1}" scope="page"/>
+							<div class="avatar avatar-lg ${colorlist[count%5]} mr-1">
 								<div class="avatar-content"
-									style="text-overflow: elipisis !important;">${ member.name }
+								<c:set var = "membername" value = "${ member.name }"/>
+								<c:set var = "firstletter" value = "${fn:substring(membername, 0, 4)}"/>
+									>${firstletter}
 								</div>
 							</div>
 						</c:forEach>
@@ -98,9 +101,9 @@ request.setAttribute("colorlist", colorlist);
 
 			<c:if test="${ loginVO.memberid eq team.ownerId }">
 				<button type="button" name="modify" id="modifyBtn"
-					class="btn btn-success" onclick="modifyFunc(${ team.teamId })"
+					class="btn btn-success mb-3 mr-1" onclick="modifyFunc(${ team.teamId })"
 					data-toggle="modal" data-target="#updateTeam">팀 수정</button>
-				<button type="button" name="delete" class="btn btn-danger"
+				<button type="button" name="delete" class="btn btn-danger mb-3"
 					value="${ team.teamId }">팀 삭제</button>
 			</c:if>
 
@@ -121,7 +124,7 @@ request.setAttribute("colorlist", colorlist);
 							<div class="card-content">
 
 									<div class="card-header">
-										<h4 class="card-title">초대할 사람의 <strong>ID</strong>를 <br> 입력해주세요</h4>
+										<h2 class="card-title">초대할 사람의 <strong>ID</strong>를 <br> 입력해주세요</h2>
 									</div>
 									<div class="card-body">
 											<form method="post"
@@ -151,12 +154,12 @@ request.setAttribute("colorlist", colorlist);
 									<div class="card-body">
 										<div class="card-header">
 										
-											<h1 style="font-weight:600;"> 제목 : ${ task.content }</br></h1>
+											<h1 class="card-title" style="font-weight:600; color:#7E72F2; font-size:1.55rem;">${ task.content }</h1>
 										</div>
 
 										<ul class="list-group list-group-flush">
 										<li class="list-group-item">
-										<div class="fonticon-wrap"><i class="fa fa-user mr-1"></i>작성자 : ${ task.writerName }</div>
+										<div class="fonticon-wrap"><i class="fa fa-user mr-1" style="font-size:2rem;"></i>${ task.writerName }</div>
 										</li>
 										<c:set var="count" value="0" scope="page" />
 										<c:set var="randomcolor" value="" scope="page" />										
