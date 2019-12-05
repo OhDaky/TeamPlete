@@ -125,9 +125,11 @@ public class TeamController {
 //				System.out.println("dday 날짜: " + dday);
 
 				long calDay = (dday.getTimeInMillis() - today.getTimeInMillis()) / 86400000;
+				long calDay2= (today.getTimeInMillis() - dday.getTimeInMillis()) / 86400000;
 
 				if (calDay < 0)
-					return "마감";
+					
+					return   Long.toString(calDay2) + "일 초과";
 				else if (calDay == 0)
 					return "오늘";
 				else
