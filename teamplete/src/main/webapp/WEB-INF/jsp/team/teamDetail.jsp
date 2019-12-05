@@ -89,7 +89,7 @@ request.setAttribute("colorlist", colorlist);
 							<div class="avatar avatar-lg ${colorlist[count%5]} mr-1">
 								<div class="avatar-content"
 								<c:set var = "membername" value = "${ member.name }"/>
-								<c:set var = "firstletter" value = "${fn:substring(membername, 0, 4)}"/>
+								<c:set var = "firstletter" value = "${fn:substring(membername, 0, 1)}"/>
 									>${firstletter}
 								</div>
 							</div>
