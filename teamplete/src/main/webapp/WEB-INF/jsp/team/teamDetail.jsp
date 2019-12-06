@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -62,6 +63,13 @@ request.setAttribute("colorlist", colorlist);
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
 </script>
+
+<style>
+#fileName:hover {
+   text-decoration: underline;
+}
+</style>
+
 
 </head>
 <body>
@@ -147,50 +155,97 @@ request.setAttribute("colorlist", colorlist);
 					</div>
 
 
-					<c:forEach var="task" items="${ taskList }" varStatus="status">
-						<div class="col-xl-3 col-md-6 col-sm-6">
-							<div class="card" id="showdetail">
-								<div class="card-content">
-									<div class="card-body">
-										<div class="card-header">
+<%-- 					<c:forEach var="task" items="${ taskList }" varStatus="status"> --%>
+<!-- 						<div class="col-xl-3 col-md-6 col-sm-6"> -->
+<!-- 							<div class="card" id="showdetail"> -->
+<!-- 								<div class="card-content"> -->
+<!-- 									<div class="card-body"> -->
+<!-- 										<div class="card-header"> -->
 										
-											<h1 class="card-title" style="font-weight:600; color:#7E72F2; font-size:1.55rem;">${ task.content }</h1>
-										</div>
+<%-- 											<h1 class="card-title" style="font-weight:600; color:#7E72F2; font-size:1.55rem;">${ task.title }</h1> --%>
+<!-- 										</div> -->
 
-										<ul class="list-group list-group-flush">
-										<li class="list-group-item">
-										<div class="fonticon-wrap"><i class="fa fa-user mr-1" style="font-size:2rem;"></i>${ task.writerName }</div>
-										</li>
-										<c:set var="count" value="0" scope="page" />
-										<c:set var="randomcolor" value="" scope="page" />										
-										<c:forEach var="board" items="${ boardList[status.index] }">
-										<c:set var="rand"><%= java.lang.Math.round(java.lang.Math.random() * 4) %></c:set>										
-										<c:set var="count" value="${count + 1}" scope="page"/>
-                                        <li class="list-group-item">
-                                            <span class="badge badge-pill ${colorlist[count%5]} float-right">${count}</span>
-                                           <h4 id="boardTitle" 
-														onClick="boardDetailFunc(${ board.boardId })">${ board.title }</h4>
-                                        </li>
+<!-- 										<ul class="list-group list-group-flush"> -->
+<!-- 										<li class="list-group-item"> -->
+<%-- 										<div class="fonticon-wrap"><i class="fa fa-user mr-1" style="font-size:2rem;"></i>${ task.writerName }</div> --%>
+<!-- 										</li> -->
+<%-- 										<c:set var="count" value="0" scope="page" /> --%>
+<%-- 										<c:set var="randomcolor" value="" scope="page" />										 --%>
+<%-- 										<c:forEach var="board" items="${ boardList[status.index] }"> --%>
+<%-- 										<c:set var="rand"><%= java.lang.Math.round(java.lang.Math.random() * 4) %></c:set>										 --%>
+<%-- 										<c:set var="count" value="${count + 1}" scope="page"/> --%>
+<!--                                         <li class="list-group-item"> -->
+<%--                                             <span class="badge badge-pill ${colorlist[count%5]} float-right">${count}</span> --%>
+<!--                                            <h4 id="boardTitle"  -->
+<%-- 														onClick="boardDetailFunc(${ board.boardId })">${ board.title }</h4> --%>
+<!--                                         </li> -->
                                        
-										</c:forEach>
-										 </ul>
-										<button type="submit" class="btn btn-primary btn-block round mb-1"
-											id="addBoard" onClick="writeBoard(${ task.taskId })">Board
-											추가하기</button>
-										<div>
-											<%--                      <button name="modifyTask" value="${ task.taskId }">수정</button> --%>
-											<button name="deleteTask" class="btn btn-danger btn-block round"
-												value="${ task.taskId }">Task 삭제하기</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+<%-- 										</c:forEach> --%>
+<!-- 										 </ul> -->
+<!-- 										<button type="submit" class="btn btn-primary btn-block round mb-1" -->
+<%-- 											id="addBoard" onClick="writeBoard(${ task.taskId })">Board --%>
+<!-- 											추가하기</button> -->
+<!-- 										<div> -->
+<%-- 										<c:if test="${ loginVO.memberid eq task.writerId }"> --%>
+<%-- 											                     <button name="modifyTask" value="${ task.taskId }">수정</button> --%>
+<!-- 											<button name="deleteTask" class="btn btn-danger btn-block round" -->
+<%-- 												value="${ task.taskId }">Task 삭제하기</button> --%>
+<%-- 										</c:if> --%>
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 
-					</c:forEach>
+<%-- 					</c:forEach> --%>
 				</div>
 
-				<!-- 태스크 등록 Modal -->
+						<div>
+							<c:forEach var="task" items="${ taskList }" varStatus="status">
+								<h1>title: ${ task.title }</h1>
+								<h1>writer: ${ task.writerName }</h1>
+								<h1>content: ${ task.content }</h1>
+								<h1>제출기한: ${ taskDeadline[status.index] }</h1>
+								<h1>첨부파일: </h1>
+								<c:forEach var="taskFile" items="${ taskFileList[status.index] }">
+								                        <li class="list-group-item">
+										<h6 class="text-nowrap"
+											style="white-space: nowrap; display: inline;" id="fileName"
+											onClick="taskFileDown('filePath=${ taskFile.filePath }&fileNameKey=${ taskFile.fileNameKey }&fileName=${ taskFile.fileName }')">${ taskFile.fileName }</h6>
+										<c:choose>
+											<c:when test="${ taskFile.fileSize >= 1024 }">
+												<h6 id="strong" style="display: inline;">
+													(
+													<fmt:formatNumber value="${ taskFile.fileSize / 1024 }"
+														pattern=".00" />
+													MB)
+												</h6>
+											</c:when>
+											<c:otherwise>
+												<h6 id="strong" style="display: inline;">(${ taskFile.fileSize }KB)</h6>
+											</c:otherwise>
+										</c:choose>
+										</br>
+										 </li>
+								</c:forEach>
+								<h1>담당자: </h1>
+								<c:forEach var="charge" items="${ chargeMembers[status.index] }">
+								<h1>${ charge.chargeMemberid }</h1>
+								</c:forEach>
+								
+								<div>
+									<c:if test="${ loginVO.memberid eq task.writerId }">
+										<%--                      <button name="modifyTask" value="${ task.taskId }">수정</button> --%>
+										<button name="deleteTask"
+											class="btn btn-danger btn-block round"
+											value="${ task.taskId }">Task 삭제하기</button>
+									</c:if>
+								</div>
+							</c:forEach>
+
+						</div>
+
+						<!-- 태스크 등록 Modal -->
 				<button id="createTaskBtn" class="btn btn-success"
 					data-toggle="modal" data-target="#createTask">태스크 등록</button>
 
@@ -207,7 +262,7 @@ request.setAttribute("colorlist", colorlist);
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
-							<form method="post"
+							<form method="post" enctype="multipart/form-data"
 								action="${pageContext.request.contextPath}/teamdetail/${ team.teamId }/task"
 								name="createTaskForm">
 								<input type="hidden" name="writerId" id="writerId"
@@ -216,11 +271,33 @@ request.setAttribute("colorlist", colorlist);
 								<input type="hidden" name="teamId" id="teamId"
 									value="${ team.teamId }">
 								<div class="modal-body">
+									<label>Title: </label>
+									<div class="form-group">
+										<input type="text" class="form-control" name="title" id="title"></input>
+									</div>
 									<label>Content: </label>
 									<div class="form-group">
 										<textarea class="form-control" name="content" id="content"
 											rows="5"></textarea>
 									</div>
+									<div style="color: black;" id="taskFileForm">
+										<button type="button"
+											class="btn btn-outline-primary round btn-block"
+											name="taskFileBtn" id="taskFileBtn">파일 추가</button>
+									</div>
+									<label>deadline: (선택입니다) </label>
+														<div class="form-group">
+															<input type="date" name="deadline" id="deadline"
+																placeholder="Deadline" class="form-control">
+														</div>
+									<label>담당자: </label>
+<!-- 									<div class="form-group"> -->
+<!-- 										<input type="text" class="form-control" name="chargeMemberid" id="chargeMemberid"></input> -->
+<!-- 									</div> -->
+									<select class="select2 form-control" id="selectMulti2" multiple="multiple">
+									<option></option>
+									</select> <input type="hidden" name="chargeMemberid" id="chargeMemberid"
+													value="$('#selectMulti2').select2('data')">
 									<div class="modal-footer">
 										<button type="button" id="taskSubmit" class="btn btn-primary"
 											onClick="submitTask()" data-dismiss="modal">Create</button>
@@ -323,6 +400,24 @@ request.setAttribute("colorlist", colorlist);
 
 	<script>
 	
+	var index = 0;
+
+	$("button[name='taskFileBtn']").click(function() {
+	   $('#taskFileForm').append('<br name="taskfileBr' + index +'"><input type="file" id="taskFiles[' + index + ']" name="taskFiles[' + index + ']" value="">');
+	   $('#taskFileForm').append('<button type="button" name="taskbtn'+index+'" class="btn black ml15" style="padding: 3px 5px 6px 5px; color: red;" onClick="deletetaskFile(' + index + ')">X</button>');
+	   console.log('<br><input type="file" id="taskFiles[' + index + ']" name="taskFiles[' + index + ']" value="">')
+	   index += 1;
+	});
+
+
+
+	function deletetaskFile(idx) {
+	   $("br[name='taskfileBr" + idx + "']").remove();
+	   $("input[name='taskFiles[" + idx + "]']").remove();
+	   $("button[name='taskbtn" + idx + "']").remove();
+	   console.log(idx);
+	}
+	
 	var id = '';
 	
 	function modifyFunc(modifyTeamId) {
@@ -385,31 +480,56 @@ request.setAttribute("colorlist", colorlist);
    
    
    function submitTask(){
-
-// 	    var createTaskForm = document.createTaskForm;
+	   
+	   var cnt = 0;
+	   var fileList = new Array();
+	   for(i = 0; i < index; i++) {
+	      if(document.getElementById('taskFiles[' + i + ']')) {
+	      if ($("input[name='taskFiles[" + i + "]']").val() != ""){
+	         document.getElementById('taskFiles[' + i + ']').setAttribute('name', 'taskFiles[' + cnt + ']');
+	         fileList.push($("input[name='taskFiles[" + i + "]']").val());
+	         cnt ++;
+	      }else {
+	         $("br[name='taskfileBr" + i + "']").remove();
+	         $("input[name='taskFiles[" + i + "]']").remove();
+	         $("button[name='taskbtn" + i + "']").remove();
+	      }
+	      }
+	   }
+	   
+	    var chargeArray = $('#selectMulti2').select2('data');
+	    var chargeIndex= $('#selectMulti2').select2('data').length;
+	    for(i=0;i<chargeIndex;i++){
+			   $('#chargeMemberid').append('<input type="hidden" name="chargeMems['+i+']" value="'+chargeArray[i].id+'" />');
+	    }  
+	   
+	    var createTaskForm = document.createTaskForm;
 	    
-// 	    createTaskForm.submit();
+	  	createTaskForm.submit();
 
-       var data = {writerId : $('#writerId').val(),
-    		   	   writerName : $('#writerName').val(),
-    		   	   teamId : $('#teamId').val(),
-    		   	   content : $('#content').val()
-    		   	   };
-       $.ajax({
-          type : 'POST',
-          url : '/teamdetail/${ team.teamId }/task',
-          data : JSON.stringify(data),
-          contentType : "application/json",
-          success : function(data) {
-        	  console.log(data);
 
-//         	  $('#taskTable').load(document.URL +  ' #taskTable');
-        	  location.reload();
-          },
-          error : function(error) {
-        	  console.log(error);
-          }
-       });
+//        var data = {writerId : $('#writerId').val(),
+//     		   	   writerName : $('#writerName').val(),
+//     		   	   teamId : $('#teamId').val(),
+//     		   	   title : $('#title').val,
+//     		   	   content : $('#content').val(),
+//     		   	   deadline : $('#deadline').val()
+//     		   	   };
+       
+//        $.ajax({
+//           type : 'POST',
+//           enctype: 'multipart/form-data',
+//           url : '/teamdetail/${ team.teamId }/task',
+//           data : JSON.stringify(data),
+//           contentType : "application/json",
+//           success : function(data) {
+//         	  console.log(data);
+//         	  location.reload();
+//           },
+//           error : function(error) {
+//         	  console.log(error);
+//           }
+//        });
    }
    
    	var taskId = '';
@@ -447,7 +567,10 @@ request.setAttribute("colorlist", colorlist);
 		} else return;
 
 	});
-
+	
+	function taskFileDown(file){
+	    location.href = "${ pageContext.request.contextPath}/fileDownload?" + file;
+	}
 
    
    

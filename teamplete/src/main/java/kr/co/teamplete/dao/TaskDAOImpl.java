@@ -6,6 +6,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.teamplete.dto.ChargeVO;
+import kr.co.teamplete.dto.FileVO;
+import kr.co.teamplete.dto.TaskFileVO;
 import kr.co.teamplete.dto.TaskVO;
 import kr.co.teamplete.dto.TeamVO;
 
@@ -43,6 +46,41 @@ public class TaskDAOImpl implements TaskDAO{
 		TaskVO task = session.selectOne("kr.co.teamplete.dao.TaskDAO.selectTask", taskId);
 		
 		return task;
+	}
+
+	@Override
+	public void insertTaskFile(TaskFileVO file) {
+		 session.insert("kr.co.teamplete.dao.TaskDAO.insertTaskFile", file);		
+	}
+
+	@Override
+	public List<TaskFileVO> selectAllTaskFiles(int taskId) {
+	      List<TaskFileVO> fileList = session.selectList("kr.co.teamplete.dao.TaskDAO.selectAllTaskFiles", taskId);
+	      return fileList;
+	}
+
+	@Override
+	public void insertCharge(ChargeVO charge) {
+		session.insert("kr.co.teamplete.dao.TaskDAO.insertCharge", charge);
+		
+	}
+
+	@Override
+	public List<ChargeVO> selectAllsubmit(int taskId) {
+		List<ChargeVO> chargeList = session.selectList("kr.co.teamplete.dao.TaskDAO.selectAllsubmit", taskId);
+		return chargeList;
+	}
+
+	@Override
+	public List<ChargeVO> selectNsubmit(int taskId) {
+		List<ChargeVO> chargeList = session.selectList("kr.co.teamplete.dao.TaskDAO.selectNsubmit", taskId);
+		return chargeList;
+	}
+
+	@Override
+	public List<ChargeVO> selectYsubmit(int taskId) {
+		List<ChargeVO> chargeList = session.selectList("kr.co.teamplete.dao.TaskDAO.selectYsubmit", taskId);
+		return chargeList;
 	}
 
 }

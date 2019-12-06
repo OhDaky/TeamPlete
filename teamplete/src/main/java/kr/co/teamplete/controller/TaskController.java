@@ -5,11 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.co.teamplete.dto.ChargeVO;
 import kr.co.teamplete.dto.TaskVO;
 import kr.co.teamplete.service.TaskService;
 
@@ -21,13 +21,22 @@ public class TaskController {
 
 	
 	//ajax 태스크 등록
+//	@PostMapping("/teamdetail/{id}/task")
+//	@ResponseBody
+//	public TaskVO insertTask(@RequestBody TaskVO task, @PathVariable("id") int teamId, Model model) {
+//		
+//		service.insertTaskS(task);
+//		
+//		return task;
+//		
+//	}
+	
 	@PostMapping("/teamdetail/{id}/task")
-	@ResponseBody
-	public TaskVO insertTask(@RequestBody TaskVO task, @PathVariable("id") int teamId, Model model) {
+	public String insertTask(TaskVO task, @PathVariable("id") int teamId, Model model) {
 		
 		service.insertTaskS(task);
 		
-		return task;
+		return "redirect:/teamdetail/" + teamId;
 		
 	}
 	

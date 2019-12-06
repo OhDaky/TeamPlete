@@ -52,9 +52,6 @@
 	class="horizontal-layout horizontal-menu 1-column  navbar-floating footer-static bg-full-screen-image  blank-page blank-page"
 	data-open="hover" data-menu="horizontal-menu" data-col="1-column">
 
-
-
-
 	<div class="app-content content">
 		<div class="content-overlay"></div>
 		<div class="header-navbar-shadow"></div>
@@ -164,8 +161,6 @@
 		</div>
 	</div>
 	<!-- END: Content-->
-
-
 
 
 	<!-- BEGIN: Vendor JS-->

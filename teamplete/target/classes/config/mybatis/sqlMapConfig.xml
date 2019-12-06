@@ -11,6 +11,8 @@
       <typeAlias type="kr.co.teamplete.dto.TaskVO" alias="TaskVO"/>
       <typeAlias type="kr.co.teamplete.dto.BoardVO" alias="BoardVO"/>
       <typeAlias type="kr.co.teamplete.dto.FileVO" alias="FileVO"/>
+      <typeAlias type="kr.co.teamplete.dto.TaskFileVO" alias="TaskFileVO"/>
+      <typeAlias type="kr.co.teamplete.dto.ChargeVO" alias="ChargeVO"/>
       
    </typeAliases>
 

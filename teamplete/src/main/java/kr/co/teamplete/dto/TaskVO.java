@@ -1,25 +1,54 @@
 package kr.co.teamplete.dto;
 
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
 public class TaskVO {
-	private int taskId;
-	private String writerId;
-	private String writerName;
-	private int teamId;
-	private String content, taskDate;
 	
+	List<MultipartFile> taskFiles;
+	
+	List<String> chargeMems;
+
+	private int taskId;
+	private String writerId, writerName;
+	private int teamId;
+	private String title, content, deadline, taskDate;
+
 	public TaskVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public TaskVO(int taskId, String writerId, String writerName, int teamId, String content, String taskDate) {
+	public TaskVO(List<MultipartFile> taskFiles, List<String> chargeMems, int taskId, String writerId,
+			String writerName, int teamId, String title, String content, String deadline, String taskDate) {
 		super();
+		this.taskFiles = taskFiles;
+		this.chargeMems = chargeMems;
 		this.taskId = taskId;
 		this.writerId = writerId;
 		this.writerName = writerName;
 		this.teamId = teamId;
+		this.title = title;
 		this.content = content;
+		this.deadline = deadline;
 		this.taskDate = taskDate;
+	}
+
+	public List<MultipartFile> getTaskFiles() {
+		return taskFiles;
+	}
+
+	public void setTaskFiles(List<MultipartFile> taskFiles) {
+		this.taskFiles = taskFiles;
+	}
+
+	public List<String> getChargeMems() {
+		return chargeMems;
+	}
+
+	public void setChargeMems(List<String> chargeMems) {
+		this.chargeMems = chargeMems;
 	}
 
 	public int getTaskId() {
@@ -54,12 +83,28 @@ public class TaskVO {
 		this.teamId = teamId;
 	}
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 	public String getContent() {
 		return content;
 	}
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public String getDeadline() {
+		return deadline;
+	}
+
+	public void setDeadline(String deadline) {
+		this.deadline = deadline;
 	}
 
 	public String getTaskDate() {
@@ -72,8 +117,9 @@ public class TaskVO {
 
 	@Override
 	public String toString() {
-		return "TaskVO [taskId=" + taskId + ", writerId=" + writerId + ", writerName=" + writerName + ", teamId="
-				+ teamId + ", content=" + content + ", taskDate=" + taskDate + "]";
+		return "TaskVO [taskFiles=" + taskFiles + ", chargeMems=" + chargeMems + ", taskId=" + taskId + ", writerId="
+				+ writerId + ", writerName=" + writerName + ", teamId=" + teamId + ", title=" + title + ", content="
+				+ content + ", deadline=" + deadline + ", taskDate=" + taskDate + "]";
 	}
-	
+		
 }

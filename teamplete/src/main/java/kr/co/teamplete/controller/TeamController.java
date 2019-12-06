@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.teamplete.dto.BoardVO;
+import kr.co.teamplete.dto.ChargeVO;
 import kr.co.teamplete.dto.MemberVO;
+import kr.co.teamplete.dto.TaskFileVO;
 import kr.co.teamplete.dto.TaskVO;
 import kr.co.teamplete.dto.TeamMemberVO;
 import kr.co.teamplete.dto.TeamVO;
@@ -82,7 +84,7 @@ public class TeamController {
 		mav.setViewName("team/team");
 		mav.addObject("teamList", teamList);
 		for(int i=0; i<teamList.size(); i++) {
-			deadline.add(deadline(teamList.get(i)));
+			deadline.add(deadline(teamList.get(i).getDeadline()));
 //			System.out.println(deadline(teamList.get(i)));
 		}
 		mav.addObject("deadline", deadline);
@@ -111,8 +113,8 @@ public class TeamController {
 	}
 
 	// 남은 제출 기한 구하기
-	public String deadline(TeamVO team) {
-		String deadline = team.getDeadline();
+	public String deadline(String deadlineStr) {
+		String deadline = deadlineStr;
 
 		if (deadline != null) {
 			String[] words = deadline.split("-");
@@ -151,9 +153,17 @@ public class TeamController {
 		List<MemberVO> members = service.selectAllMembers(teamId);
 		List<TaskVO> taskList = taskService.selectAllTaskS(teamId);
 		List<List<BoardVO>> boardList = new ArrayList<>();
+		List<List<TaskFileVO>> taskFileList = new ArrayList<>();
+		List<String> deadline = new ArrayList<>();
+		List<List<ChargeVO>> chargeMembers = new ArrayList<>();
 		for(int i=0; i<taskList.size(); i++) {
+			taskFileList.add(taskService.selectAllTaskFileS(taskList.get(i).getTaskId()));
+			deadline.add(deadline(taskList.get(i).getDeadline()));
+			chargeMembers.add(taskService.selectAllsubmitS(taskList.get(i).getTaskId()));
 			boardList.add(boardService.selectAllBoardS(taskList.get(i).getTaskId()));
+		
 		}
+
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("team/teamDetail");
@@ -163,6 +173,12 @@ public class TeamController {
 		mav.addObject("taskList", taskList);
 		
 		mav.addObject("boardList", boardList);
+		
+		mav.addObject("taskFileList", taskFileList);
+		
+		mav.addObject("taskDeadline", deadline);
+		
+		mav.addObject("chargeMembers", chargeMembers);
 	
 		return mav;
 	}
@@ -171,7 +187,7 @@ public class TeamController {
 	//팀 멤버 추가한 뒤 상세 팀 조회 페이지로 돌아감
 	@RequestMapping(value = "/teamdetail/{id}", method = RequestMethod.POST)
 	@ResponseBody
-	public String addTeamMember( @RequestBody ArrayList<String> memberList,  @PathVariable("id") int teamId) {
+	public ArrayList<String> addTeamMember( @RequestBody ArrayList<String> memberList,  @PathVariable("id") int teamId) {
 		for (String s : memberList) {
 			//teamMember.setMemberId(s);
 			TeamMemberVO teamMember = new TeamMemberVO();
@@ -183,7 +199,7 @@ public class TeamController {
 		TeamVO team = service.detailTeam(teamId);
 		membersUpdate(team);
 		
-		return "redirect:/team/" + teamId;
+		return memberList;
 	}
 	
 	//팀 정보 수정
