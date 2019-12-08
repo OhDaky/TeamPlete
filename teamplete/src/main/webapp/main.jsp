@@ -53,11 +53,18 @@
 	href="${ pageContext.request.contextPath }/resources/css/layers.css">
 <link rel="stylesheet" type="text/css"
 	href="${ pageContext.request.contextPath }/resources/css/navigation.css">
+	<link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/resources/css/css/pe-icon-7-stroke.css">
+		<link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/resources/css/css/font-awesome.css">	
+
+
+<link href="http://fonts.googleapis.com/css?family=Noto+Sans:700%2C400%7CNanum+Gothic:800%7COpen+Sans:400" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+
 	
 <!-- TYPEWRITER ADDON -->	
 <link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/resources/css/typewriter.css">
 <!-- END: Page CSS-->
-
+<style type="text/css">.hesperiden.tparrows{cursor:pointer;background:rgba(0,0,0,0.5);width:40px;height:40px;position:absolute;display:block;z-index:100;  border-radius:50%}.hesperiden.tparrows:hover{background:rgba(0,0,0,1)}.hesperiden.tparrows:before{font-family:"revicons";font-size:20px;color:rgb(255,255,255);display:block;line-height:40px;text-align:center}.hesperiden.tparrows.tp-leftarrow:before{content:"\e82c";  margin-left:-3px}.hesperiden.tparrows.tp-rightarrow:before{content:"\e82d";  margin-right:-3px}.hephaistos .tp-bullet{width:12px;height:12px;position:absolute;background:rgba(153,153,153,1);border:3px solid rgba(255,255,255,0.9);border-radius:50%;cursor:pointer;box-sizing:content-box;  box-shadow:0px 0px 2px 1px rgba(130,130,130,0.3)}.hephaistos .tp-bullet:hover,.hephaistos .tp-bullet.selected{background:rgba(255,255,255,1);  border-color:rgba(0,0,0,1)}</style>
+				
 </head>
 <body
 	class="horizontal-layout horizontal-menu 1-column  navbar-floating footer-static bg-full-screen-image  blank-page blank-page"
@@ -157,509 +164,420 @@
 				</section>
 				
 				<section id="slider" class="slider-element revslider-wrap full-screen clearfix">
-
-			<div id="rev_slider_1014_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="typewriter-effect" data-source="gallery" style="background-color:transparent;padding:0px;">
-				<!-- START REVOLUTION SLIDER 5.3.0.2 fullscreen mode -->
-				<div id="rev_slider_1014_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.3.0.2">
-					<ul>	<!-- SLIDE  -->
-						<li class="dark" data-index="rs-2800" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="${ pageContext.request.contextPath }/resources/images/Dancing-Bulbs-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-							<!-- MAIN IMAGE -->
-							<img src="${ pageContext.request.contextPath }/resources/images/Dancing-Bulbs.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" class="rev-slidebg" data-no-retina>
-							<!-- LAYERS -->
-
-							<!-- BACKGROUND VIDEO LAYER -->
-							<div class="rs-background-video-layer"
-								data-forcerewind="on"
-								data-volume="mute"
-								data-videowidth="100%"
-								data-videoheight="100%"
-								data-videomp4="${ pageContext.request.contextPath }/resources/images/Dancing-Bulbs.mp4"
-								data-videopreload="auto"
-								data-videoloop="loop"
-								data-forceCover="1"
-								data-aspectratio="16:9"
-								data-autoplay="true"
-								data-autoplayonlyfirsttime="false"
-							></div>
-							<!-- LAYER NR. 1 -->
-							<div class="tp-caption tp-shape tp-shapewrapper "
-								 id="slide-2800-layer-7"
-								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
-											data-width="full"
-								data-height="full"
-								data-whitespace="nowrap"
-
-								data-type="shape"
-								data-basealign="slide"
-								data-responsive_offset="off"
-								data-responsive="off"
-								data-frames='[{"from":"opacity:0;","speed":500,"to":"o:1;","delay":0,"ease":"Power4.easeOut"},{"speed":5000,"to":"opacity:0;","ease":"Power4.easeInOut"}]'
-								data-textAlign="['left','left','left','left']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]"
-
-								style="z-index: 5;background-color:rgba(0, 0, 0, 0.50);border-color:rgba(0, 0, 0, 0);border-width:0px;"> </div>
-
-							<!-- LAYER NR. 2 -->
-							<div class="tp-caption   tp-resizeme"
-								 id="slide-2800-layer-1"
-								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['-80','-80','-130','-157']"
-											data-fontsize="['130','130','100','80']"
-								data-lineheight="['130','130','100','80']"
-								data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-
-								data-type="text"
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"y:50px;sX:1;sY:1;opacity:0;","speed":2500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-								data-textAlign="['center','center','center','center']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]"
-
-								style="z-index: 6; white-space: nowrap; font-size: 130px; line-height: 130px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial, Helvetica, sans-serif;border-width:0px;letter-spacing:-7px;">Web Agency </div>
-
-							<!-- LAYER NR. 3 -->
-							<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme"
-								 id="slide-2800-layer-3"
-								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['16','16','-54','-89']"
-											data-width="60"
-								data-height="3"
-								data-whitespace="nowrap"
-
-								data-type="shape"
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"y:50px;opacity:0;","speed":2500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-								data-textAlign="['left','left','left','left']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]"
-
-								style="z-index: 7;background-color:rgba(38, 211, 105, 1.00);border-color:rgba(0, 0, 0, 0);border-width:0px;"> </div>
-
-							<!-- LAYER NR. 4 -->
-							<div class="tp-caption   tp-resizeme"
-								 id="slide-2800-layer-2"
-								 data-x="['center','center','center','center']" data-hoffset="['-10','-10','-10','-10']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['65','65','-8','-32']"
-											data-fontsize="['40','40','30','30']"
-								data-width="['640','640','480','360']"
-								data-height="none"
-								data-whitespace="['nowrap','nowrap','normal','normal']"
-
-								data-type="text"
-								data-typewriter='{"lines":"167%20Clients%20Worldwide.,23%20Qualified%20Employees.,150%20Cups%20of%20Coffee%20per%20Day.","enabled":"on","speed":"60","delays":"1%7C100","looped":"on","cursorType":"one","blinking":"on","word_delay":"off","sequenced":"on","hide_cursor":"off","start_delay":"1500","newline_delay":"1000","deletion_speed":"20","deletion_delay":"1000","blinking_speed":"500","linebreak_delay":"60","cursor_type":"two","background":"off"}'
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"y:50px;sX:1;sY:1;opacity:0;","speed":2500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-								data-textAlign="['center','center','center','center']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]"
-
-								style="z-index: 8; min-width: 640px; max-width: 640px; white-space: nowrap; font-size: 40px; line-height: 40px; font-weight: 400; color: rgba(255, 255, 255, 1.00);font-family:Georgia, serif;font-style:italic;border-width:0px;">Dedicated. Inspired. Passionate. </div>
-
-							<!-- LAYER NR. 5 -->
-							<div class="tp-caption rev-btn  tp-resizeme"
-								 id="slide-2800-layer-4"
-								 data-x="['right','right','center','center']" data-hoffset="['660','550','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['240','240','100','83']"
-											data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-
-								data-type="button"
-								data-actions='[{"event":"click","action":"scrollbelow","offset":"px","delay":""}]'
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"x:-50px;opacity:0;","speed":2500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"},{"frame":"hover","speed":"150","ease":"Power2.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 0);bw:2px 2px 2px 2px;"}]'
-								data-textAlign="['left','left','left','left']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[50,50,50,50]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[50,50,50,50]"
-
-								style="z-index: 9; white-space: nowrap; font-size: 15px; line-height: 46px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial, Helvetica, sans-serif;background-color:rgba(0, 0, 0, 0);border-color:rgba(255, 255, 255, 0.25);border-style:solid;border-width:2px;border-radius:4px 4px 4px 4px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;letter-spacing:5px;cursor:pointer;">ABOUT US </div>
-
-							<!-- LAYER NR. 6 -->
-							<div class="tp-caption   tp-resizeme"
-								 id="slide-2800-layer-6"
-								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['237','237','158','141']"
-											data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-
-								data-type="text"
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"y:50px;opacity:0;","speed":2500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-								data-textAlign="['left','left','left','left']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]"
-
-								style="z-index: 10; white-space: nowrap; font-size: 25px; line-height: 25px; font-weight: 400; color: rgba(255, 255, 255, 1.00);font-family:Georgia, serif;font-style:italic;border-width:0px;">or </div>
-
-							<!-- LAYER NR. 7 -->
-							<div class="tp-caption rev-btn  tp-resizeme"
-								 id="slide-2800-layer-5"
-								 data-x="['left','left','center','center']" data-hoffset="['660','550','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['240','240','224','207']"
-											data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-
-								data-type="button"
-								data-actions='[{"event":"click","action":"scrollbelow","offset":"px","delay":""}]'
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"x:50px;opacity:0;","speed":2500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"},{"frame":"hover","speed":"150","ease":"Power2.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 0);bw:2px 2px 2px 2px;"}]'
-								data-textAlign="['left','left','left','left']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[50,50,50,50]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[50,50,50,50]"
-
-								style="z-index: 11; white-space: nowrap; font-size: 15px; line-height: 46px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial, Helvetica, sans-serif;background-color:rgba(0, 0, 0, 0);border-color:rgba(255, 255, 255, 0.25);border-style:solid;border-width:2px;border-radius:4px 4px 4px 4px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;letter-spacing:5px;cursor:pointer;">CONTACT </div>
-						</li>
-						<!-- SLIDE  -->
-						<li data-index="rs-2801" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="${ pageContext.request.contextPath }/resources/images/citybg-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-							<!-- MAIN IMAGE -->
-							<img src="${ pageContext.request.contextPath }/resources/images/citybg.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-							<!-- LAYERS -->
-
-							<!-- LAYER NR. 8 -->
-							<div class="tp-caption tp-shape tp-shapewrapper "
-								 id="slide-2801-layer-7"
-								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
-											data-width="full"
-								data-height="full"
-								data-whitespace="nowrap"
-
-								data-type="shape"
-								data-basealign="slide"
-								data-responsive_offset="off"
-								data-responsive="off"
-								data-frames='[{"from":"opacity:0;","speed":1000,"to":"o:1;","delay":0,"ease":"Power4.easeOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"Power4.easeOut"}]'
-								data-textAlign="['left','left','left','left']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]"
-
-								style="z-index: 12;background-color:rgba(0, 0, 0, 0.50);border-color:rgba(0, 0, 0, 0);border-width:0px;"> </div>
-
-							<!-- LAYER NR. 9 -->
-							<div class="tp-caption   tp-resizeme"
-								 id="slide-2801-layer-1"
-								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['-80','-80','-130','-157']"
-											data-fontsize="['130','130','100','80']"
-								data-lineheight="['130','130','100','80']"
-								data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-
-								data-type="text"
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"y:50px;sX:1;sY:1;opacity:0;","speed":2500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-								data-textAlign="['center','center','center','center']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]"
-
-								style="z-index: 13; white-space: nowrap; font-size: 130px; line-height: 130px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial, Helvetica, sans-serif;background-color:rgba(0, 0, 0, 0);border-width:0px;letter-spacing:-7px;">Dream. Big. </div>
-
-							<!-- LAYER NR. 10 -->
-							<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme"
-								 id="slide-2801-layer-3"
-								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['16','16','-54','-89']"
-											data-width="60"
-								data-height="3"
-								data-whitespace="nowrap"
-
-								data-type="shape"
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"y:50px;opacity:0;","speed":2500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-								data-textAlign="['left','left','left','left']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]"
-
-								style="z-index: 14;background-color:rgba(0, 220, 186, 1.00);border-color:rgba(0, 0, 0, 0);border-width:0px;"> </div>
-
-							<!-- LAYER NR. 11 -->
-							<div class="tp-caption   tp-resizeme"
-								 id="slide-2801-layer-2"
-								 data-x="['center','center','center','center']" data-hoffset="['-10','-10','-10','-10']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['65','65','-8','-32']"
-											data-fontsize="['40','40','30','30']"
-								data-width="['640','640','480','360']"
-								data-height="none"
-								data-whitespace="normal"
-
-								data-type="text"
-								data-typewriter='{"lines":"Customizable%20Typerwiter%20Effect.,Add%20to%20any%20Text%20Layer.,A%20100%25%20Free%20Addon%20for%20Rvsldr.","enabled":"on","speed":"60","delays":"1%7C100","looped":"on","cursorType":"one","blinking":"on","word_delay":"off","sequenced":"on","hide_cursor":"off","start_delay":"1500","newline_delay":"1000","deletion_speed":"20","deletion_delay":"1000","blinking_speed":"500","linebreak_delay":"60","cursor_type":"two","background":"off"}'
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"y:50px;sX:1;sY:1;opacity:0;","speed":2500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-								data-textAlign="['center','center','center','center']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]"
-
-								style="z-index: 15; min-width: 640px; max-width: 640px; white-space: normal; font-size: 40px; line-height: 40px; font-weight: 400; color: rgba(255, 255, 255, 1.00);font-family:Georgia, serif;font-style:italic;border-width:0px;">Made to Captivate your Audience. </div>
-
-							<!-- LAYER NR. 12 -->
-							<div class="tp-caption rev-btn  tp-resizeme"
-								 id="slide-2801-layer-4"
-								 data-x="['right','right','center','center']" data-hoffset="['660','550','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['240','240','100','83']"
-											data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-
-								data-type="button"
-								data-actions='[{"event":"click","action":"scrollbelow","offset":"px","delay":""}]'
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"x:-50px;opacity:0;","speed":2500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"},{"frame":"hover","speed":"150","ease":"Power2.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 0);bw:2px 2px 2px 2px;"}]'
-								data-textAlign="['left','left','left','left']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[50,50,50,50]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[50,50,50,50]"
-
-								style="z-index: 16; white-space: nowrap; font-size: 15px; line-height: 46px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial, Helvetica, sans-serif;background-color:rgba(0, 0, 0, 0);border-color:rgba(255, 255, 255, 0.25);border-style:solid;border-width:2px;border-radius:4px 4px 4px 4px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;letter-spacing:5px;cursor:pointer;">ABOUT US </div>
-
-							<!-- LAYER NR. 13 -->
-							<div class="tp-caption   tp-resizeme"
-								 id="slide-2801-layer-6"
-								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['237','237','158','141']"
-											data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-
-								data-type="text"
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"y:50px;opacity:0;","speed":2500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-								data-textAlign="['left','left','left','left']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]"
-
-								style="z-index: 17; white-space: nowrap; font-size: 25px; line-height: 25px; font-weight: 400; color: rgba(255, 255, 255, 1.00);font-family:Georgia, serif;font-style:italic;border-width:0px;">or </div>
-
-							<!-- LAYER NR. 14 -->
-							<div class="tp-caption rev-btn  tp-resizeme"
-								 id="slide-2801-layer-5"
-								 data-x="['left','left','center','center']" data-hoffset="['660','550','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['240','240','224','207']"
-											data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-
-								data-type="button"
-								data-actions='[{"event":"click","action":"scrollbelow","offset":"px","delay":""}]'
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"x:50px;opacity:0;","speed":2500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"},{"frame":"hover","speed":"150","ease":"Power2.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 0);bw:2px 2px 2px 2px;"}]'
-								data-textAlign="['left','left','left','left']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[50,50,50,50]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[50,50,50,50]"
-
-								style="z-index: 18; white-space: nowrap; font-size: 15px; line-height: 46px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial, Helvetica, sans-serif;background-color:rgba(0, 0, 0, 0);border-color:rgba(255, 255, 255, 0.25);border-style:solid;border-width:2px;border-radius:4px 4px 4px 4px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;letter-spacing:5px;cursor:pointer;">CONTACT </div>
-						</li>
-						<!-- SLIDE  -->
-						<li data-index="rs-2802" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="${ pageContext.request.contextPath }/resources/images/farmbg-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-							<!-- MAIN IMAGE -->
-							<img src="${ pageContext.request.contextPath }/resources/images/farmbg.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-							<!-- LAYERS -->
-
-							<!-- LAYER NR. 15 -->
-							<div class="tp-caption tp-shape tp-shapewrapper "
-								 id="slide-2802-layer-7"
-								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
-											data-width="full"
-								data-height="full"
-								data-whitespace="nowrap"
-
-								data-type="shape"
-								data-basealign="slide"
-								data-responsive_offset="off"
-								data-responsive="off"
-								data-frames='[{"from":"opacity:0;","speed":1000,"to":"o:1;","delay":0,"ease":"Power4.easeOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"Power4.easeOut"}]'
-								data-textAlign="['left','left','left','left']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]"
-
-								style="z-index: 19;background-color:rgba(0, 0, 0, 0.50);border-color:rgba(0, 0, 0, 0);border-width:0px;"> </div>
-
-							<!-- LAYER NR. 16 -->
-							<div class="tp-caption   tp-resizeme"
-								 id="slide-2802-layer-1"
-								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['-80','-81','-171','-146']"
-											data-fontsize="['100','100','70','60']"
-								data-lineheight="['100','100','70','50']"
-								data-width="['760','760','none','360']"
-								data-height="none"
-								data-whitespace="['normal','normal','nowrap','normal']"
-
-								data-type="text"
-								data-typewriter='{"lines":"","enabled":"on","speed":"80","delays":"1%7C100","looped":"off","cursorType":"one","blinking":"on","word_delay":"off","sequenced":"off","hide_cursor":"on","start_delay":"1000","newline_delay":"1000","deletion_speed":"20","deletion_delay":"1000","blinking_speed":"500","linebreak_delay":"60","cursor_type":"two","background":"off"}'
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"y:50px;sX:1;sY:1;opacity:0;","speed":2500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-								data-textAlign="['center','center','center','center']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]"
-
-								style="z-index: 20; min-width: 760px; max-width: 760px; white-space: normal; font-size: 100px; line-height: 100px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial, Helvetica, sans-serif;border-width:0px;letter-spacing:-5px;">It Always Seems<br/>Impossible<br/> Until its Done.  </div>
-
-							<!-- LAYER NR. 17 -->
-							<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme"
-								 id="slide-2802-layer-3"
-								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['96','96','-35','-19']"
-											data-width="60"
-								data-height="3"
-								data-whitespace="nowrap"
-
-								data-type="shape"
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"y:50px;opacity:0;","speed":2500,"to":"o:1;","delay":5000,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-								data-textAlign="['left','left','left','left']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]"
-
-								style="z-index: 21;background-color:rgba(0, 220, 186, 1.00);border-color:rgba(0, 0, 0, 0);border-width:0px;"> </div>
-
-							<!-- LAYER NR. 18 -->
-							<div class="tp-caption   tp-resizeme"
-								 id="slide-2802-layer-2"
-								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['144','144','12','18']"
-											data-fontsize="['40','40','30','30']"
-								data-width="['640','640','480','360']"
-								data-height="none"
-								data-whitespace="normal"
-
-								data-type="text"
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"y:50px;sX:1;sY:1;opacity:0;","speed":2500,"to":"o:1;","delay":5000,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-								data-textAlign="['center','center','center','center']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]"
-
-								style="z-index: 22; min-width: 640px; max-width: 640px; white-space: normal; font-size: 40px; line-height: 40px; font-weight: 400; color: rgba(255, 255, 255, 1.00);font-family:Georgia, serif;font-style:italic;border-width:0px;">Nelson Mandela </div>
-
-							<!-- LAYER NR. 19 -->
-							<div class="tp-caption rev-btn  tp-resizeme"
-								 id="slide-2802-layer-4"
-								 data-x="['right','right','center','center']" data-hoffset="['660','550','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['240','240','100','93']"
-											data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-
-								data-type="button"
-								data-actions='[{"event":"click","action":"scrollbelow","offset":"px","delay":""}]'
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"x:-50px;opacity:0;","speed":2500,"to":"o:1;","delay":5000,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"},{"frame":"hover","speed":"150","ease":"Power2.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 0);bw:2px 2px 2px 2px;"}]'
-								data-textAlign="['left','left','left','left']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[50,50,50,50]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[50,50,50,50]"
-
-								style="z-index: 23; white-space: nowrap; font-size: 15px; line-height: 46px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial, Helvetica, sans-serif;background-color:rgba(0, 0, 0, 0);border-color:rgba(255, 255, 255, 0.25);border-style:solid;border-width:2px;border-radius:4px 4px 4px 4px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;letter-spacing:5px;cursor:pointer;">ABOUT US </div>
-
-							<!-- LAYER NR. 20 -->
-							<div class="tp-caption   tp-resizeme"
-								 id="slide-2802-layer-6"
-								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['237','237','158','151']"
-											data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-
-								data-type="text"
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"y:50px;opacity:0;","speed":2500,"to":"o:1;","delay":5000,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-								data-textAlign="['left','left','left','left']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]"
-
-								style="z-index: 24; white-space: nowrap; font-size: 25px; line-height: 25px; font-weight: 400; color: rgba(255, 255, 255, 1.00);font-family:Georgia, serif;font-style:italic;border-width:0px;">or </div>
-
-							<!-- LAYER NR. 21 -->
-							<div class="tp-caption rev-btn  tp-resizeme"
-								 id="slide-2802-layer-5"
-								 data-x="['left','left','center','center']" data-hoffset="['660','550','0','0']"
-								 data-y="['middle','middle','middle','middle']" data-voffset="['240','240','224','217']"
-											data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-
-								data-type="button"
-								data-actions='[{"event":"click","action":"scrollbelow","offset":"px","delay":""}]'
-								data-responsive_offset="on"
-
-								data-frames='[{"from":"x:50px;opacity:0;","speed":2500,"to":"o:1;","delay":5000,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"},{"frame":"hover","speed":"150","ease":"Power2.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 0);bw:2px 2px 2px 2px;"}]'
-								data-textAlign="['left','left','left','left']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[50,50,50,50]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[50,50,50,50]"
-
-								style="z-index: 25; white-space: nowrap; font-size: 15px; line-height: 46px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial, Helvetica, sans-serif;background-color:rgba(0, 0, 0, 0);border-color:rgba(255, 255, 255, 0.25);border-style:solid;border-width:2px;border-radius:4px 4px 4px 4px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;letter-spacing:5px;cursor:pointer;">CONTACT </div>
-							</li>
-						</ul>
-						<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
-					</div>
-				</div><!-- END REVOLUTION SLIDER -->
-			</div>
+		
+								
+
+				
+				
+				
+								<div id="rev_slider_13_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.8.1">
+<ul>	<!-- SLIDE  -->
+    <li data-index="rs-62" data-transition="fade,cube-horizontal" data-slotamount="default,default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default,default" data-easeout="default,default" data-masterspeed="300,default"  data-thumb="${ pageContext.request.contextPath }/resources/images/transparent.png"  data-rotate="0,0"  data-saveperformance="off"  data-mediafilter="gingham" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+		<!-- MAIN IMAGE -->
+        <img src="${ pageContext.request.contextPath }/resources/images/transparent.png" data-bgcolor='#1b2a2f' style='background:#1b2a2f' alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="9" class="rev-slidebg" data-no-retina>
+		<!-- LAYERS -->
+
+		<!-- LAYER NR. 1 -->
+		<div class="tp-caption   tp-resizeme rs-parallaxlevel-3" 
+			 id="slide-62-layer-1" 
+			 data-x="['left','left','left','left']" data-hoffset="['0','0','0','0']" 
+			 data-y="['top','top','top','top']" data-voffset="['197','197','197','197']" 
+						data-fontsize="['68','68','54','54']"
+			data-width="none"
+			data-height="none"
+			data-whitespace="nowrap"
+ 
+            data-type="text" 
+			data-responsive_offset="on" 
+
+            data-frames='[{"delay":10,"split":"chars","splitdelay":0.05000000000000000277555756156289135105907917022705078125,"speed":2000,"split_direction":"forward","frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"y:50px;opacity:0;","ease":"Power3.easeInOut"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[0,0,0,0]"
+            data-paddingright="[0,0,0,0]"
+            data-paddingbottom="[0,0,0,0]"
+            data-paddingleft="[0,0,0,0]"
+
+            style="z-index: 5; white-space: nowrap; font-size: 68px; line-height: 22px; font-weight: 700; color: #ffffff; letter-spacing: -5px;font-family:Noto Sans;">한 눈에 보는 진행사항 </div>
+
+		<!-- LAYER NR. 2 -->
+		<div class="tp-caption   tp-resizeme rs-parallaxlevel-3" 
+			 id="slide-62-layer-2" 
+			 data-x="['left','left','left','left']" data-hoffset="['0','0','0','0']" 
+			 data-y="['top','top','top','top']" data-voffset="['307','307','307','307']" 
+						data-width="['573','573','462','462']"
+			data-height="['122','122','none','none']"
+			data-whitespace="normal"
+ 
+            data-type="text" 
+			data-responsive_offset="on" 
+
+            data-frames='[{"delay":10,"speed":2500,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:50px;opacity:0;","ease":"Power2.easeIn"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[0,0,0,0]"
+            data-paddingright="[0,0,0,0]"
+            data-paddingbottom="[0,0,0,0]"
+            data-paddingleft="[0,0,0,0]"
+
+            style="z-index: 6; min-width: 573px; max-width: 573px; max-width: 122px; max-width: 122px; white-space: normal; font-size: 24px; line-height: 40px; font-weight: 400; color: #ffffff; letter-spacing: -1px;font-family:Noto Sans;">Teamplete는 팀 작업을
+쉽고 편하게 관리하게
+도와주는 혁신적인 솔루션입니다. 팀원들의 과제 제출 여부를 한 눈에 확인하고 산출물을 관리하세요. </div>
+
+		<!-- LAYER NR. 3 -->
+		<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme rs-parallaxlevel-3" 
+			 id="slide-62-layer-4" 
+			 data-x="['left','left','left','left']" data-hoffset="['1','1','1','0']" 
+			 data-y="['top','top','top','top']" data-voffset="['270','270','270','270']" 
+						data-width="40"
+			data-height="4"
+			data-whitespace="nowrap"
+ 
+            data-type="shape" 
+			data-responsive_offset="on" 
+
+            data-frames='[{"delay":10,"speed":300,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"y:50px;opacity:0;","ease":"Power3.easeInOut"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[0,0,0,0]"
+            data-paddingright="[0,0,0,0]"
+            data-paddingbottom="[0,0,0,0]"
+            data-paddingleft="[0,0,0,0]"
+
+            style="z-index: 7;background-color:rgb(255,255,255);"> </div>
+
+		<!-- LAYER NR. 4 -->
+		<div class="tp-caption rev-btn rev-withicon  rs-parallaxlevel-3" 
+			 id="slide-62-layer-10" 
+			 data-x="['left','left','left','left']" data-hoffset="['5','5','5','5']" 
+			 data-y="['top','top','top','top']" data-voffset="['482','482','482','482']" 
+						data-width="none"
+			data-height="none"
+			data-whitespace="nowrap"
+ 
+            data-type="button" 
+			data-responsive_offset="on" 
+			data-responsive="off"
+            data-frames='[{"delay":10,"speed":1300,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"y:50px;opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0,0,0,1);bg:rgba(255,255,255,1);bc:rgba(0,0,0,1);bw:0 0 0 0;"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[12,12,12,12]"
+            data-paddingright="[35,35,35,35]"
+            data-paddingbottom="[12,12,12,12]"
+            data-paddingleft="[35,35,35,35]"
+
+            style="z-index: 8; white-space: nowrap; font-size: 17px; line-height: 17px; font-weight: 800; color: #ffffff; letter-spacing: ;font-family:Nanum Gothic;background-color:rgba(255,255,255,0);border-color:rgb(255,255,255);border-style:solid;border-width:2px 2px 2px 2px;border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">시작하기<i class="fa-icon-chevron-right"></i> </div>
+
+		<!-- LAYER NR. 5 -->
+		<div class="tp-caption   tp-resizeme rs-parallaxlevel-3" 
+			 id="slide-62-layer-11" 
+			 data-x="['left','left','left','left']" data-hoffset="['3','3','3','3']" 
+			 data-y="['top','top','top','top']" data-voffset="['88','88','88','88']" 
+						data-width="none"
+			data-height="none"
+			data-whitespace="nowrap"
+ 
+            data-type="image" 
+			data-responsive_offset="on" 
+
+            data-frames='[{"delay":10,"speed":300,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"y:50px;opacity:0;","ease":"Power3.easeInOut"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[0,0,0,0]"
+            data-paddingright="[0,0,0,0]"
+            data-paddingbottom="[0,0,0,0]"
+            data-paddingleft="[0,0,0,0]"
+
+            style="z-index: 9;"><img src="${ pageContext.request.contextPath }/resources/images/b3350-whitelogo.png" alt="" data-ww="['129px','129px','129px','129px']" data-hh="['34px','34px','34px','34px']" data-no-retina> </div>
+
+		<!-- LAYER NR. 6 -->
+		<div class="tp-caption   tp-resizeme rs-parallaxlevel-6" 
+			 id="slide-62-layer-12" 
+			 data-x="['right','right','right','right']" data-hoffset="['0','-107','-215','-585']" 
+			 data-y="['top','top','top','top']" data-voffset="['-72','-64','-48','-33']" 
+						data-width="none"
+			data-height="none"
+			data-whitespace="nowrap"
+ 
+            data-type="image" 
+			data-responsive_offset="on" 
+
+            data-frames='[{"delay":10,"speed":1000,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:50px;opacity:0;","ease":"Power3.easeInOut"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[0,0,0,0]"
+            data-paddingright="[0,0,0,0]"
+            data-paddingbottom="[0,0,0,0]"
+            data-paddingleft="[0,0,0,0]"
+
+            style="z-index: 10;"><img src="${ pageContext.request.contextPath }/resources/images/object_iphone_3.png" alt="" data-ww="['750px','750px','750px','750px']" data-hh="['750px','750px','750px','750px']" data-no-retina> </div>
+	</li>
+	<!-- SLIDE  -->
+    <li data-index="rs-64" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="${ pageContext.request.contextPath }/resources/images/transparent.png"  data-rotate="0"  data-saveperformance="off"  data-mediafilter="gingham" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+		<!-- MAIN IMAGE -->
+        <img src="${ pageContext.request.contextPath }/resources/images/transparent.png" data-bgcolor='#45aed4' style='background:#45aed4' alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="9" class="rev-slidebg" data-no-retina>
+		<!-- LAYERS -->
+
+		<!-- LAYER NR. 7 -->
+		<div class="tp-caption   tp-resizeme rs-parallaxlevel-3" 
+			 id="slide-64-layer-1" 
+			 data-x="['left','left','left','left']" data-hoffset="['0','0','0','10']" 
+			 data-y="['top','top','top','top']" data-voffset="['197','197','197','197']" 
+						data-fontsize="['68','68','54','48']"
+			data-width="none"
+			data-height="none"
+			data-whitespace="nowrap"
+ 
+            data-type="text" 
+			data-responsive_offset="on" 
+
+            data-frames='[{"delay":10,"split":"chars","splitdelay":0.05000000000000000277555756156289135105907917022705078125,"speed":2000,"split_direction":"forward","frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"y:50px;opacity:0;","ease":"Power3.easeInOut"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[0,0,0,0]"
+            data-paddingright="[0,0,0,0]"
+            data-paddingbottom="[0,0,0,0]"
+            data-paddingleft="[0,0,0,0]"
+
+            style="z-index: 5; white-space: nowrap; font-size: 68px; line-height: 22px; font-weight: 700; color: #ffffff; letter-spacing: -5px;font-family:Noto Sans;">버스 탑승은 이제 그만! </div>
+
+		<!-- LAYER NR. 8 -->
+		<div class="tp-caption   tp-resizeme rs-parallaxlevel-3" 
+			 id="slide-64-layer-2" 
+			 data-x="['left','left','left','left']" data-hoffset="['0','0','0','10']" 
+			 data-y="['top','top','top','top']" data-voffset="['306','307','307','302']" 
+						data-fontsize="['24','24','24','23']"
+			data-width="['609','573','462','462']"
+			data-height="['123','122','none','none']"
+			data-whitespace="normal"
+ 
+            data-type="text" 
+			data-responsive_offset="on" 
+
+            data-frames='[{"delay":10,"speed":2500,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:50px;opacity:0;","ease":"Power2.easeIn"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[0,0,0,0]"
+            data-paddingright="[0,0,0,0]"
+            data-paddingbottom="[0,0,0,0]"
+            data-paddingleft="[0,0,0,0]"
+
+            style="z-index: 6; min-width: 609px; max-width: 609px; max-width: 123px; max-width: 123px; white-space: normal; font-size: 24px; line-height: 40px; font-weight: 400; color: #ffffff; letter-spacing: -1px;font-family:Noto Sans;">Teamplete를 통해 과제 제출 기한이 얼마나 남았는지, 누가 과제를 제출하지 않았는지 한 눈에 파악하세요. 또한 제출된 과제들을 편하게 모아서 볼 수 있습니다. </div>
+
+		<!-- LAYER NR. 9 -->
+		<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme rs-parallaxlevel-3" 
+			 id="slide-64-layer-4" 
+			 data-x="['left','left','left','left']" data-hoffset="['1','1','1','10']" 
+			 data-y="['top','top','top','top']" data-voffset="['270','270','270','268']" 
+						data-width="40"
+			data-height="4"
+			data-whitespace="nowrap"
+ 
+            data-type="shape" 
+			data-responsive_offset="on" 
+
+            data-frames='[{"delay":10,"speed":300,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"y:50px;opacity:0;","ease":"Power3.easeInOut"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[0,0,0,0]"
+            data-paddingright="[0,0,0,0]"
+            data-paddingbottom="[0,0,0,0]"
+            data-paddingleft="[0,0,0,0]"
+
+            style="z-index: 7;background-color:rgb(255,255,255);"> </div>
+
+		<!-- LAYER NR. 10 -->
+		<div class="tp-caption rev-btn rev-withicon  rs-parallaxlevel-3" 
+			 id="slide-64-layer-10" 
+			 data-x="['left','left','left','left']" data-hoffset="['5','5','5','10']" 
+			 data-y="['top','top','top','top']" data-voffset="['482','482','482','484']" 
+						data-width="none"
+			data-height="none"
+			data-whitespace="nowrap"
+ 
+            data-type="button" 
+			data-responsive_offset="on" 
+			data-responsive="off"
+            data-frames='[{"delay":10,"speed":1300,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"y:50px;opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0,0,0,1);bg:rgba(255,255,255,1);bc:rgba(0,0,0,1);bw:0 0 0 0;"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[12,12,12,12]"
+            data-paddingright="[35,35,35,35]"
+            data-paddingbottom="[12,12,12,12]"
+            data-paddingleft="[35,35,35,35]"
+
+            style="z-index: 8; white-space: nowrap; font-size: 17px; line-height: 17px; font-weight: 800; color: #ffffff; letter-spacing: ;font-family:Nanum Gothic;background-color:rgba(255,255,255,0);border-color:rgb(255,255,255);border-style:solid;border-width:2px 2px 2px 2px;border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">시작하기<i class="fa-icon-chevron-right"></i> </div>
+
+		<!-- LAYER NR. 11 -->
+		<div class="tp-caption   tp-resizeme rs-parallaxlevel-3" 
+			 id="slide-64-layer-11" 
+			 data-x="['left','left','left','left']" data-hoffset="['3','3','3','10']" 
+			 data-y="['top','top','top','top']" data-voffset="['88','88','88','93']" 
+						data-width="none"
+			data-height="none"
+			data-whitespace="nowrap"
+ 
+            data-type="image" 
+			data-responsive_offset="on" 
+
+            data-frames='[{"delay":10,"speed":300,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"y:50px;opacity:0;","ease":"Power3.easeInOut"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[0,0,0,0]"
+            data-paddingright="[0,0,0,0]"
+            data-paddingbottom="[0,0,0,0]"
+            data-paddingleft="[0,0,0,0]"
+
+            style="z-index: 9;"><img src="${ pageContext.request.contextPath }/resources/images/b3350-whitelogo.png" alt="" data-ww="['129px','129px','129px','129px']" data-hh="['34px','34px','34px','34px']" data-no-retina> </div>
+
+		<!-- LAYER NR. 12 -->
+		<div class="tp-caption   tp-resizeme" 
+			 id="slide-64-layer-14" 
+			 data-x="['right','right','right','right']" data-hoffset="['287','151','85','-255']" 
+			 data-y="['top','top','top','top']" data-voffset="['175','168','188','183']" 
+						data-width="175"
+			data-height="124"
+			data-whitespace="nowrap"
+ 
+            data-type="text" 
+			data-responsive_offset="on" 
+
+            data-frames='[{"delay":10,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[0,0,0,0]"
+            data-paddingright="[0,0,0,0]"
+            data-paddingbottom="[0,0,0,0]"
+            data-paddingleft="[0,0,0,0]"
+
+            style="z-index: 10; min-width: 175px; max-width: 175px; max-width: 124px; max-width: 124px; white-space: nowrap; font-size: 250px; line-height: 22px; font-weight: 400; color: #ffffff; letter-spacing: 0px;font-family:Open Sans;"><i class="fa-icon-bus"></i> </div>
+	</li>
+	<!-- SLIDE  -->
+    <li data-index="rs-65" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="${ pageContext.request.contextPath }/resources/images/transparent.png"  data-rotate="0"  data-saveperformance="off"  data-mediafilter="gingham" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+		<!-- MAIN IMAGE -->
+        <img src="${ pageContext.request.contextPath }/resources/images/assets/transparent.png" data-bgcolor='#ff943b' style='background:#ff943b' alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="9" class="rev-slidebg" data-no-retina>
+		<!-- LAYERS -->
+
+		<!-- LAYER NR. 13 -->
+		<div class="tp-caption   tp-resizeme rs-parallaxlevel-3" 
+			 id="slide-65-layer-1" 
+			 data-x="['left','left','left','left']" data-hoffset="['0','0','30','10']" 
+			 data-y="['top','top','top','top']" data-voffset="['197','197','197','194']" 
+						data-fontsize="['68','60','42','40']"
+			data-width="none"
+			data-height="none"
+			data-whitespace="nowrap"
+ 
+            data-type="text" 
+			data-responsive_offset="on" 
+
+            data-frames='[{"delay":10,"split":"chars","splitdelay":0.05000000000000000277555756156289135105907917022705078125,"speed":2000,"split_direction":"forward","frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"y:50px;opacity:0;","ease":"Power3.easeInOut"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[0,0,0,0]"
+            data-paddingright="[0,0,0,0]"
+            data-paddingbottom="[0,0,0,0]"
+            data-paddingleft="[0,0,0,0]"
+
+            style="z-index: 5; white-space: nowrap; font-size: 68px; line-height: 22px; font-weight: 700; color: #ffffff; letter-spacing: -5px;font-family:Noto Sans;">아직도 카톡으로 공지하세요? </div>
+
+		<!-- LAYER NR. 14 -->
+		<div class="tp-caption   tp-resizeme rs-parallaxlevel-3" 
+			 id="slide-65-layer-2" 
+			 data-x="['left','left','left','left']" data-hoffset="['0','0','30','9']" 
+			 data-y="['top','top','top','top']" data-voffset="['305','307','307','309']" 
+						data-fontsize="['24','24','24','23']"
+			data-letterspacing="['-1','-1','-1','1']"
+			data-width="['527','573','462','445']"
+			data-height="['none','122','none','242']"
+			data-whitespace="normal"
+ 
+            data-type="text" 
+			data-responsive_offset="on" 
+
+            data-frames='[{"delay":10,"speed":2500,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:50px;opacity:0;","ease":"Power2.easeIn"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[0,0,0,0]"
+            data-paddingright="[0,0,0,0]"
+            data-paddingbottom="[0,0,0,0]"
+            data-paddingleft="[0,0,0,0]"
+
+            style="z-index: 6; min-width: 527px; max-width: 527px; white-space: normal; font-size: 24px; line-height: 40px; font-weight: 400; color: #ffffff; letter-spacing: -1px;font-family:Noto Sans;">  긴 전달사항이나 지시를 아직도 메신저를 사용해서 보내시나요? 가독성은 떨어지고 확인해야할 문서는 많고, 채팅방 대화에 묻히고... 이제, Teamplete와  깔끔하고     세련되게 팀에게 메시지를 전달하세요!    </div>
+
+		<!-- LAYER NR. 15 -->
+		<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme rs-parallaxlevel-3" 
+			 id="slide-65-layer-4" 
+			 data-x="['left','left','left','left']" data-hoffset="['1','1','30','10']" 
+			 data-y="['top','top','top','top']" data-voffset="['270','270','270','270']" 
+						data-width="40"
+			data-height="4"
+			data-whitespace="nowrap"
+ 
+            data-type="shape" 
+			data-responsive_offset="on" 
+
+            data-frames='[{"delay":10,"speed":300,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"y:50px;opacity:0;","ease":"Power3.easeInOut"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[0,0,0,0]"
+            data-paddingright="[0,0,0,0]"
+            data-paddingbottom="[0,0,0,0]"
+            data-paddingleft="[0,0,0,0]"
+
+            style="z-index: 7;background-color:rgb(255,255,255);"> </div>
+
+		<!-- LAYER NR. 16 -->
+		<div class="tp-caption rev-btn rev-withicon  rs-parallaxlevel-3" 
+			 id="slide-65-layer-10" 
+			 data-x="['left','left','left','left']" data-hoffset="['5','5','30','11']" 
+			 data-y="['top','top','top','top']" data-voffset="['482','482','536','538']" 
+						data-width="none"
+			data-height="none"
+			data-whitespace="nowrap"
+ 
+            data-type="button" 
+			data-responsive_offset="on" 
+			data-responsive="off"
+            data-frames='[{"delay":10,"speed":1300,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"y:50px;opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0,0,0,1);bg:rgba(255,255,255,1);bc:rgba(0,0,0,1);bw:0 0 0 0;"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[12,12,12,12]"
+            data-paddingright="[35,35,35,35]"
+            data-paddingbottom="[12,12,12,12]"
+            data-paddingleft="[35,35,35,35]"
+
+            style="z-index: 8; white-space: nowrap; font-size: 17px; line-height: 17px; font-weight: 800; color: #ffffff; letter-spacing: ;font-family:Nanum Gothic;background-color:rgba(255,255,255,0);border-color:rgb(255,255,255);border-style:solid;border-width:2px 2px 2px 2px;border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">시작하기<i class="fa-icon-chevron-right"></i> </div>
+
+		<!-- LAYER NR. 17 -->
+		<div class="tp-caption   tp-resizeme rs-parallaxlevel-3" 
+			 id="slide-65-layer-11" 
+			 data-x="['left','left','left','left']" data-hoffset="['3','3','30','10']" 
+			 data-y="['top','top','top','top']" data-voffset="['88','88','88','97']" 
+						data-width="none"
+			data-height="none"
+			data-whitespace="nowrap"
+ 
+            data-type="image" 
+			data-responsive_offset="on" 
+
+            data-frames='[{"delay":10,"speed":300,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"y:50px;opacity:0;","ease":"Power3.easeInOut"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[0,0,0,0]"
+            data-paddingright="[0,0,0,0]"
+            data-paddingbottom="[0,0,0,0]"
+            data-paddingleft="[0,0,0,0]"
+
+            style="z-index: 9;"><img src="${ pageContext.request.contextPath }/resources/images/b3350-whitelogo.png" alt="" data-ww="['129px','129px','129px','129px']" data-hh="['34px','34px','34px','34px']" data-no-retina> </div>
+
+		<!-- LAYER NR. 18 -->
+		<div class="tp-caption   tp-resizeme rs-parallaxlevel-6" 
+			 id="slide-65-layer-12" 
+			 data-x="['right','right','right','right']" data-hoffset="['-127','-195','-234','-585']" 
+			 data-y="['top','top','top','top']" data-voffset="['-53','-33','7','-33']" 
+						data-width="none"
+			data-height="none"
+			data-whitespace="nowrap"
+ 
+            data-type="image" 
+			data-responsive_offset="on" 
+
+            data-frames='[{"delay":10,"speed":1000,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:50px;opacity:0;","ease":"Power3.easeInOut"}]'
+            data-textAlign="['inherit','inherit','inherit','inherit']"
+            data-paddingtop="[0,0,0,0]"
+            data-paddingright="[0,0,0,0]"
+            data-paddingbottom="[0,0,0,0]"
+            data-paddingleft="[0,0,0,0]"
+
+            style="z-index: 10;"><img src="${ pageContext.request.contextPath }/resources/images/object_iphone_3.png" alt="" data-ww="['750px','750px','750px','750px']" data-hh="['750px','750px','750px','750px']" data-no-retina> </div>
+	</li>
+</ul>
+<div class="tp-bannertimer" style="height: 5px; background: rgba(0,0,0,0.15);"></div>	</div>
+</div><!-- END REVOLUTION SLIDER -->
 
 		</section>
 				
@@ -728,6 +646,8 @@
 	<script src="${ pageContext.request.contextPath }/resources/js/app.js"></script>
 	<script
 		src="${ pageContext.request.contextPath }/resources/js/components.js"></script>
+	<script
+		src="${ pageContext.request.contextPath }/resources/js/jquery.revslider-teamplete.js"></script>	
 	<!-- END: Theme JS-->
 
 	<!-- BEGIN: Page JS-->
@@ -768,16 +688,26 @@
    })
    
    
-   var tpj=jQuery;
+   function setREVStartSize(e){                                    
+			try{ e.c=jQuery(e.c);var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
+				if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})                    
+			}catch(d){console.log("Failure at Presize of Slider:"+d)}                        
+		};
+   
+   
+   		
+	    var revapi13,tpj;
+(function() {
+if (!/loaded|interactive|complete/.test(document.readyState)) document.addEventListener("DOMContentLoaded",onLoad); else onLoad();
 
-		var revapi1014;
-		tpj(document).ready(function() {
-			if(tpj("#rev_slider_1014_1").revolution == undefined){
-				revslider_showDoubleJqueryError("#rev_slider_1014_1");
+function onLoad() {
+    if (tpj===undefined) { tpj = jQuery; if("off" == "on") tpj.noConflict();}
+			if(tpj("#rev_slider_13_1").revolution == undefined){
+				revslider_showDoubleJqueryError("#rev_slider_13_1");
 			}else{
-				revapi1014 = tpj("#rev_slider_1014_1").show().revolution({
+				revapi13 = tpj("#rev_slider_13_1").show().revolution({
 					sliderType:"standard",
-					jsFileLocation: "include/rs-plugin/js/",
+jsFileLocation:"//localhost/revslider/public/assets/js/",
 					sliderLayout:"fullscreen",
 					dottedOverlay:"none",
 					delay:9000,
@@ -785,54 +715,81 @@
 						keyboardNavigation:"off",
 						keyboard_direction: "horizontal",
 						mouseScrollNavigation:"off",
-						mouseScrollReverse:"default",
-						onHoverStop:"off",
+                         mouseScrollReverse:"default",
+						onHoverStop:"on",
 						touch:{
 							touchenabled:"on",
+							touchOnDesktop:"off",
 							swipe_threshold: 75,
-							swipe_min_touches: 1,
+							swipe_min_touches: 50,
 							swipe_direction: "horizontal",
 							drag_block_vertical: false
 						}
 						,
 						arrows: {
-							style:"uranus",
+							style:"hesperiden",
 							enable:true,
 							hide_onmobile:true,
-							hide_under:768,
-							hide_onleave:false,
+							hide_under:600,
+							hide_onleave:true,
+							hide_delay:200,
+							hide_delay_mobile:1200,
 							tmp:'',
 							left: {
 								h_align:"left",
 								v_align:"center",
-								h_offset:20,
-								v_offset:0
+								h_offset:30,
+                                v_offset:0
 							},
 							right: {
 								h_align:"right",
 								v_align:"center",
-								h_offset:20,
-								v_offset:0
+								h_offset:30,
+                                v_offset:0
 							}
+						}
+						,
+						bullets: {
+							enable:true,
+							hide_onmobile:true,
+							hide_under:600,
+							style:"hephaistos",
+							hide_onleave:true,
+							hide_delay:200,
+							hide_delay_mobile:1200,
+							direction:"horizontal",
+							h_align:"center",
+							v_align:"bottom",
+							h_offset:0,
+							v_offset:30,
+                            space:5,
+							tmp:''
 						}
 					},
 					responsiveLevels:[1240,1024,778,480],
 					visibilityLevels:[1240,1024,778,480],
 					gridwidth:[1240,1024,778,480],
-					gridheight:[868,768,960,600],
+					gridheight:[600,768,960,720],
 					lazyType:"none",
+					parallax: {
+						type:"mouse",
+						origo:"slidercenter",
+						speed:2000,
+                      speedbg:0,
+                      speedls:0,
+						levels:[2,3,4,5,6,7,12,16,10,50,47,48,49,50,51,55],
+					},
 					shadow:0,
 					spinner:"off",
-					stopLoop:"on",
-					stopAfterLoops:0,
-					stopAtSlide:1,
+					stopLoop:"off",
+					stopAfterLoops:-1,
+					stopAtSlide:-1,
 					shuffle:"off",
 					autoHeight:"off",
 					fullScreenAutoWidth:"off",
 					fullScreenAlignForce:"off",
 					fullScreenOffsetContainer: "",
 					fullScreenOffset: "",
-					disableProgressBar:"on",
 					hideThumbsOnMobile:"off",
 					hideSliderAtLimit:0,
 					hideCaptionAtLimit:0,
@@ -844,10 +801,10 @@
 						disableFocusListener:false,
 					}
 				});
-			}
-
-			RsTypewriterAddOn(tpj, revapi1014);
-		});	/*ready*/
+}; /* END OF revapi call */
+ }; /* END OF ON LOAD FUNCTION */
+}()); /* END OF WRAPPING FUNCTION */
+		
    
 </script>
 </body>
