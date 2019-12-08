@@ -230,9 +230,13 @@ request.setAttribute("colorlist", colorlist);
 								</c:forEach>
 								<h1>담당자: </h1>
 								<c:forEach var="charge" items="${ chargeMembers[status.index] }">
-								<h1>${ charge.chargeMemberid }</h1>
+								<h1>${ charge.name }</h1>
 								</c:forEach>
-								
+								<h1>미제출자: </h1>
+								<c:forEach var="submitNmem" items="${ submitN[status.index] }">
+								<h1>${ submitNmem.name }</h1>
+								</c:forEach>
+								<button onClick="taskDetail(${ task.taskId })">제출하러가기</button>
 								<div>
 									<c:if test="${ loginVO.memberid eq task.writerId }">
 										<%--                      <button name="modifyTask" value="${ task.taskId }">수정</button> --%>
@@ -570,6 +574,11 @@ request.setAttribute("colorlist", colorlist);
 	
 	function taskFileDown(file){
 	    location.href = "${ pageContext.request.contextPath}/fileDownload?" + file;
+	}
+	
+	
+	function taskDetail(id) {
+		location.href = "/taskdetail/" + id;
 	}
 
    

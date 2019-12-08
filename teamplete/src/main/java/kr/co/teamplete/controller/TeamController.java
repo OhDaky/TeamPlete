@@ -152,16 +152,15 @@ public class TeamController {
 		TeamVO team = service.detailTeam(teamId);
 		List<MemberVO> members = service.selectAllMembers(teamId);
 		List<TaskVO> taskList = taskService.selectAllTaskS(teamId);
-		List<List<BoardVO>> boardList = new ArrayList<>();
 		List<List<TaskFileVO>> taskFileList = new ArrayList<>();
 		List<String> deadline = new ArrayList<>();
 		List<List<ChargeVO>> chargeMembers = new ArrayList<>();
+		List<List<ChargeVO>> submitN = new ArrayList<>();
 		for(int i=0; i<taskList.size(); i++) {
 			taskFileList.add(taskService.selectAllTaskFileS(taskList.get(i).getTaskId()));
 			deadline.add(deadline(taskList.get(i).getDeadline()));
 			chargeMembers.add(taskService.selectAllsubmitS(taskList.get(i).getTaskId()));
-			boardList.add(boardService.selectAllBoardS(taskList.get(i).getTaskId()));
-		
+			submitN.add(taskService.selectNsubmitS(taskList.get(i).getTaskId()));
 		}
 
 		
@@ -172,13 +171,13 @@ public class TeamController {
 //		System.out.println(members.toString());
 		mav.addObject("taskList", taskList);
 		
-		mav.addObject("boardList", boardList);
-		
 		mav.addObject("taskFileList", taskFileList);
 		
 		mav.addObject("taskDeadline", deadline);
 		
 		mav.addObject("chargeMembers", chargeMembers);
+		
+		mav.addObject("submitN", submitN);
 	
 		return mav;
 	}

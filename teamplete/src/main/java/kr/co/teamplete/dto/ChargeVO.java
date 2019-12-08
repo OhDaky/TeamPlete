@@ -3,9 +3,10 @@ package kr.co.teamplete.dto;
 public class ChargeVO {
 	
 	private int chargeId;
-	private String chargeMemberid;
+	private String chargeMemberid, name;
 	private char submit;
 	private int taskId;
+
 	public ChargeVO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -41,6 +42,15 @@ public class ChargeVO {
 	public void setTaskId(int taskId) {
 		this.taskId = taskId;
 	}
+	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	@Override
 	public String toString() {
 		return "ChargeVO [chargeId=" + chargeId + ", chargeMemberid=" + chargeMemberid + ", submit=" + submit

@@ -42,14 +42,17 @@ public class TaskServiceImpl implements TaskService {
 		for (TaskFileVO taskFile : taskFileList) {
 			taskDAO.insertTaskFile(taskFile);
 		}
-		System.out.println(taskFileList.toString());
+//		System.out.println(taskFileList.toString());
 		
-		for (String mems : chargeMems) {
-			ChargeVO charge = new ChargeVO();
-			charge.setChargeMemberid(mems);
-			charge.setSubmit('N');
-			taskDAO.insertCharge(charge);
+		if(chargeMems != null) {
+			for (String mems : chargeMems) {
+				ChargeVO charge = new ChargeVO();
+				charge.setChargeMemberid(mems);
+				charge.setSubmit('N');
+				taskDAO.insertCharge(charge);
+			}
 		}
+
 	}
 
 	/* 게시판 첨부파일 정보 조회 */
@@ -165,6 +168,11 @@ public class TaskServiceImpl implements TaskService {
 	public List<ChargeVO> selectYsubmitS(int taskId) {
 		List<ChargeVO> taskList = taskDAO.selectYsubmit(taskId);
 		return taskList;
+	}
+
+	@Override
+	public void updateSubmitS(ChargeVO charge) {
+		taskDAO.updateSubmit(charge);
 	}
 
 }

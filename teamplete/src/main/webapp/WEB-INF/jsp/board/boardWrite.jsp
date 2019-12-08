@@ -74,7 +74,7 @@
             </div>
 
 	<form method="post" enctype="multipart/form-data"
-		action="${ pageContext.request.contextPath}/board/${ taskInfo.taskId }/write"
+		action="${ pageContext.request.contextPath}/${ taskInfo.taskId }/board/write"
 		name="boardWriteForm">
 		<input type="hidden" name="writerId" value="${ loginVO.memberid }">
 		<input type="hidden" name="writerName" value="${ loginVO.name }">

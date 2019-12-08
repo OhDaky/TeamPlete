@@ -40,4 +40,7 @@ public interface TaskDAO {
 	
 	// 태스크 담당자 (제출자)
 	public List<ChargeVO> selectYsubmit(int taskId);
+	
+	//태스크 담당자 update
+	public void updateSubmit(ChargeVO charge);
 }

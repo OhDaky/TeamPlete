@@ -29,6 +29,10 @@
       <result column="ins_date" property="insDate" />
       <result column="task_id" property="taskId" />
    </resultMap>
+   
+   	<resultMap type="MemberVO" id="memberMap">
+		<result column="reg_date" property="regDate" />
+	</resultMap>
 
 
 	<!-- 태스크 생성 -->
@@ -88,23 +92,40 @@
    
    <!-- 태스크 담당자 전체 조회 -->
    <select id="selectAllsubmit" parameterType="int" resultMap="chargeMap">
-      select charge_id, charge_memberid, submit, task_id
-       from charge_tb
-        where task_id = #{taskId}
+      select C.charge_id, C.charge_memberid, M.name, C.submit
+       from charge_tb C
+        left outer join member_tb M
+         on C.charge_memberid = M.memberid
+          where C.task_id = #{taskId}
    </select>
    
    <!-- 태스크 담당자 조회 (미제출자) -->
    <select id="selectNsubmit" parameterType="int" resultMap="chargeMap">
-      select charge_id, charge_memberid, submit, task_id
-       from charge_tb
-        where task_id = #{taskId} and submit = 'N'
+      select C.charge_id, C.charge_memberid, M.name, C.submit
+       from charge_tb C
+        left outer join member_tb M
+         on C.charge_memberid = M.memberid
+          where C.task_id = #{taskId} and C.submit = 'N'
    </select>
    
    <!-- 태스크 담당자 조회 (제출자) -->
    <select id="selectYsubmit" parameterType="int" resultMap="chargeMap">
-      select charge_id, charge_memberid, submit, task_id
-       from charge_tb
-        where task_id = #{taskId} and submit = 'Y'
+      select C.charge_id, C.charge_memberid, M.name, C.submit
+       from charge_tb C
+        left outer join member_tb M
+         on C.charge_memberid = M.memberid
+          where C.task_id = #{taskId} and C.submit = 'Y'
    </select>
+   
+   <!-- 태스크 담당자 submit update -->
+   <update id="updateSubmit" parameterType="ChargeVO">
+      update charge_tb
+       set
+        submit = #{submit}
+         where charge_id = #{chargeId}
+   </update>
+   
+   
+   
 
 </mapper>

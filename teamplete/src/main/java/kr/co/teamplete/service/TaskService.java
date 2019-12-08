@@ -37,5 +37,8 @@ public interface TaskService {
 	
 	// 태스크 담당자 (제출자)
 	public List<ChargeVO> selectYsubmitS(int taskId);
+	
+	// 태스크 담당자 update
+	public void updateSubmitS(ChargeVO charge);
 
 }

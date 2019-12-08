@@ -83,4 +83,10 @@ public class TaskDAOImpl implements TaskDAO{
 		return chargeList;
 	}
 
+	@Override
+	public void updateSubmit(ChargeVO charge) {
+		session.update("kr.co.teamplete.dao.TaskDAO.updateSubmit", charge);
+		
+	}
+
 }
