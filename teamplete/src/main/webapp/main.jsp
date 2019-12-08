@@ -41,8 +41,7 @@
 	href="${ pageContext.request.contextPath }/resources/css/palette-gradient.css">
 <link rel="stylesheet" type="text/css"
 	href="${ pageContext.request.contextPath }/resources/css/authentication.css">
-<link rel="stylesheet" type="text/css"
-	href="${ pageContext.request.contextPath }/resources/css/vegas.min.css">
+
 <link
 	href="http://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700,800,900|Yellowtail%3A400|Montserrat%3A700"
 	rel="stylesheet" type="text/css" />
@@ -51,17 +50,18 @@
 	media="screen" />
 <link rel="stylesheet" type="text/css"
 	href="${ pageContext.request.contextPath }/resources/css/layers.css">
+	<link rel="stylesheet" type="text/css"
+	href="${ pageContext.request.contextPath }/resources/css/vegas.min.css">
 <link rel="stylesheet" type="text/css"
 	href="${ pageContext.request.contextPath }/resources/css/navigation.css">
-	<link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/resources/css/css/pe-icon-7-stroke.css">
-		<link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/resources/css/css/font-awesome.css">	
+	<link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/resources/css/pe-icon-7-stroke.css">
+		<link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/resources/css/font-awesome.css">	
 
 
 <link href="http://fonts.googleapis.com/css?family=Noto+Sans:700%2C400%7CNanum+Gothic:800%7COpen+Sans:400" rel="stylesheet" property="stylesheet" type="text/css" media="all">
 
 	
-<!-- TYPEWRITER ADDON -->	
-<link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/resources/css/typewriter.css">
+
 <!-- END: Page CSS-->
 <style type="text/css">.hesperiden.tparrows{cursor:pointer;background:rgba(0,0,0,0.5);width:40px;height:40px;position:absolute;display:block;z-index:100;  border-radius:50%}.hesperiden.tparrows:hover{background:rgba(0,0,0,1)}.hesperiden.tparrows:before{font-family:"revicons";font-size:20px;color:rgb(255,255,255);display:block;line-height:40px;text-align:center}.hesperiden.tparrows.tp-leftarrow:before{content:"\e82c";  margin-left:-3px}.hesperiden.tparrows.tp-rightarrow:before{content:"\e82d";  margin-right:-3px}.hephaistos .tp-bullet{width:12px;height:12px;position:absolute;background:rgba(153,153,153,1);border:3px solid rgba(255,255,255,0.9);border-radius:50%;cursor:pointer;box-sizing:content-box;  box-shadow:0px 0px 2px 1px rgba(130,130,130,0.3)}.hephaistos .tp-bullet:hover,.hephaistos .tp-bullet.selected{background:rgba(255,255,255,1);  border-color:rgba(0,0,0,1)}</style>
 				
@@ -443,7 +443,7 @@
 	<!-- SLIDE  -->
     <li data-index="rs-65" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="${ pageContext.request.contextPath }/resources/images/transparent.png"  data-rotate="0"  data-saveperformance="off"  data-mediafilter="gingham" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 		<!-- MAIN IMAGE -->
-        <img src="${ pageContext.request.contextPath }/resources/images/assets/transparent.png" data-bgcolor='#ff943b' style='background:#ff943b' alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="9" class="rev-slidebg" data-no-retina>
+        <img src="${ pageContext.request.contextPath }/resources/images/transparent.png" data-bgcolor='#ff943b' style='background:#ff943b' alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="9" class="rev-slidebg" data-no-retina>
 		<!-- LAYERS -->
 
 		<!-- LAYER NR. 13 -->
@@ -591,7 +591,7 @@
 				
 			</div>
 		</div>
-	</div>
+
 	<!-- END: Content-->
 
 
@@ -603,8 +603,7 @@
 	<!-- BEGIN: Page Vendor JS-->
 	<script
 		src="${ pageContext.request.contextPath }/resources/js/jquery.sticky.js"></script>
-	<script
-		src="${ pageContext.request.contextPath }/resources/js/vegas.min.js"></script>
+
 
 	<script
 		src="${ pageContext.request.contextPath }/resources/js/jquery.themepunch.tools.min.js"></script>
@@ -630,8 +629,7 @@
 	<script
 		src="${ pageContext.request.contextPath }/resources/js/revolution.extension.video.min.js"></script>
 
-	<!-- TYPEWRITER ADDON -->
-	<script src="${ pageContext.request.contextPath }/resources/js/revolution.addon.typewriter.min.js"></script>
+	
 			
 
 
@@ -646,8 +644,8 @@
 	<script src="${ pageContext.request.contextPath }/resources/js/app.js"></script>
 	<script
 		src="${ pageContext.request.contextPath }/resources/js/components.js"></script>
-	<script
-		src="${ pageContext.request.contextPath }/resources/js/jquery.revslider-teamplete.js"></script>	
+		<script
+		src="${ pageContext.request.contextPath }/resources/js/vegas.min.js"></script>
 	<!-- END: Theme JS-->
 
 	<!-- BEGIN: Page JS-->
@@ -666,7 +664,7 @@
    if ("${ param.msg }")
       alert("${ param.msg }");
    
-   $(function(){
+     $(function(){
 	   $('body').vegas({
 		   slides:[
 			   {src: '${ pageContext.request.contextPath }/resources/images/bg1.jpg'},
@@ -681,11 +679,11 @@
 			   {src: '${ pageContext.request.contextPath }/resources/images/bg10.jpg'}
 		   ],
 		   delay:5500,
-		   timer:false,
-		   overlay:true
+		   timer:false
+		   
 		   
 	   })
-   })
+   }) 
    
    
    function setREVStartSize(e){                                    
