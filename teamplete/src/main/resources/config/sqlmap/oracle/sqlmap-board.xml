@@ -44,6 +44,10 @@
       order by board_id
    </select>
    
+   
+    
+   
+   
    <!-- board 상세 -->
    <select id="selectBoardById" parameterType="int" resultMap="boardMap">
       select board_id, writer_id, writer_name, title, content, board_date, task_id

@@ -66,6 +66,12 @@
     	       order by M.memberid asc
     </select>
     
+    <!-- 모든 멤버 조회 -->
+    <select id="selectAllMember" parameterType="int" resultMap="teamMemberMap">
+    	select distinct M.memberid, M.name, M.profile, M.email
+    	 from member_tb M 
+    </select>
+    
     <!-- 팀 정보 업데이트 -->
     <update id="updateTeam" parameterType="TeamVO">
     	update team_tb

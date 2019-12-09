@@ -92,7 +92,7 @@
    
    <!-- 태스크 담당자 전체 조회 -->
    <select id="selectAllsubmit" parameterType="int" resultMap="chargeMap">
-      select C.charge_id, C.charge_memberid, M.name, C.submit
+      select C.charge_id, C.charge_memberid, M.profile, M.name, C.submit
        from charge_tb C
         left outer join member_tb M
          on C.charge_memberid = M.memberid
@@ -101,7 +101,7 @@
    
    <!-- 태스크 담당자 조회 (미제출자) -->
    <select id="selectNsubmit" parameterType="int" resultMap="chargeMap">
-      select C.charge_id, C.charge_memberid, M.name, C.submit
+      select C.charge_id, C.charge_memberid, M.profile, M.name, C.submit
        from charge_tb C
         left outer join member_tb M
          on C.charge_memberid = M.memberid
@@ -110,7 +110,7 @@
    
    <!-- 태스크 담당자 조회 (제출자) -->
    <select id="selectYsubmit" parameterType="int" resultMap="chargeMap">
-      select C.charge_id, C.charge_memberid, M.name, C.submit
+      select C.charge_id, C.charge_memberid, M.profile, M.name, C.submit
        from charge_tb C
         left outer join member_tb M
          on C.charge_memberid = M.memberid

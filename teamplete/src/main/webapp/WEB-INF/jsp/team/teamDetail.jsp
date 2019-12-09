@@ -14,6 +14,7 @@ colorlist.add("bg-warning");
 colorlist.add("bg-success");
 colorlist.add("bg-danger");
 request.setAttribute("colorlist", colorlist);
+
 %>
 
 
@@ -191,7 +192,9 @@ request.setAttribute("colorlist", colorlist);
 													value="${ team.teamId }"> <select
 													class="select2 form-control" id="selectMulti"
 													multiple="multiple">
-													<option></option>
+													<c:forEach items="${ allmembers }" var="allmember">
+													<option>${allmember.memberid }</option>
+													</c:forEach>
 												</select> <input type="hidden" name="memberId" id="memberId"
 													value="$('#selectMulti').select2('data')">
 
@@ -296,11 +299,26 @@ request.setAttribute("colorlist", colorlist);
                                                
                                                 
                                             </ul>
-								<c:forEach var="charge" items="${ chargeMembers[status.index] }">								
+								<c:forEach var="charge" items="${ chargeMembers[status.index] }">
+								<c:set var="count" value="${count + 1}" scope="page"/>						
+						<c:choose>
+                                <c:when test="${ empty charge.profile }">
+                                 <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="${ charge.name }" class="avatar pull-up ml-0">
+                                                    <div class="avatar avatar-sm ${colorlist[count%5]}">
+															<div class="avatar-content"
+																<c:set var = "chargename" value = "${ charge.name }"/>
+																<c:set var = "firstletter" value = "${fn:substring(chargename, 0, 1)}"/>>${firstletter}
+															</div>
+														</div>
+                                                    </li>
+                                </c:when>
+                                <c:otherwise>								
+																
 								 <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="${ charge.name }" class="avatar pull-up ml-0">
-                                                    <img class="media-object rounded-circle" src="{$charge.profile}" alt="Avatar" height="30" width="30">
+                                                    <img class="media-object rounded-circle" src="${charge.profile}" alt="Avatar" height="30" width="30">
                                                 </li>
-								
+                                                </c:otherwise>
+								</c:choose>
 								</c:forEach>
 								<h5>미제출자: </h5>
 								<c:forEach var="submitNmem" items="${ submitN[status.index] }">
@@ -388,7 +406,9 @@ request.setAttribute("colorlist", colorlist);
 <!-- 										<input type="text" class="form-control" name="chargeMemberid" id="chargeMemberid"></input> -->
 <!-- 									</div> -->
 									<select class="select2 form-control" id="selectMulti2" multiple="multiple">
-									<option></option>
+									<c:forEach items="${ allmembers }" var="allmember">
+													<option>${allmember.memberid }</option>
+													</c:forEach>
 									</select> <input type="hidden" name="chargeMemberid" id="chargeMemberid"
 													value="$('#selectMulti2').select2('data')">
 									<div class="modal-footer">
@@ -537,6 +557,10 @@ request.setAttribute("colorlist", colorlist);
 		}
 	   
 	   
+	   
+	   
+	   
+	   
    function submitMember(){
 	    var form = document.createTeamForm;
 	   
@@ -627,6 +651,11 @@ request.setAttribute("colorlist", colorlist);
    
    	var taskId = '';
 	$(document).ready(function() {
+		
+		
+		 
+		
+		
 		
 		$("button[name='deleteTask']").click(function() {
 			

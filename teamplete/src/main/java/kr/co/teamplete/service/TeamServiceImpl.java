@@ -45,6 +45,12 @@ public class TeamServiceImpl implements TeamService{
 		List<MemberVO> members = teamDAO.selectAllTeamMember(teamId);
 		return members;
 	}
+	
+	@Override
+	public List<MemberVO> selectAllMembers() {
+		List<MemberVO> members = teamDAO.selectAllTeamMember();
+		return members;
+	}
 
 	@Override
 	public void updateAllMembers(TeamVO team) {
