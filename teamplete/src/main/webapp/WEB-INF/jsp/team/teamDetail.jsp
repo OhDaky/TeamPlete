@@ -87,25 +87,14 @@ request.setAttribute("colorlist", colorlist);
 	<div class="app-content content">
 		<div class="content-wrapper" id="contentWrapper">
 
-			<div class="content-header row">
-				<div class="content-header-left col-md-9 col-12 mb-2">
-					<div class="col-12">
-						<h2 class="content-header-title float-left mb-0 ">${ team.teamName }</h2>
-						<c:set var="count1" value="0" scope="page" />
-						<c:forEach items="${ members }" var="member">
-						<c:set var="count" value="${count + 1}" scope="page"/>
-							<div class="avatar avatar-lg ${colorlist[count%5]} mr-1">
-								<div class="avatar-content"
-								<c:set var = "membername" value = "${ member.name }"/>
-								<c:set var = "firstletter" value = "${fn:substring(membername, 0, 1)}"/>
-									>${firstletter}
-								</div>
-							</div>
-						</c:forEach>
+					<div class="content-header row">
+						<div class="content-header-left col-md-9 col-12 mb-2">
+							<h2 class="content-header-title float-left mb-0 ">${ team.teamName }</h2>
+						</div>
 					</div>
-				</div>
-			</div>
 
+
+					
 
 			<c:if test="${ loginVO.memberid eq team.ownerId }">
 				<button type="button" name="modify" id="modifyBtn"
@@ -127,6 +116,66 @@ request.setAttribute("colorlist", colorlist);
 
 				<section id="draggable-cards">
 				<div class="row" id="card-drag-area">
+				
+				
+				<div class="col-xl-3 col-md-6 col-sm-6">
+						 <div class="card">
+                                    <div class="card-header d-flex justify-content-between">
+                                        <h4>팀 구성원</h4>
+                                        <i class="feather icon-more-horizontal cursor-pointer"></i>
+                                    </div>
+                                    <div class="card-body">
+                         <c:set var="count1" value="0" scope="page" />
+						<c:forEach items="${ members }" var="member">
+						<c:set var="count" value="${count + 1}" scope="page"/>
+						
+						<c:choose>
+                                <c:when test="${ not empty member.profile }">                            
+                                
+                                
+                                
+                                
+                                
+                                
+                                <div class="d-flex justify-content-start align-items-center mb-1">
+                                            <div class="avatar mr-50">
+                                                <img src="${ member.profile }" alt="avtar img holder" height="35" width="35">
+                                            </div>
+                                            <div class="user-page-info">
+                                                <h5 class="mb-0" style="font-weight:600;">${member.name }</h5>
+                                                <span class="font-small-3">파일 제출 완료</span>
+                                            </div>
+                                        </div>                           
+                                
+                                
+                            	</c:when>
+                            	<c:otherwise>
+                            	<div class="d-flex justify-content-start align-items-center mb-1">
+                                            <div class="avatar ${colorlist[count%5]} mr-50">
+															<div class="avatar-content"
+																<c:set var = "membername" value = "${ member.name }"/>
+																<c:set var = "firstletter" value = "${fn:substring(membername, 0, 1)}"/>>${firstletter}
+															</div>
+														</div>
+                                            <div class="user-page-info">
+                                                <h5 class="mb-0" style="font-weight:600;">${member.name }</h5>
+                                                <span class="font-small-3">파일 제출 완료</span>
+                                            </div>
+                                        </div>                         	
+                            	</c:otherwise>
+                            	</c:choose>					
+						
+						</c:forEach>               
+                                        
+                                        <button type="button" class="btn btn-primary w-100 mt-1"><i class="feather icon-plus mr-25"></i>Load More</button>
+                                    </div>
+                                </div>
+					</div>
+				
+				
+				
+				
+				
 					<div class="col-xl-3 col-md-6 col-sm-6">
 						<div class="card" id="showdetail">
 							<div class="card-content">
@@ -198,15 +247,28 @@ request.setAttribute("colorlist", colorlist);
 <!-- 						</div> -->
 
 <%-- 					</c:forEach> --%>
-				</div>
 
-						<div>
+
+					
+				
+
+
+
 							<c:forEach var="task" items="${ taskList }" varStatus="status">
-								<h1>title: ${ task.title }</h1>
-								<h1>writer: ${ task.writerName }</h1>
-								<h1>content: ${ task.content }</h1>
-								<h1>제출기한: ${ taskDeadline[status.index] }</h1>
-								<h1>첨부파일: </h1>
+							
+							
+							<div class="col-xl-3 col-md-6 col-sm-6">
+						<div class="card" id="showdetail">
+							<div class="card-content">
+
+									<div class="card-header">
+										<h2 class="card-title">${ task.title }</h2>
+									</div>
+									<div class="card-body">
+									<h1>writer: ${ task.writerName }</h1>
+									<h5>content: ${ task.content }</h5>
+									<h5>제출기한: ${ taskDeadline[status.index] }</h5>
+									<h1>첨부파일: </h1>
 								<c:forEach var="taskFile" items="${ taskFileList[status.index] }">
 								                        <li class="list-group-item">
 										<h6 class="text-nowrap"
@@ -228,15 +290,26 @@ request.setAttribute("colorlist", colorlist);
 										</br>
 										 </li>
 								</c:forEach>
-								<h1>담당자: </h1>
-								<c:forEach var="charge" items="${ chargeMembers[status.index] }">
-								<h1>${ charge.name }</h1>
+								
+								<h5>담당자: </h5>
+								<ul class="list-unstyled users-list d-flex">
+                                               
+                                                
+                                            </ul>
+								<c:forEach var="charge" items="${ chargeMembers[status.index] }">								
+								 <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="${ charge.name }" class="avatar pull-up ml-0">
+                                                    <img class="media-object rounded-circle" src="{$charge.profile}" alt="Avatar" height="30" width="30">
+                                                </li>
+								
 								</c:forEach>
-								<h1>미제출자: </h1>
+								<h5>미제출자: </h5>
 								<c:forEach var="submitNmem" items="${ submitN[status.index] }">
-								<h1>${ submitNmem.name }</h1>
+								<h5>${ submitNmem.name }</h5>
 								</c:forEach>
-								<button onClick="taskDetail(${ task.taskId })">제출하러가기</button>
+								
+									
+									
+								<button type="button" class="btn btn-primary w-100 mt-1" onClick="taskDetail(${ task.taskId })"><i class="feather icon-plus mr-25"></i>제출하러 가기</button>	
 								<div>
 									<c:if test="${ loginVO.memberid eq task.writerId }">
 										<%--                      <button name="modifyTask" value="${ task.taskId }">수정</button> --%>
@@ -244,10 +317,26 @@ request.setAttribute("colorlist", colorlist);
 											class="btn btn-danger btn-block round"
 											value="${ task.taskId }">Task 삭제하기</button>
 									</c:if>
-								</div>
+								</div>			
+									</div>
+							</div>
+						</div>
+					</div>
+							
+								
 							</c:forEach>
 
-						</div>
+					
+
+
+
+
+
+
+
+				</div>
+
+						
 
 						<!-- 태스크 등록 Modal -->
 				<button id="createTaskBtn" class="btn btn-success"

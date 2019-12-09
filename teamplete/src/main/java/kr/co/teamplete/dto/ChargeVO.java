@@ -3,7 +3,7 @@ package kr.co.teamplete.dto;
 public class ChargeVO {
 	
 	private int chargeId;
-	private String chargeMemberid, name;
+	private String chargeMemberid, name, profile;
 	private char submit;
 	private int taskId;
 
@@ -26,6 +26,9 @@ public class ChargeVO {
 	}
 	public String getChargeMemberid() {
 		return chargeMemberid;
+	}
+	public String getProfile() {
+		return profile;
 	}
 	public void setChargeMemberid(String chargeMemberid) {
 		this.chargeMemberid = chargeMemberid;
