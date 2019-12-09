@@ -315,7 +315,7 @@ request.setAttribute("colorlist", colorlist);
                                 <c:otherwise>								
 																
 								 <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="${ charge.name }" class="avatar pull-up ml-0">
-                                                    <img class="media-object rounded-circle" src="${charge.profile}" alt="Avatar" height="30" width="30">
+                                                    <img class="media-object rounded-circle" src="${ charge.profile }" alt="Avatar" height="30" width="30">
                                                 </li>
                                                 </c:otherwise>
 								</c:choose>

@@ -124,7 +124,36 @@ public class TaskServiceImpl implements TaskService {
 
 	@Override
 	public void updateTaskS(TaskVO task) {
+		
+		List<TaskFileVO> taskFileList = null;
+		
+		List<String> chargeMems = task.getChargeMems();
+
+		try {
+			taskFileList = getTaskFileInfo(task);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		taskDAO.updateTask(task);
+		
+
+		for (TaskFileVO taskFile : taskFileList) {
+			taskDAO.insertTaskFileModify(taskFile);
+		}
+		System.out.println(taskFileList.toString());
+		
+		if(chargeMems != null) {
+			for (String mems : chargeMems) {
+				ChargeVO charge = new ChargeVO();
+				charge.setTaskId(task.getTaskId());
+				charge.setChargeMemberid(mems);
+				charge.setSubmit('N');
+				taskDAO.insertChargeModify(charge);
+			}
+		}
 
 	}
 

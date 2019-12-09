@@ -25,12 +25,18 @@ public interface TaskDAO {
 
 	// 파일 업로드
 	public void insertTaskFile(TaskFileVO file);
+	
+	// 태스크 수정시 파일 업로드
+	public void insertTaskFileModify(TaskFileVO file);
 
 	// board의 모든 파일 조회
 	public List<TaskFileVO> selectAllTaskFiles(int taskId);
 
 	// 태스트 담장자 추가
 	public void insertCharge(ChargeVO charge);
+	
+	//태스크 수정시 담당자 추가
+	public void insertChargeModify(ChargeVO charge);
 	
 	// 태스크 담당자 전체 조회
 	public List<ChargeVO> selectAllsubmit(int taskId);

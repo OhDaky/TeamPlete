@@ -16,6 +16,7 @@ import kr.co.teamplete.dto.BoardVO;
 import kr.co.teamplete.dto.ChargeVO;
 import kr.co.teamplete.dto.TaskFileVO;
 import kr.co.teamplete.dto.TaskVO;
+import kr.co.teamplete.dto.TeamVO;
 import kr.co.teamplete.service.BoardService;
 import kr.co.teamplete.service.TaskService;
 
@@ -60,6 +61,8 @@ public class TaskController {
 		
 		List<BoardVO> boardList = boardService.selectAllBoardS(taskId);
 		
+		List<ChargeVO> chargeListAll = service.selectAllsubmitS(taskId);
+		
 		List<ChargeVO> chargeList = service.selectNsubmitS(taskId);
 		
 		List<ChargeVO> chargeListY = service.selectYsubmitS(taskId);
@@ -98,20 +101,21 @@ public class TaskController {
 		
 		mav.addObject("boardList", boardList);
 		
+		mav.addObject("chargeListAll", chargeListAll);
+		
 		return mav;
 	}
 	
 	
 	//태스크 수정
-//	@RequestMapping(value = "/task/update/{taskId}", method = { RequestMethod.POST, RequestMethod.GET })
-//	@ResponseBody
-//	public TaskVO updateTask(TaskVO task, @PathVariable("taskId") int taskId, Model model) {
-//
-//		service.updateTaskS(task);
-//	
-//		
-//		return task;
-//	}
+	@RequestMapping(value = "/task/update/{taskId}", method = { RequestMethod.POST, RequestMethod.GET })
+	public String updateTask(TaskVO task, @PathVariable("taskId") int taskId) {
+
+		service.updateTaskS(task);
+	
+		return "redirect:/taskdetail/" + taskId;
+	}
+
 	
 	//태스크 삭제
 	@RequestMapping(value = "/task/delete/{taskId}", method = RequestMethod.DELETE)
