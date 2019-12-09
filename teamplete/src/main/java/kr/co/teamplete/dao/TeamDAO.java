@@ -32,4 +32,7 @@ public interface TeamDAO {
 	//팀 삭제
 	public void deleteTeam(int teamId);
 
+	//모든 멤버 조회
+	public List<MemberVO> selectAllTeamMember();
+
 }

@@ -151,6 +151,7 @@ public class TeamController {
 		
 		TeamVO team = service.detailTeam(teamId);
 		List<MemberVO> members = service.selectAllMembers(teamId);
+		List<MemberVO> allmembers = service.selectAllMembers();
 		List<TaskVO> taskList = taskService.selectAllTaskS(teamId);
 		List<List<TaskFileVO>> taskFileList = new ArrayList<>();
 		List<String> deadline = new ArrayList<>();
@@ -170,7 +171,7 @@ public class TeamController {
 		mav.addObject("members", members);
 //		System.out.println(members.toString());
 		mav.addObject("taskList", taskList);
-		
+		mav.addObject("allmembers", allmembers);
 		mav.addObject("taskFileList", taskFileList);
 		
 		mav.addObject("taskDeadline", deadline);

@@ -44,6 +44,12 @@ public class TeamDAOImpl implements TeamDAO{
 		List<MemberVO> members = session.selectList("kr.co.teamplete.dao.TeamDAO.selectTeamMember", teamId);
 		return members;
 	}
+	
+	@Override
+	public List<MemberVO> selectAllTeamMember() {
+		List<MemberVO> members = session.selectList("kr.co.teamplete.dao.TeamDAO.selectAllMember");
+		return members;
+	}
 
 	@Override
 	public void updateMembers(TeamVO team) {
