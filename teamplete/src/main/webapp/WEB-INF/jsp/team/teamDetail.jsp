@@ -406,8 +406,8 @@ request.setAttribute("colorlist", colorlist);
 <!-- 										<input type="text" class="form-control" name="chargeMemberid" id="chargeMemberid"></input> -->
 <!-- 									</div> -->
 									<select class="select2 form-control" id="selectMulti2" multiple="multiple">
-									<c:forEach items="${ allmembers }" var="allmember">
-													<option>${allmember.memberid }</option>
+									<c:forEach items="${ members }" var="member">
+													<option>${member.memberid }</option>
 													</c:forEach>
 									</select> <input type="hidden" name="chargeMemberid" id="chargeMemberid"
 													value="$('#selectMulti2').select2('data')">
