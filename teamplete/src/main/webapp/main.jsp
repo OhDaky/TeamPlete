@@ -244,6 +244,7 @@
             style="z-index: 7;background-color:rgb(255,255,255);"> </div>
 
 		<!-- LAYER NR. 4 -->
+		<a href="${ pageContext.request.contextPath }/member/join">
 		<div class="tp-caption rev-btn rev-withicon  rs-parallaxlevel-3" 
 			 id="slide-62-layer-10" 
 			 data-x="['left','left','left','left']" data-hoffset="['5','5','5','5']" 
@@ -263,7 +264,7 @@
             data-paddingleft="[35,35,35,35]"
 
             style="z-index: 8; white-space: nowrap; font-size: 17px; line-height: 17px; font-weight: 800; color: #ffffff; letter-spacing: ;font-family:Nanum Gothic;background-color:rgba(255,255,255,0);border-color:rgb(255,255,255);border-style:solid;border-width:2px 2px 2px 2px;border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">시작하기<i class="fa-icon-chevron-right"></i> </div>
-
+		</a>
 		<!-- LAYER NR. 5 -->
 		<div class="tp-caption   tp-resizeme rs-parallaxlevel-3" 
 			 id="slide-62-layer-11" 
@@ -378,6 +379,7 @@
             style="z-index: 7;background-color:rgb(255,255,255);"> </div>
 
 		<!-- LAYER NR. 10 -->
+		<a href="${ pageContext.request.contextPath }/member/join">
 		<div class="tp-caption rev-btn rev-withicon  rs-parallaxlevel-3" 
 			 id="slide-64-layer-10" 
 			 data-x="['left','left','left','left']" data-hoffset="['5','5','5','10']" 
@@ -397,7 +399,7 @@
             data-paddingleft="[35,35,35,35]"
 
             style="z-index: 8; white-space: nowrap; font-size: 17px; line-height: 17px; font-weight: 800; color: #ffffff; letter-spacing: ;font-family:Nanum Gothic;background-color:rgba(255,255,255,0);border-color:rgb(255,255,255);border-style:solid;border-width:2px 2px 2px 2px;border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">시작하기<i class="fa-icon-chevron-right"></i> </div>
-
+		</a>
 		<!-- LAYER NR. 11 -->
 		<div class="tp-caption   tp-resizeme rs-parallaxlevel-3" 
 			 id="slide-64-layer-11" 
@@ -513,6 +515,7 @@
             style="z-index: 7;background-color:rgb(255,255,255);"> </div>
 
 		<!-- LAYER NR. 16 -->
+		<a href="${ pageContext.request.contextPath }/member/join">
 		<div class="tp-caption rev-btn rev-withicon  rs-parallaxlevel-3" 
 			 id="slide-65-layer-10" 
 			 data-x="['left','left','left','left']" data-hoffset="['5','5','30','11']" 
@@ -532,7 +535,7 @@
             data-paddingleft="[35,35,35,35]"
 
             style="z-index: 8; white-space: nowrap; font-size: 17px; line-height: 17px; font-weight: 800; color: #ffffff; letter-spacing: ;font-family:Nanum Gothic;background-color:rgba(255,255,255,0);border-color:rgb(255,255,255);border-style:solid;border-width:2px 2px 2px 2px;border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">시작하기<i class="fa-icon-chevron-right"></i> </div>
-
+		</a>
 		<!-- LAYER NR. 17 -->
 		<div class="tp-caption   tp-resizeme rs-parallaxlevel-3" 
 			 id="slide-65-layer-11" 

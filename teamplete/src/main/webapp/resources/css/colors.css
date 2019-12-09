@@ -10,9 +10,8 @@ $approved: #00B961;
 
 body {
 	background: #33363D;
-	color: black;
-	font-family: 'Noto Sans KR,Lato';
-	font-weight: 300;
+	font-family: 'Noto Sans KR,Nanum Gothic,Lato';
+	font-weight: 400;
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
 }
@@ -181,7 +180,7 @@ ul {
 	text-align: center;
 	
 	a {
-		color: white;
+		color: black;
 		text-decoration: none;
 		font-weight: 300;
 	}

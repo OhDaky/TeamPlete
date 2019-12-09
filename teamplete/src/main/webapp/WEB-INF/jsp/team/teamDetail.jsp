@@ -32,9 +32,7 @@ request.setAttribute("colorlist", colorlist);
 	href="${ pageContext.request.contextPath }/resources/css/colors.css">
 <link rel="stylesheet" type="text/css"
 	href="${ pageContext.request.contextPath }/resources/css/components.css">
-<link
-	href="https://fonts.googleapis.com/cssf?family=Montserrat:300,400,500,600"
-	rel="stylesheet">
+
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
 <link rel="stylesheet"
@@ -89,25 +87,18 @@ request.setAttribute("colorlist", colorlist);
 		<div class="content-wrapper" id="contentWrapper">
 
 					<div class="content-header row">
-						<div class="content-header-left col-md-9 col-12 mb-2">
-							<h2 class="content-header-title float-left mb-0 ">${ team.teamName }</h2>
+						<div class="content-header-left col-md-9 col-12 mb-1">
+							<h2 class=" text-primary text-bold-600 float-left mb-0 mr-2 ">${ team.teamName }</h2>
+							
+							<c:if test="${ loginVO.memberid eq team.ownerId }">
+				<button type="button" name="modify" id="modifyBtn"
+					class="btn round btn-success mb-3 mr-1" onclick="modifyFunc(${ team.teamId })"
+					data-toggle="modal" data-target="#updateTeam"><i class="feather icon-edit mr-1"></i>팀 정보 수정</button>
+				<button type="button" name="delete" class="btn round btn-danger mb-3"
+					value="${ team.teamId }"><i class="feather icon-trash-2 mr-1"></i>팀 삭제</button>
+			</c:if>
 						</div>
 					</div>
-
-
-					
-
-			<c:if test="${ loginVO.memberid eq team.ownerId }">
-				<button type="button" name="modify" id="modifyBtn"
-					class="btn btn-success mb-3 mr-1" onclick="modifyFunc(${ team.teamId })"
-					data-toggle="modal" data-target="#updateTeam">팀 수정</button>
-				<button type="button" name="delete" class="btn btn-danger mb-3"
-					value="${ team.teamId }">팀 삭제</button>
-			</c:if>
-
-			<!-- 	<section id="form-and-scrolling-components"> -->
-
-
 
 
 
@@ -182,7 +173,7 @@ request.setAttribute("colorlist", colorlist);
 							<div class="card-content">
 
 									<div class="card-header">
-										<h2 class="card-title">초대할 사람의 <strong>ID</strong>를 <br> 입력해주세요</h2>
+										<h2 class="card-title">팀에 초대할 사람의 <strong>ID</strong>를 <br> 입력해주세요</h2>
 									</div>
 									<div class="card-body">
 											<form method="post"
@@ -199,7 +190,7 @@ request.setAttribute("colorlist", colorlist);
 													value="$('#selectMulti').select2('data')">
 
 												<button type="button" onClick="submitMember()"
-													class="btn btn-primary round btn-block mt-1">초대하기</button>
+													class="btn btn-primary round btn-block mt-1"><i class="feather icon-plus mr-25"></i>초대하기</button>
 											</form>
 									</div>
 							</div>
@@ -260,20 +251,46 @@ request.setAttribute("colorlist", colorlist);
 							<c:forEach var="task" items="${ taskList }" varStatus="status">
 							
 							
-							<div class="col-xl-3 col-md-6 col-sm-6">
+							<div class="col-lg-6 col-12">
 						<div class="card" id="showdetail">
 							<div class="card-content">
+							
+							
+							
 
-									<div class="card-header">
-										<h2 class="card-title">${ task.title }</h2>
-									</div>
+									<div class="card-header d-flex justify-content-between">
+                                        <h4>${task.title }</h4>
+                                        <i class="feather icon-more-horizontal cursor-pointer"></i>
+                                    </div>
 									<div class="card-body">
-									<h1>writer: ${ task.writerName }</h1>
-									<h5>content: ${ task.content }</h5>
-									<h5>제출기한: ${ taskDeadline[status.index] }</h5>
-									<h1>첨부파일: </h1>
-								<c:forEach var="taskFile" items="${ taskFileList[status.index] }">
-								                        <li class="list-group-item">
+									
+									
+									
+									<div class="col-12">
+                                                
+                                                <blockquote class="blockquote">
+                                            <p class="font-medium-3" style="line-height:1.8rem;">${ task.content }</p>
+                                            <footer class="blockquote-footer mt-1">작성자 : ${task.writerName }
+                                                
+                                            </footer>
+                                        </blockquote>
+                                                    </div>
+									
+									<ul class="list-group list-group-flush">
+                                            
+                                            <li class="list-group-item d-flex">
+                                                <p class="float-left mb-0">
+                                                    <i class="feather icon-calendar mr-1"></i>
+                                                </p>
+                                                <span><strong>제출기한:</strong> ${ taskDeadline[status.index] }</span>
+                                            </li>
+                                            
+                                            <li class="list-group-item d-flex">
+                                                <p class="float-left mb-0">
+                                                    <i class="feather icon-download mr-1"></i>
+                                                </p>
+                                                <span><strong>첨부파일 :</strong> <c:forEach var="taskFile" items="${ taskFileList[status.index] }">
+								                        
 										<h6 class="text-nowrap"
 											style="white-space: nowrap; display: inline;" id="fileName"
 											onClick="taskFileDown('filePath=${ taskFile.filePath }&fileNameKey=${ taskFile.fileNameKey }&fileName=${ taskFile.fileName }')">${ taskFile.fileName }</h6>
@@ -291,14 +308,22 @@ request.setAttribute("colorlist", colorlist);
 											</c:otherwise>
 										</c:choose>
 										</br>
-										 </li>
-								</c:forEach>
+										 
+								</c:forEach></span>
 								
-								<h5>담당자: </h5>
-								<ul class="list-unstyled users-list d-flex">
+									
+                                            </li>
+                                            <li class="list-group-item d-flex">
+                                                <div class="d-flex justify-content-start align-items-center mb-1">
+								<div class="user-page-info">
+								<p class="float-left mb-0">
+                                                    <i class="feather icon-user-check mr-1"></i>
+                                                </p>
+                                                <span><strong>담당자 :</strong></span>
+                                <ul class="list-unstyled users-list d-flex">
                                                
                                                 
-                                            </ul>
+                                            
 								<c:forEach var="charge" items="${ chargeMembers[status.index] }">
 								<c:set var="count" value="${count + 1}" scope="page"/>						
 						<c:choose>
@@ -320,20 +345,65 @@ request.setAttribute("colorlist", colorlist);
                                                 </c:otherwise>
 								</c:choose>
 								</c:forEach>
-								<h5>미제출자: </h5>
+								</ul>                
+                                            </div>
+								</div>
+                                            </li>
+                                            
+                                            
+                                            <li class="list-group-item d-flex">
+                                                <div class="d-flex justify-content-start align-items-center mb-1">
+								<div class="user-page-info">
+                                               <p class="float-left mb-0">
+                                                    <i class="feather icon-user-minus mr-1"></i>
+                                                </p>
+                                                <span><strong>미제출자 :</strong></span>
+								
+								<ul class="list-unstyled users-list d-flex">
 								<c:forEach var="submitNmem" items="${ submitN[status.index] }">
-								<h5>${ submitNmem.name }</h5>
+								<c:set var="count" value="${count + 1}" scope="page"/>						
+						<c:choose>
+                                <c:when test="${ empty submitNmem.profile }">
+                                 <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="${ submitNmem.name }" class="avatar pull-up ml-0">
+                                                    <div class="avatar avatar-sm ${colorlist[count%5]}">
+															<div class="avatar-content"
+																<c:set var = "submitNname" value = "${ submitNmem.name }"/>
+																<c:set var = "firstletter" value = "${fn:substring(submitNname, 0, 1)}"/>>${firstletter}
+															</div>
+														</div>
+                                                    </li>
+                                </c:when>
+                                <c:otherwise>								
+																
+								 <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="${ submitNmem.name }" class="avatar pull-up ml-0">
+                                                    <img class="media-object rounded-circle" src="${ submitNmem.profile }" alt="Avatar" height="30" width="30">
+                                                </li>
+                                                </c:otherwise>
+								</c:choose>
 								</c:forEach>
+								</ul>
+								</div>
+								</div>
+                                            </li>
+                                        </ul>
+									
+									
+									
+								
+								
+								
+								
+								
 								
 									
 									
-								<button type="button" class="btn btn-primary w-100 mt-1" onClick="taskDetail(${ task.taskId })"><i class="feather icon-plus mr-25"></i>제출하러 가기</button>	
+								<button type="button" class="btn btn-primary btn-block  mb-1" onClick="taskDetail(${ task.taskId })"><i class="feather icon-plus mr-25"></i>파일 제출하기</button>	
 								<div>
 									<c:if test="${ loginVO.memberid eq task.writerId }">
 										<%--                      <button name="modifyTask" value="${ task.taskId }">수정</button> --%>
 										<button name="deleteTask"
-											class="btn btn-danger btn-block round"
-											value="${ task.taskId }">Task 삭제하기</button>
+											class="btn btn-danger btn-block "
+											value="${ task.taskId }"><i class="feather icon-trash-2 mr-1"></i>글 삭제하기</button>
 									</c:if>
 								</div>			
 									</div>
@@ -391,10 +461,13 @@ request.setAttribute("colorlist", colorlist);
 										<textarea class="form-control" name="content" id="content"
 											rows="5"></textarea>
 									</div>
-									<div style="color: black;" id="taskFileForm">
+									<label>파일 첨부하기: </label>
+									<div class="form-group">									
+										<div style="color: black;" id="taskFileForm">
 										<button type="button"
 											class="btn btn-outline-primary round btn-block"
 											name="taskFileBtn" id="taskFileBtn">파일 추가</button>
+									</div>
 									</div>
 									<label>deadline: (선택입니다) </label>
 														<div class="form-group">
