@@ -113,7 +113,7 @@ request.setAttribute("colorlist", colorlist);
 				<div class="col-xl-3 col-md-6 col-sm-6">
 						 <div class="card">
                                     <div class="card-header d-flex justify-content-between">
-                                        <h4>팀 구성원</h4>
+                                        <h4 class="text-primary">팀 구성원</h4>
                                         <i class="feather icon-more-horizontal cursor-pointer"></i>
                                     </div>
                                     <div class="card-body">
@@ -172,9 +172,10 @@ request.setAttribute("colorlist", colorlist);
 						<div class="card" id="showdetail">
 							<div class="card-content">
 
-									<div class="card-header">
-										<h2 class="card-title">팀에 초대할 사람의 <strong>ID</strong>를 <br> 입력해주세요</h2>
-									</div>
+									<div class="card-header d-flex justify-content-between">
+                                        <h4 class="text-primary">팀원 초대</h4>
+                                        <i class="feather icon-more-horizontal cursor-pointer"></i>
+                                    </div>
 									<div class="card-body">
 											<form method="post"
 												action="${pageContext.request.contextPath}/teamdetail/${ team.teamId }"
@@ -259,7 +260,7 @@ request.setAttribute("colorlist", colorlist);
 							
 
 									<div class="card-header d-flex justify-content-between">
-                                        <h4>${task.title }</h4>
+                                        <h4 class="text-primary">${task.title }</h4>
                                         <i class="feather icon-more-horizontal cursor-pointer"></i>
                                     </div>
 									<div class="card-body">
