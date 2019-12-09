@@ -77,6 +77,12 @@
        values(task_file_seq.nextval, #{fileNameKey}, #{fileName}, #{filePath}, #{fileSize}, #{delYN}, #{insUserId}, task_seq.currval)
    </insert>
    
+   <!-- task 수정시 파일 업로드 -->
+   <insert id="insertTaskFileModify" parameterType="TaskFileVO">
+      insert into task_file(file_no, file_name_key, file_name, file_path, file_size, del_yn, ins_user_id, task_id)
+       values(task_file_seq.nextval, #{fileNameKey}, #{fileName}, #{filePath}, #{fileSize}, #{delYN}, #{insUserId}, #{taskId})
+   </insert>
+   
    <!-- task의 모든 파일 정보 조회 -->
    <select id="selectAllTaskFiles" parameterType="int" resultMap="taskFileMap">
       select file_no, file_name_key, file_name, file_path, CEIL(file_size / 1024) AS file_size, del_yn, ins_user_id, ins_date, task_id
@@ -88,6 +94,13 @@
    <insert id="insertCharge" parameterType="ChargeVO">
       insert into charge_tb(charge_id, charge_memberid, submit, task_id)
        values(charge_seq.nextval, #{chargeMemberid}, #{submit}, task_seq.currval)
+   </insert>
+   
+   
+   <!-- 태스크 수정 시 태스크 담당자 추가  -->
+   <insert id="insertChargeModify" parameterType="ChargeVO">
+      insert into charge_tb(charge_id, charge_memberid, submit, task_id)
+       values(charge_seq.nextval, #{chargeMemberid}, #{submit}, #{taskId})
    </insert>
    
    <!-- 태스크 담당자 전체 조회 -->

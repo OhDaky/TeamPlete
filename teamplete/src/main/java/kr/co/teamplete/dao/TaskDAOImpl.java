@@ -52,6 +52,13 @@ public class TaskDAOImpl implements TaskDAO{
 	public void insertTaskFile(TaskFileVO file) {
 		 session.insert("kr.co.teamplete.dao.TaskDAO.insertTaskFile", file);		
 	}
+	
+	//태스크 수정시 파일 업로드
+	@Override
+	public void insertTaskFileModify(TaskFileVO file) {
+		session.insert("kr.co.teamplete.dao.TaskDAO.insertTaskFileModify", file);
+		
+	}
 
 	@Override
 	public List<TaskFileVO> selectAllTaskFiles(int taskId) {
@@ -62,6 +69,13 @@ public class TaskDAOImpl implements TaskDAO{
 	@Override
 	public void insertCharge(ChargeVO charge) {
 		session.insert("kr.co.teamplete.dao.TaskDAO.insertCharge", charge);
+		
+	}
+	
+	//태스크 수정시 담당자 추가
+	@Override
+	public void insertChargeModify(ChargeVO charge) {
+		session.insert("kr.co.teamplete.dao.TaskDAO.insertChargeModify", charge);
 		
 	}
 
@@ -88,5 +102,7 @@ public class TaskDAOImpl implements TaskDAO{
 		session.update("kr.co.teamplete.dao.TaskDAO.updateSubmit", charge);
 		
 	}
+
+
 
 }

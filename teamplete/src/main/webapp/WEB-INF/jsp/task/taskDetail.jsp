@@ -11,37 +11,38 @@
    content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css"
-   href="${ pageContext.request.contextPath }/resources/css/bootstrap.css">
+	href="${ pageContext.request.contextPath }/resources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css"
-   href="${ pageContext.request.contextPath }/resources/css/colors.css">
+	href="${ pageContext.request.contextPath }/resources/css/colors.css">
 <link rel="stylesheet" type="text/css"
-   href="${ pageContext.request.contextPath }/resources/css/components.css">
+	href="${ pageContext.request.contextPath }/resources/css/components.css">
 <link
-   href="https://fonts.googleapis.com/cssf?family=Montserrat:300,400,500,600"
-   rel="stylesheet">
+	href="https://fonts.googleapis.com/cssf?family=Montserrat:300,400,500,600"
+	rel="stylesheet">
 <link rel="stylesheet" type="text/css"
-   href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+	href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
 <link rel="stylesheet"
-   href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
 <link rel="stylesheet" type="text/css"
-   href="${ pageContext.request.contextPath }/resources/css/vendors.min.css">
+	href="${ pageContext.request.contextPath }/resources/css/vendors.min.css">
+<link rel="stylesheet" type="text/css"
+	href="${ pageContext.request.contextPath }/resources/css/select2.min.css">
 
 
 
 <link rel="stylesheet" type="text/css"
-   href="${ pageContext.request.contextPath }/resources/css/dark-layout.css">
+	href="${ pageContext.request.contextPath }/resources/css/dark-layout.css">
 <link rel="stylesheet" type="text/css"
-   href="${ pageContext.request.contextPath }/resources/css/semi-dark-layout.css">
+	href="${ pageContext.request.contextPath }/resources/css/semi-dark-layout.css">
 
 <!-- BEGIN: Page CSS-->
 <link rel="stylesheet" type="text/css"
-   href="${ pageContext.request.contextPath }/resources/css/horizontal-menu.css">
+	href="${ pageContext.request.contextPath }/resources/css/horizontal-menu.css">
 <link rel="stylesheet" type="text/css"
-   href="${ pageContext.request.contextPath }/resources/css/palette-gradient.css">
+	href="${ pageContext.request.contextPath }/resources/css/palette-gradient.css">
 <link rel="stylesheet" type="text/css"
-   href="${ pageContext.request.contextPath }/resources/css/authentication.css">
+	href="${ pageContext.request.contextPath }/resources/css/authentication.css">
 <!-- END: Page CSS-->
-
 
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
@@ -82,9 +83,72 @@
                 		<button onClick="backTeamDetail(${ taskDetail.teamId })">팀 페이지로 돌아가기</button>
                         <div class="col-12">
                             <h2 class="content-header-title float-left mb-0 ">태스크 title: ${ taskDetail.title }</h2>                            
-                        </div>
+                        </div>  
                 </div>
             </div>
+            
+            	<!-- 태스크 수정 Modal -->
+            	<c:if test="${ loginVO.memberid eq taskDetail.writerId }">
+				<button id="createTaskBtn" class="btn btn-success"
+					data-toggle="modal" data-target="#createTask" onclick="taskModify(${ taskDetail.taskId })">태스크 수정</button>
+				</c:if>
+				<div class="modal fade text-left" id="createTask" tabindex="-1"
+					role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+					<div
+						class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+						role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title" id="myModalLabel33">태스크를 추가해주세요.</h4>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<form method="post" name="modifyTask" enctype="multipart/form-data">
+							<input type="hidden" name="writerId" id="writerId"
+									value="${ loginVO.memberid }">
+								<div class="modal-body">
+									<label>Title: </label>
+									<div class="form-group">
+										<input type="text" class="form-control" name="title" id="title" value="${ taskDetail.title }"></input>
+									</div>
+									<label>Content: </label>
+									<div class="form-group">
+										<textarea class="form-control" name="content" id="content"
+											rows="5">${ taskDetail.content }</textarea>
+									</div>
+									<div style="color: black;" id="taskFileFormM">
+										<button type="button"
+											class="btn btn-outline-primary round btn-block"
+											name="taskFileBtnM" id="taskFileBtnM">파일 추가</button>
+									</div>
+									<label>deadline: (선택입니다) </label>
+														<div class="form-group">
+															<input type="date" name="deadline" id="deadline"
+																placeholder="Deadline" class="form-control" value="${ taskDetail.deadline }">
+														</div>
+									<label>담당자: </label>
+									<c:forEach var="charge" items="${ chargeListAll }">
+										<c:out value="${ charge.name }"></c:out>
+									</c:forEach>
+									
+									<select class="select2 form-control" id="selectMulti3" multiple="multiple">
+									<option></option>
+									</select> <input type="hidden" name="chargeMemberid" id="chargeMemberid"
+													value="$('#selectMulti3').select2('data')">
+													
+									<div class="modal-footer">
+										<button type="button" id="taskSubmit" class="btn btn-primary"
+											onClick="submitModifyTask()" data-dismiss="modal">Modify</button>
+
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
 			<div class="col-xl-3 col-md-6 col-sm-6">
@@ -142,33 +206,43 @@
 			<h4>content: ${ board.content }</h4>
 			</c:forEach>
 			
+			
 	</c:otherwise>
 	</c:choose>
 
 
 
-			<!-- BEGIN: Vendor JS-->
-   <script
-      src="${ pageContext.request.contextPath }/resources/js/vendors.min.js"></script>
-   <!-- BEGIN Vendor JS-->
+	<!-- BEGIN: Vendor JS-->
+	<script
+		src="${ pageContext.request.contextPath }/resources/js/vendors.min.js"></script>
+	<!-- BEGIN Vendor JS-->
 
-   <!-- BEGIN: Page Vendor JS-->
-   <script
-      src="${ pageContext.request.contextPath }/resources/js/jquery.sticky.js"></script>
-   <!-- END: Page Vendor JS-->
+	<!-- BEGIN: Page Vendor JS-->
+	<script
+		src="${ pageContext.request.contextPath }/resources/js/jquery.sticky.js"></script>
+	    <script src="${ pageContext.request.contextPath }/resources/js/dragula.min.js"></script>
+	<script src="${ pageContext.request.contextPath }/resources/js/drag-drop.js"></script>    	
+	<!-- END: Page Vendor JS-->
 
-   <!-- BEGIN: Theme JS-->
-   <script
-      src="${ pageContext.request.contextPath }/resources/js/app-menu.js"></script>
-   <script src="${ pageContext.request.contextPath }/resources/js/app.js"></script>
-   <script
-      src="${ pageContext.request.contextPath }/resources/js/components.js"></script>
-   <!-- END: Theme JS-->
+	<!-- BEGIN: Theme JS-->
+	<script
+		src="${ pageContext.request.contextPath }/resources/js/app-menu.js"></script>
+	<script src="${ pageContext.request.contextPath }/resources/js/app.js"></script>
+	<script
+		src="${ pageContext.request.contextPath }/resources/js/components.js"></script>
+	<!-- END: Theme JS-->
 
-   <!-- BEGIN: Page JS-->
-   <!-- END: Page JS-->
+	<script
+		src="${ pageContext.request.contextPath }/resources/js/select2.full.min.js"></script>
+			<script
+		src="${ pageContext.request.contextPath }/resources/js/form-select2.js"></script>
+	<!-- BEGIN: Page JS-->
+	<!-- END: Page JS-->
+   
+   
    
    <script>
+   
    	function writeBoard(taskId) {
 		taskId = taskId;
 		location.href = "${ pageContext.request.contextPath}/" + taskId + "/board/write";
@@ -176,8 +250,66 @@
 	}
    	
    	function backTeamDetail(teamId) {
+   		console.log(teamId);
    		location.href = "${ pageContext.request.contextPath}/teamdetail/" + teamId;
    	}
+   	
+   	
+	var index = 0;
+
+	$("button[name='taskFileBtnM']").click(function() {
+	   $('#taskFileFormM').append('<br name="taskfileBr' + index +'"><input type="file" id="taskFiles[' + index + ']" name="taskFiles[' + index + ']" value="">');
+	   $('#taskFileFormM').append('<button type="button" name="taskbtn'+index+'" class="btn black ml15" style="padding: 3px 5px 6px 5px; color: red;" onClick="deletetaskFile(' + index + ')">X</button>');
+	   console.log('<br><input type="file" id="taskFiles[' + index + ']" name="taskFiles[' + index + ']" value="">')
+	   index += 1;
+	});
+
+
+	function deletetaskFile(idx) {
+	   $("br[name='taskfileBr" + idx + "']").remove();
+	   $("input[name='taskFiles[" + idx + "]']").remove();
+	   $("button[name='taskbtn" + idx + "']").remove();
+	   console.log(idx);
+	}
+	
+	var id = '';
+	
+	function taskModify(taskId) {
+		   id = taskId;
+		   
+	}
+   	
+   	
+    function submitModifyTask(){
+ 	   
+ 	   var cnt = 0;
+//  	   var fileList = new Array();
+ 	   for(i = 0; i < index; i++) {
+ 	      if(document.getElementById('taskFiles[' + i + ']')) {
+ 	      if ($("input[name='taskFiles[" + i + "]']").val() != ""){
+ 	         document.getElementById('taskFiles[' + i + ']').setAttribute('name', 'taskFiles[' + cnt + ']');
+ 	         console.log(cnt + "번째 : " + $("input[name='taskFiles[" + i + "]']").val());
+//  	         fileList.push($("input[name='taskFiles[" + i + "]']").val());
+ 	         cnt ++;
+ 	      }else {
+ 	         $("br[name='taskfileBr" + i + "']").remove();
+ 	         $("input[name='taskFiles[" + i + "]']").remove();
+ 	         $("button[name='taskbtn" + i + "']").remove();
+ 	      }
+ 	      }
+ 	   }
+ 	   
+ 	    var chargeArray = $('#selectMulti3').select2('data');
+ 	    var chargeIndex= $('#selectMulti3').select2('data').length;
+ 	    for(i=0;i<chargeIndex;i++){
+ 			   $('#chargeMemberid').append('<input type="hidden" name="chargeMems['+i+']" value="'+chargeArray[i].id+'" />');
+ 	    }  
+ 	   
+ 	    var modifyTask = document.modifyTask;
+ 	    modifyTask.action = "${pageContext.request.contextPath}/task/update/" + id;
+ 	    modifyTask.submit();
+
+    }
    </script>
 
 </body>
