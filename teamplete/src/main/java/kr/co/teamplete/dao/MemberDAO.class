@@ -1,0 +1,31 @@
+package kr.co.teamplete.dao;
+
+import java.util.List;
+
+import kr.co.teamplete.dto.MemberVO;
+
+public interface MemberDAO {
+	
+	/* 회원가입 */
+	public void insert(MemberVO member);
+	
+	/* 아이디 중복 체크 */
+	int checkId(String memberid);
+	
+	/* 비밀번호 같은지 체크 */
+	public boolean checkPw(String memberid, String password);
+
+	/* 회원정보 수정 업데이트 */
+	public void updateMember(MemberVO member);
+	
+	/* 회원 삭제 */
+	public void deleteMember(String memberid);
+	
+	/* 회원 목록 보기 */
+	public List<MemberVO> memberList();
+	
+	public MemberVO viewMember(String memberid);
+
+	public MemberVO select(String memberid);
+	
+}
